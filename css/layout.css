@@ -5842,6 +5842,7 @@ body {
   margin: 20px 0; }
 
 #map {
-  height: 100%; }
+  width: 100%;
+  height: 400px; }
 
 /*# sourceMappingURL=layout.css.map */
