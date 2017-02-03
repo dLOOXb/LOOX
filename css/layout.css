@@ -5806,6 +5806,33 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+.nav-row-below {
+  display: block;
+  clear: both;
+  height: 20px; }
+  .nav-row-below ul {
+    float: right;
+    list-style: none;
+    margin-bottom: 2px; }
+  .nav-row-below li {
+    display: inline-block;
+    padding-left: 10px; }
+  .nav-row-below a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px; }
+  .nav-row-below a:hover {
+    color: #333 !important; }
+
+/*Gör så att fälten för användarnamn och lösenord blir mindre*/
+/*Viewports >768px*/
+.navbar-form .form-control .log-in {
+  width: 120px; }
+
+/*<768px (mobil)*/
+.form-control .log-in {
+  width: 200px; }
+
 #picture-first {
   width: 100%; }
 

@@ -6,6 +6,7 @@
     <meta name="viewport" content="initial-scale=1, width=device-width">
     <title>LOOX</title>
     <link type="text/css" rel="stylesheet" href="../css/layout.css" />
+    <link type="text/css" rel="stylesheet" href="../css/register.css" />
   </head>
 
   <body>
@@ -29,13 +30,13 @@
 
           <ul class="nav navbar-nav navbar-left">
             <li><a href="#">Om oss</a></li>
-            <li id="contactButton"><a href="#">Kontakt</a></li>
+            <li><a href="#">Kontakt</a></li>
             <li><a href="#">Företag och frisörer</a></li>
           </ul>
           <form class="navbar-form navbar-right">
             <div class="form-group">
-              <input type="text" class="form-control log-in" placeholder="Användarnamn">
-              <input type="text" class="form-control log-in" placeholder="Lösenord">
+              <input type="text" class="form-control" placeholder="Användarnamn" id="username">
+              <input type="text" class="form-control" placeholder="Lösenord" id="password">
             </div>
             <button type="submit" class="btn btn-default">Logga in</button>
           </form>
@@ -50,44 +51,28 @@
       </div><!-- /.container-fluid -->
     </nav>
 
-    <div class="container-fluid">
-      <img id="picture-first" src="../pictures/frisyr.jpg"/>
-          <div class = "contact"> 
-        <h3 style="text-align: center">Contact us</h3>
-        <div>
-      <p>Email: Info@loox.se</p>
-      <p>Call: 0046761828192</p>
-    </div>
-    </div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4 col-sm-4 col-xs-12 text-center">
-          <img id="sax" src="../pictures/sax.jpg" />
-          <p>Denna sidan är awesome</p>
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-12 text-center">
-          <img id="sax" src="../pictures/sax.jpg" />
-          <p>Klipp dig här</p>
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-12 text-center">
-          <img id="sax" src="../pictures/sax.jpg" />
-          <p>Vart är david?</p>
-        </div>
+    <div class="container text-center">
+      <div class="container-register container">
+        <h2>Skapa konto</h2>
+        <p class="left">e-mail</p>
+        <input type="text" class="form-control space" placeholder="e-mail">
+        <p class="left">Lösenord</p>
+        <input type="text" class="form-control space" placeholder="Lösenord">
+        <p class="left">Förnamn</p>
+        <input type="text" class="form-control space" placeholder="Förnamn">
+        <p class="left">Efternamn</p>
+        <input type="text" class="form-control space" placeholder="Efternamn">
+        <p class="left">Telefonnummer</p>
+        <input type="text" class="form-control space" placeholder="Telefonnummer">
+        <p class="left">Adress</p>
+        <input type="text" class="form-control space" placeholder="Adress">
+        <p class="left">Postnummer</p>
+        <input type="text" class="form-control space" placeholder="Postnummer">
+        <p class="left">Postort</p>
+        <input type="text" class="form-control space" placeholder="Postort">
       </div>
-  </div>
+    </div>
 
-<!--Google map-->
-  <div id="map"></div>
-
-  <!--Facebook share
-  <div id="fb-root"></div>
-  <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" data-mobile-iframe="true">
-  <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Dela</a></div>
--->
-
-<!-- Twitter -->
-  <a class="twitter-share-button"
-           href="https://twitter.com/intent/tweet?text=Läs Mer Om Loox här: https://loox.se " >Tweet</a>
 
   <footer class="footer">
       <div class="container">
@@ -98,8 +83,7 @@
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
     <script src="../bootstrap/assets/javascripts/bootstrap.js"></script>
-    <script src="../javascript/javascript.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYlVGcY8AMg8SJooxNQ9ebks_4aHk3THc&callback=initMap"> </script>
+
 
 
   </body>

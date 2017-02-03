@@ -5,10 +5,38 @@ $navbar-default-link-color: white;
 $navbar-margin-bottom: 0px;
 $navbar-default-toggle-icon-bar-bg: white;
 
-
-
 @import "../bootstrap/assets/stylesheets/bootstrap.scss";
-
+.nav-row-below {
+    display: block;
+    clear: both;
+    height: 20px;
+    ul {
+      float: right;
+      list-style: none;
+      margin-bottom: 2px;
+    }
+    li {
+      display: inline-block;
+      padding-left: 10px;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: 12px;
+    }
+    a:hover {
+      color: #333 !important;
+    }
+}
+/*Gör så att fälten för användarnamn och lösenord blir mindre*/
+/*Viewports >768px*/
+.navbar-form .form-control .log-in{
+  width: 120px;
+}
+/*<768px (mobil)*/
+.form-control .log-in{
+  width: 200px;
+}
 #picture-first {
   width: 100%;
 }
@@ -35,7 +63,6 @@ body {
   height: 60px;
   background-color: #f5f5f5;
 }
-
 
 /* Custom page CSS
 -------------------------------------------------- */
