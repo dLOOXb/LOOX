@@ -3,7 +3,7 @@
 		///////O.B.S.////////
 	//Loggin sida, "ropar" på samma testtabell som register.php
 	
-	//session_start(); //Session så att inloggnigen sparas mellan de olika sidorna
+	session_start(); //Session så att inloggnigen sparas mellan de olika sidorna
 	require "config.php";
 	
 
@@ -26,12 +26,13 @@
 			//Stämmer användarnamnet överens med db
 			//$sql = "SELECT anvandarnamn FROM users WHERE anvandarnamn = :useruo";
 			
-			$sql = "SELECT count(anvandarnamn) AS antalrader FROM inlogg WHERE anvandarnamn = :useruo AND lossenord = :seruo";
+			$sql = "SELECT id, count(anvandarnamn) AS antalrader FROM inlogg WHERE anvandarnamn = :useruo AND lossenord = :seruo";
 			$statement = $pdo->prepare($sql);
 			$statement->execute (array(':useruo' => $user, ':seruo' => $pass));
 			
 			$result = $statement->fetch(PDO::FETCH_ASSOC);
 			echo $result['antalrader'];
+			 
 			
 			/*$sqli = "SELECT lossenord FROM inlogg WHERE lossenord = :seruo";
 			$statemente = $pdo->prepare($sqli);
@@ -47,8 +48,10 @@
 			else {
 				echo "Fel lösenord";
 			}*/
-			
+			if ($result['antalrader'] == 1) {
+			$_SESSION['id'] = $result['id'];
 			echo "<p>Du är inloggad!</p>";
+			}
 			
 			} 
 		}
