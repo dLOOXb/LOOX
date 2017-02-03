@@ -2,23 +2,16 @@
 -- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
-<<<<<<< HEAD
 -- Host: localhost
--- Generation Time: Feb 03, 2017 at 09:10 AM
+-- Generation Time: Feb 03, 2017 at 09:45 AM
 -- Server version: 5.6.33
 -- PHP Version: 7.0.12
-=======
--- Host: localhost:3306
--- Generation Time: Feb 03, 2017 at 08:23 AM
--- Server version: 5.5.49-log
--- PHP Version: 7.0.9
->>>>>>> 3e493ace14432ec3f1d1a855f2914569ff46dc03
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Database: `loox_v2`
+-- Database: `LOOX`
 --
 
 -- --------------------------------------------------------
@@ -79,13 +72,8 @@ CREATE TABLE `inlogg` (
   `Salt` varchar(31) COLLATE utf8_swedish_ci NOT NULL,
   `lossenord` varchar(500) COLLATE utf8_swedish_ci NOT NULL,
   `tel` varchar(15) COLLATE utf8_swedish_ci DEFAULT NULL,
-<<<<<<< HEAD
-  `klass` enum('kund','frisor','agare') COLLATE utf8_swedish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
-=======
   `klass` enum('kund','frisor','agare','admin') COLLATE utf8_swedish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
->>>>>>> 3e493ace14432ec3f1d1a855f2914569ff46dc03
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Dumping data for table `inlogg`
@@ -100,14 +88,14 @@ INSERT INTO `inlogg` (`id`, `anvandarnamn`, `namn`, `efternamn`, `email`, `Salt`
 -- Table structure for table `karta`
 --
 
-CREATE TABLE IF NOT EXISTS `karta` (
+CREATE TABLE `karta` (
   `id` int(11) NOT NULL,
   `name` varchar(60) COLLATE utf8_swedish_ci NOT NULL,
   `address` varchar(80) COLLATE utf8_swedish_ci NOT NULL,
   `lat` float DEFAULT NULL,
   `lng` float DEFAULT NULL,
   `type` varchar(30) COLLATE utf8_swedish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Dumping data for table `karta`
@@ -126,13 +114,8 @@ CREATE TABLE `salong` (
   `id` int(11) NOT NULL,
   `salongnamn` varchar(100) COLLATE utf8_swedish_ci NOT NULL,
   `email` varchar(254) COLLATE utf8_swedish_ci NOT NULL,
-<<<<<<< HEAD
-  `tel` varchar(15) COLLATE utf8_swedish_ci NOT NULL,
-  `kontaktpersonnamn` varchar(100) COLLATE utf8_swedish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
-=======
   `tel` varchar(15) COLLATE utf8_swedish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Dumping data for table `salong`
@@ -147,13 +130,13 @@ INSERT INTO `salong` (`id`, `salongnamn`, `email`, `tel`) VALUES
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `anvandarnamn` varchar(70) COLLATE utf8_swedish_ci NOT NULL,
   `salt` varchar(31) COLLATE utf8_swedish_ci NOT NULL,
   `lossenord` varchar(200) COLLATE utf8_swedish_ci NOT NULL,
   `email` varchar(542) COLLATE utf8_swedish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Dumping data for table `users`
@@ -164,7 +147,6 @@ INSERT INTO `users` (`id`, `anvandarnamn`, `salt`, `lossenord`, `email`) VALUES
 (2, 'Gustav', '0aaeKRzKfuktaeLy8x4zRQdJe3Lz8yn', '9f54b4b069394fdd59894a5cdc3b33c2d6994c76053212092f82798ad6d74b42e70d7a37caab03a2237caa413565dd8c5c9538c1687e29392b34931b5b9f62a5', 'gustav@test.se'),
 (3, 'Anna', '77e4cd8bf54f0c1299daaf9498c52c3', 'Q6x6gzLtc9eemQVbbKot9KRu75RVuc6', 'anna@test.se'),
 (4, 'user', '7cbb7b06d301f1d7822cac8bc58bd22', '0biKxi6cpnK55a5Lxa93y3fz7dSxgg0', 'user@test.se');
->>>>>>> 3e493ace14432ec3f1d1a855f2914569ff46dc03
 
 --
 -- Indexes for dumped tables
@@ -231,21 +213,14 @@ ALTER TABLE `inlogg`
 -- AUTO_INCREMENT for table `karta`
 --
 ALTER TABLE `karta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `salong`
 --
 ALTER TABLE `salong`
-<<<<<<< HEAD
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-=======
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
->>>>>>> 3e493ace14432ec3f1d1a855f2914569ff46dc03
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
