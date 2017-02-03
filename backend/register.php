@@ -35,7 +35,7 @@
 	if ($STH->rowCount() > 0)
     	$reg_error[] = 1;
 
-	$epost = $_POST['epost'];
+	$epost = $_POST['email'];
 
 	// Kolla om lösenordet är för kort
 	if (strlen($_POST['password']) < 8)
@@ -76,8 +76,8 @@
 		$salt = mt_rand_str(31); // Ger en 31 tkn lång slumpsträng.
 		$hashed = hash("sha512", $password . $salt ); // Ger 128 tkn.
 
-	    $STH = $pdo->prepare("INSERT INTO users (anvandarnamn, lossenord, Salt, email)
-            VALUES('$username', '$hashed', '$salt', '$email')");
+	    $STH = $pdo->prepare("INSERT INTO users (anvandarnamn, Salt, lossenord, email)
+            VALUES('$username', '$hashed', '$salt', '$epost')");
 
 		try {
 			$STH->execute();
