@@ -1,0 +1,30 @@
+$default-color: #09A0EF;
+
+.container-register {
+  width: 50%;
+}
+
+.space {
+  margin-bottom: 10px;
+}
+
+.left {
+  text-align: left;
+  margin: 0 0 2px 5px;
+}
+
+line {
+  height: 5px;
+  width: auto;
+  background-color: $default-color;
+  display: block;
+  margin: 30px 0 30px 0;
+}
+
+.margin-bottom-60 {
+  margin-bottom: 60px;
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
