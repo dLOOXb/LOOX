@@ -13,6 +13,7 @@ $navbar-default-toggle-icon-bar-bg: white;
     ul {
       float: right;
       list-style: none;
+
       margin-bottom: 2px;
     }
     li {
@@ -97,4 +98,9 @@ body {
     background: #E4E4E2;
     color: #aaa;
     font-size: 16px;
+}
+
+.sendButton{
+  margin-top: 15px;
+
 }

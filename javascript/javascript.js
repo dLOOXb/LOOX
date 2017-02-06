@@ -56,4 +56,5 @@ $(document).ready(function(){
         $(document).mouseup(function(){
          $(".contact").fadeOut(500);
         });
+
 });
