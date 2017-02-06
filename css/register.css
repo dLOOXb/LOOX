@@ -9,7 +9,7 @@
   margin: 0 0 2px 5px; }
 
 line {
-  height: 5px;
+  height: 2px;
   width: auto;
   background-color: #09A0EF;
   display: block;
@@ -21,10 +21,14 @@ line {
 .margin-bottom-20 {
   margin-bottom: 20px; }
 
-#skapakonto {
+#create {
   border: 1px solid #044B6F;
   background-color: #09A0EF;
   font-size: 17px;
-  color: white; }
+  color: white;
+  border-radius: 30px; }
+
+#create:hover {
+  background-color: #34b4f7; }
 
 /*# sourceMappingURL=register.css.map */

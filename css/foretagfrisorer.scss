@@ -1,4 +1,12 @@
 $default-color: #09A0EF;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
 h2 {
   display: inline-block;
   padding-bottom: 3px;
@@ -25,7 +33,27 @@ width: 50px;
 
 .searchbox {
   border: 1px solid $default-color;
-  margin-top: 10px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  @include border-radius(10px);
+  .label {
+    font-size: 13px;
+    display: inline-block;
+  }
+  .label:hover {
+    cursor: pointer;
+  }
+  .tag {
+    background-color: darken($default-color, 10);
+  }
+  .active-tag {
+    background-color: lighten($default-color, 13);
+  }
+  line {
+  margin-left: 10%;
+  margin-right: 10%;
+
+  }
 }
 
 .logo {
@@ -45,4 +73,17 @@ line {
 }
 h2:hover {
   cursor: pointer;
+}
+
+.form-control {
+  width: 70%;
+  display: inline-block;
+}
+
+#searchbtn {
+  margin: 0 0 1px 4px;
+}
+
+.margin-10px {
+  margin: 5px;
 }

@@ -1,4 +1,5 @@
 $default-color: #09A0EF;
+//Todo default color variabel
 
 .container-register {
   width: 50%;
@@ -14,7 +15,7 @@ $default-color: #09A0EF;
 }
 
 line {
-  height: 5px;
+  height: 2px;
   width: auto;
   background-color: $default-color;
   display: block;
@@ -29,9 +30,14 @@ line {
   margin-bottom: 20px;
 }
 
-#skapakonto {
+#create {
   border: 1px solid #044B6F;
   background-color: #09A0EF;
   font-size: 17px;
   color: white;
+  border-radius: 30px;
+
+}
+#create:hover {
+  background-color: lighten($default-color, 10);
 }

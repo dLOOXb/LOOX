@@ -20,7 +20,24 @@ h2 {
 
 .searchbox {
   border: 1px solid #09A0EF;
-  margin-top: 10px; }
+  margin-top: 20px;
+  padding-bottom: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px; }
+  .searchbox .label {
+    font-size: 13px;
+    display: inline-block; }
+  .searchbox .label:hover {
+    cursor: pointer; }
+  .searchbox .tag {
+    background-color: #077fbe; }
+  .searchbox .active-tag {
+    background-color: #42baf8; }
+  .searchbox line {
+    margin-left: 10%;
+    margin-right: 10%; }
 
 .logo {
   width: 170px;
@@ -37,5 +54,15 @@ line {
 
 h2:hover {
   cursor: pointer; }
+
+.form-control {
+  width: 70%;
+  display: inline-block; }
+
+#searchbtn {
+  margin: 0 0 1px 4px; }
+
+.margin-10px {
+  margin: 5px; }
 
 /*# sourceMappingURL=foretagfrisorer.css.map */
