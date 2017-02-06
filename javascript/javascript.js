@@ -1,3 +1,4 @@
+/*Google maps*/
 function initMap(){
   var uluru = {lat: -25.363, lng: 131.044};
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -12,8 +13,8 @@ var marker = new google.maps.Marker({
 
 $(document).ready(function(){
   $('.contact').hide();
-  
-/*
+
+/* Facebook
         window.fbAsyncInit = function() {
             FB.init({
               appId      : 'your-app-id',
@@ -31,6 +32,7 @@ $(document).ready(function(){
         }(document, 'script', 'facebook-jssdk'));
         */
 
+/*Twitter*/
         window.twttr = (function(d, s, id) {
          var js, fjs = d.getElementsByTagName(s)[0],
            t = window.twttr || {};
@@ -46,7 +48,8 @@ $(document).ready(function(){
          };
 
          return t;
-        }(document, "script", "twitter-wjs"));
+        }
+        (document, "script", "twitter-wjs"));
         $("#contactButton").click(function(){
           $('.contact').toggle(500);
         });
