@@ -22,20 +22,6 @@
 			
 		} 
 		else {
-			
-			//Kontrollera lösenordet med det hashade
-			/*function get_password() {
-				$hashedPasswordFromDB = "SELECT lossenord FROM users WHERE lossenord = ";
-				$yeypass ="";
-				if (password_verify($pass, $hashedPasswordFromDB)) {
-					echo 'Password is valid!';
-					
-					return '';
-				}
-				else {
-					echo "Fel lösenord";
-				}
-			} */
 		
 			
 			//Stämmer användarnamnet överens med db
@@ -53,7 +39,7 @@
 			echo "<p>Du är inloggad!</p>";
 			} else {
 				//Om värdet från databasen inte stämmer med värdet från input
-				echo "<p>användarnamn eller lösenord stämmer inte.</p>";
+				die("Anvädarnamnet eller lösenordet stämmer inte överäns.")
 			}
 			
 			} 
