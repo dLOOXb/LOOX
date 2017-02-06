@@ -28,15 +28,25 @@ $navbar-default-toggle-icon-bar-bg: white;
       color: #333 !important;
     }
 }
+.navbar-toggle {
+  float: left;
+  margin-left: 15px;
+}
 /*Gör så att fälten för användarnamn och lösenord blir mindre*/
 /*Viewports >768px*/
-.navbar-form .form-control .log-in{
-  width: 120px;
+@media only screen and (min-width: 768px){
+  .navbar-form .form-control{
+    width: 140px;
+  }
 }
 /*<768px (mobil)*/
-.form-control .log-in{
-  width: 200px;
+@media only screen and (max-width: 767px){
+  .form-control {
+    width: 200px;
+    margin-bottom: 5px;
+  }
 }
+
 #picture-first {
   width: 100%;
 }
@@ -71,22 +81,20 @@ body {
 .container .text-muted {
   margin: 20px 0;
 }
-
+/*Google map*/
 #map {
         width: 100%;
         height: 400px;
       }
 
-// Contact popup 
+// Contact popup
 
 .contact{
-  
     padding: 10px 15px;
-    position: absolute;   
-    right: 800px;    
+    position: absolute;
+    right: 800px;
     top: 80px;
     background: #E4E4E2;
     color: #aaa;
     font-size: 16px;
 }
-

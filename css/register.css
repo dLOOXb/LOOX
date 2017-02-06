@@ -21,4 +21,10 @@ line {
 .margin-bottom-20 {
   margin-bottom: 20px; }
 
+#skapakonto {
+  border: 1px solid #044B6F;
+  background-color: #09A0EF;
+  font-size: 17px;
+  color: white; }
+
 /*# sourceMappingURL=register.css.map */
