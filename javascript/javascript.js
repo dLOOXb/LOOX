@@ -47,10 +47,5 @@ $(document).ready(function(){
 
          return t;
         }(document, "script", "twitter-wjs"));
-        $("#contactButton").click(function(){
-          $('.contact').toggle(500);
-        });
-        $(document).mouseup(function(){
-         $(".contact").fadeOut(500);
-        });
+        
 });

@@ -13,6 +13,7 @@ $navbar-default-toggle-icon-bar-bg: white;
     ul {
       float: right;
       list-style: none;
+      
       margin-bottom: 2px;
     }
     li {
@@ -77,16 +78,7 @@ body {
         height: 400px;
       }
 
-// Contact popup 
-
-.contact{
+.sendButton{
+  margin-top: 20px;
   
-    padding: 10px 15px;
-    position: absolute;   
-    right: 800px;    
-    top: 80px;
-    background: #E4E4E2;
-    color: #aaa;
-    font-size: 16px;
 }
-

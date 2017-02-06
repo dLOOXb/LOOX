@@ -5824,7 +5824,7 @@ button.close {
   .nav-row-below a:hover {
     color: #333 !important; }
 
-/*Gör så att fälten för användarnamn och lösenord blir mindre*/
+/*G├Âr s├Ñ att f├ñlten f├Âr anv├ñndarnamn och l├Âsenord blir mindre*/
 /*Viewports >768px*/
 .navbar-form .form-control .log-in {
   width: 120px; }
@@ -5867,13 +5867,7 @@ body {
   width: 100%;
   height: 400px; }
 
-.contact {
-  padding: 10px 15px;
-  position: absolute;
-  right: 800px;
-  top: 80px;
-  background: #E4E4E2;
-  color: #aaa;
-  font-size: 16px; }
+.sendButton {
+  margin-top: 20px; }
 
 /*# sourceMappingURL=layout.css.map */

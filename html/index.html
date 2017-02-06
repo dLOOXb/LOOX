@@ -28,8 +28,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
           <ul class="nav navbar-nav navbar-left">
-            <li><a href="#">Om oss</a></li>
-            <li id="contactButton"><a href="#">Kontakt</a></li>
+            <li id="aboutUsButton"><a href="#">Om oss</a></li>
+            <li data-toggle="modal" data-target="#myModal"><a href="#">Kontakt</a></li>
             <li><a href="#">Företag och frisörer</a></li>
           </ul>
           <form class="navbar-form navbar-right">
@@ -43,7 +43,7 @@
         <div class="nav-row-below">
           <ul class="">
             <li><a href="#"><strong>Bli medlem!</strong></a></li>
-              <li><a href="#">Glömt lösenord?</a></li>
+              <li data-toggle="modal" data-target="#forgotPWModal"><a href="#">Glömt lösenord?</a></li>
           </ul>
         </div>
         </div><!-- /.navbar-collapse -->
@@ -52,12 +52,57 @@
 
     <div class="container-fluid">
       <img id="picture-first" src="../pictures/frisyr.jpg"/>
-          <div class = "contact"> 
-        <h3 style="text-align: center">Contact us</h3>
-        <div>
-      <p>Email: Info@loox.se</p>
-      <p>Call: 0046761828192</p>
-    </div>
+
+          <!-- Contact Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Kontakta Oss</h4>
+            </div>
+            <div class="modal-body">
+              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 
+               <p>Email: Info@loox.se</p>
+               <p>Ring: 0046761828192</p>
+             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+        <!-- Forgot Password -->
+      <div class="modal fade" id="forgotPWModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Glömt Lösenord?</h4>
+            </div>
+            <div class="modal-body"> 
+            <form>
+             <input type="text" class="form-control" placeholder="Email">
+             <button class="btn btn-success sendButton" data-dismiss="modal">Skicka</button>
+           </form>           
+           </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+       
+
+
     </div>
     <div class="container-fluid">
       <div class="row">
@@ -85,12 +130,13 @@
   <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Dela</a></div>
 -->
 
-<!-- Twitter -->
-  <a class="twitter-share-button"
-           href="https://twitter.com/intent/tweet?text=Läs Mer Om Loox här: https://loox.se " >Tweet</a>
 
   <footer class="footer">
       <div class="container">
+      <!-- Twitter -->
+         <a class="twitter-share-button"
+           href="https://twitter.com/intent/tweet?text=Läs Mer Om Loox här: https://loox.se " >Tweet</a>
+
         <p class="text-muted">Place sticky footer content here.</p>
 
       </div>
@@ -100,7 +146,6 @@
     <script src="../bootstrap/assets/javascripts/bootstrap.js"></script>
     <script src="../javascript/javascript.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYlVGcY8AMg8SJooxNQ9ebks_4aHk3THc&callback=initMap"> </script>
-
 
   </body>
 
