@@ -50,7 +50,7 @@
 		$hashpass = password_hash($pass, PASSWORD_DEFAULT);
 		
 		//släng in inlogginfo i db
-		$sql3 = "INSERT INTO inlogg (anvandarnamn, Salt, lossenord, email)
+		$sql3 = "INSERT INTO inlogg (anvandarnamn, lossenord, email)
             VALUES(:useruo, :lossuo, :mailuo)";
 		$inlogg_intoDb = $pdo->prepare($sql3);
 		$inlogg_intoDb->execute (array(':useruo' => $user, ':lossuo' => $loss, ':mailuo' => $epost)); 
@@ -66,12 +66,13 @@
 		
 		//Om inloggnig misslyckas
 		if ($loggin == NULL) {
-			die("Oops, något gick fel!");
+			die("Oops, något gick fel! Vänligen kontakta suport.");
 		}
 		
 		//Startar session koplat till användarnas id från DB!
 		
 		$_SESSION['id'] = $loggin['id'];
+		$_SESSION['anvandarnamn'] = $loggin['anvandarnamn'];
 		
 	}
 ?>
