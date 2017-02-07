@@ -9,7 +9,6 @@
 	if (isset($_POST['loggout'])) {
 		echo "Du är utloggad";
 		//Avslutar sessionen och tar bort id värdet från $_SESSION
-		session_abort();
 		session_unset(); 
 		session_destroy();
 	}
