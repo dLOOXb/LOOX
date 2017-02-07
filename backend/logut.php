@@ -2,14 +2,14 @@
 	//Log out
 	
 	//Sesson kopplad till användarnas id för tabell.
-	$_SESSION['id'];
+	session_start();
 	require "config.php";
 	
 	//Om knapptryck...
 	if (isset($_POST['loggout'])) {
 		echo "Du är utloggad";
 		//Avslutar sessionen och tar bort id värdet från $_SESSION
-		session_abort();
+		session_unset(); 
 		session_destroy();
 	}
 
