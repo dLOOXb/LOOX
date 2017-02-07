@@ -1,7 +1,6 @@
 <?php
 
-		///////O.B.S.////////
-	//Loggin sida, "ropar" på samma testtabell som register.php
+	//Loggin sida
 	
 	session_start(); //Session så att inloggnigen sparas mellan de olika sidorna
 	require "config.php";
@@ -18,10 +17,9 @@
 		if (empty($user) && empty($pass)) {
 			
 			//Om fälten är tomma
-			echo "<p>Vänligen fyll i fälten</p>";	
+			die("<p>Vänligen fyll i fälten</p>");	
 			
 		} 
-		else {
 		
 			
 			//Stämmer användarnamnet överens med db
@@ -35,14 +33,16 @@
 			
 			//Om värdet från databasen stämmer överäns med värdet från input  
 			if ($result['antalrader'] == 1 && password_verify($pass, $hass) === true) {
-			$_SESSION['id'] = $result['id'];
+				$_SESSION['id'] = $result['id'];
+				$_SESSION['anvandarnamn'] = $user;
+			
 			echo "<p>Du är inloggad!</p>";
 			} else {
 				//Om värdet från databasen inte stämmer med värdet från input
-				die("Anvädarnamnet eller lösenordet stämmer inte överäns.")
+				die("Anvädarnamnet eller lösenordet stämmer inte överäns.");
 			}
 			
-			} 
+		
 		}
 	//}
 	
