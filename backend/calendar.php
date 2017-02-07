@@ -64,6 +64,18 @@ require ("config.php");
         }
 
     </script>
+    
+    
+    <style>
+        .today {
+            background-color: #ffd8ca;
+            
+        }
+        
+        .event {
+            background-color: paleturquoise;
+        }
+    </style>
 
 </head>
 
@@ -241,8 +253,56 @@ require ("config.php");
                     
                 }
                 
+                $todaysDate = date("d-m-Y");
+                $dateToCompare = $daystring.'-'.$monthstring.'-'.$year;
+                
                 //creates cell, prints date inside it
-                 echo "<td align='center'><a href='".$_SERVER['PHP_SELF']."?month=".$monthstring."&day=".$daystring."&year=".$year."&v=true'>".$i."</a></td>";
+                 echo "<td align='center'";
+                
+                
+                
+                if ($todaysDate == $dateToCompare) {
+                    echo"class='today'";
+                } 
+                
+                /*
+                else {
+                    
+                    
+                    
+                    ////******* update the below for PDO ***********
+                    
+                    
+                    $statement = $pdo->prepare("SELECT * from bokadeTider WHERE tid='".$dateToCompare."'");
+                    
+                    
+`maker`, `pc`.`model`, `speed`, `ram`, `hd`, `price` 
+FROM `pc`
+INNER JOIN `product`
+ON `pc`.`model` = `product`.`model`
+');
+                    
+                    
+                    $sqlCount="select * from bokadeTider where tid='".$dateToCompare."'";
+                    $noOfEvent = mysql_num_rows(mysql_query($sqlCount));
+                    
+                    
+                    
+                    if($noOfevent >= 1 ){
+                        echo "class='event'";
+                        
+                    }
+                    
+                    
+                    
+                    
+                }
+                
+                */
+                
+                
+                
+                echo "><a href='".$_SERVER['PHP_SELF']."?month=".$monthstring."&day=".$daystring."&year=".$year."&v=true'>".$i."</a></td>";
                 
                 //add one, so we can process the next cell position
                 $cellCounter++;
