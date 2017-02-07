@@ -9,6 +9,9 @@
 		$user = $_POST['username'];
 		$pass = $_POST['password'];
 		$epost = $_POST['email'];
+		$tel = $_POST['tel'];
+		$fornamn = $_POST['fornamn'];
+		$efternamn = $_POST['efternamn'];
 		
 		//Tar bort blackspace
 		foreach($_POST as $key => $val){
@@ -16,7 +19,7 @@
 		}
 		
 		//Kolla efter tomma fält. Om tomma: stopa koden.
-		if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email'])) {
+		if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['fornamn']) || empty($_POST['efternamn'])) {
 			die("Vänligen fyll i alla fälten");
 		} 
 		
@@ -30,7 +33,7 @@
 		// Kolla om mejlen är upptagen
 		$sql2 = "SELECT email FROM inlogg WHERE email = :mailuo";
 		$kollaMail = $pdo->prepare($sql2);
-		$kollaMail->execute (array(':mailuo' => $user)); 
+		$kollaMail->execute (array(':mailuo' => $epost)); 
 		$CheckTwoMail = $kollaMail->fetch(PDO::FETCH_ASSOC);
 		echo $CheckTwoMail;
 		
@@ -50,10 +53,10 @@
 		$hashpass = password_hash($pass, PASSWORD_DEFAULT);
 		
 		//släng in inlogginfo i db
-		$sql3 = "INSERT INTO inlogg (anvandarnamn, lossenord, email)
-            VALUES(:useruo, :lossuo, :mailuo)";
+		$sql3 = "INSERT INTO inlogg (anvandarnamn, fornamn, efternamn, email, lossenord, tel, klass)
+            VALUES(:useruo, :foruo, :efteruo, :mailuo, :lossuo, :teluo, kund)";
 		$inlogg_intoDb = $pdo->prepare($sql3);
-		$inlogg_intoDb->execute (array(':useruo' => $user, ':lossuo' => $hashpass, ':mailuo' => $epost)); 
+		$inlogg_intoDb->execute (array(':useruo' => $user, ':foruo' => $fornamn, ':efteruo' => $efternamn, ':mailuo' => $epost, ':lossuo' => $hashpass, ':teluo' => $tel)); 
 		
 		//Släng in annan info i db.
 		
@@ -75,19 +78,3 @@
 		
 	}
 ?>
-
-<html>
-<head></head>
-<body>
-	<form action="register_v2.php" method="post"> 
-		<label>usernamne</label>
-		<input type="text" name="username">
-		<label>lösenord</label>
-		<input type="password" name="password">
-		<label>mejl</label>
-		<input type="text" name="email">
-		<input type="submit" name="submitReg" value="Skicka">
-	</form>
-
-</body>
-</html>
