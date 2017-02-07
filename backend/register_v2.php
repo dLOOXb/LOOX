@@ -53,26 +53,25 @@
 		$sql3 = "INSERT INTO inlogg (anvandarnamn, lossenord, email)
             VALUES(:useruo, :lossuo, :mailuo)";
 		$inlogg_intoDb = $pdo->prepare($sql3);
-		$inlogg_intoDb->execute (array(':useruo' => $user, ':lossuo' => $loss, ':mailuo' => $epost)); 
+		$inlogg_intoDb->execute (array(':useruo' => $user, ':lossuo' => $hashpass, ':mailuo' => $epost)); 
 		
 		//Släng in annan info i db.
 		
 		//starta session och logga in.
-		$sql4 = "SELECT id, anvandarnamn FROM inlogg WHERE anvandarnamn = :useruo";
+		$sql4 = "SELECT id FROM inlogg WHERE anvandarnamn = :useruo";
 		$loggin = $pdo->prepare($sql4);
 		$loggin->execute (array(':useruo' => $user)); 
 		$id = $loggin->fetch(PDO::FETCH_ASSOC);
-		echo $id;
 		
 		//Om inloggnig misslyckas
 		if ($loggin == NULL) {
 			die("Oops, något gick fel! Vänligen kontakta suport.");
 		}
 		
-		//Startar session koplat till användarnas id från DB!
+		//Startar session koplat till användarnas id och anvndarnamn från DB!
 		
-		$_SESSION['id'] = $loggin['id'];
-		$_SESSION['anvandarnamn'] = $loggin['anvandarnamn'];
+		$_SESSION['id'] = $id['id'];
+		$_SESSION['anvandarnamn'] = $user;
 		
 	}
 ?>
@@ -80,9 +79,9 @@
 <html>
 <head></head>
 <body>
-	<form action="register_2.php" method="post"> 
+	<form action="register_v2.php" method="post"> 
 		<label>usernamne</label>
-		<input type="text" name="usernamne">
+		<input type="text" name="username">
 		<label>lösenord</label>
 		<input type="password" name="password">
 		<label>mejl</label>
