@@ -14,6 +14,9 @@ var marker = new google.maps.Marker({
 $(document).ready(function(){
   $('.contact').hide();
 
+  $("#card").flip();
+  $("#card2").flip();
+
 /* Facebook
         window.fbAsyncInit = function() {
             FB.init({
@@ -50,5 +53,5 @@ $(document).ready(function(){
          return t;
         }
         (document, "script", "twitter-wjs"));
-        
+
 });

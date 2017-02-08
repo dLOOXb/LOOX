@@ -18,7 +18,8 @@ $("#create").click(function(){
   var lastname = $("#lastname").val();
 
 //If checkbox is checked, send data
-  if($("agree").checked){
+  if(document.getElementById("agree").checked){
+  
     $.ajax({
       url: "../backend/register_v2.php?username="+username+
       "&password="+password+"&email="+email+"&tel="+phonenumber+
@@ -35,7 +36,6 @@ $("#create").click(function(){
         console.log("More success!!");
       });
     }
-
     else {
       alert("Du måste godkänna användarvillkoren!");
     }

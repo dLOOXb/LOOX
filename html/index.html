@@ -58,9 +58,6 @@
               </div><!-- /.container-fluid -->
             </nav>
 
-            <div class="container-fluid">
-              <img id="picture-first" src="../pictures/frisyr.jpg"/>
-
                   <!-- Contact Modal -->
               <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog">
@@ -107,28 +104,58 @@
                 </div>
               </div>
 
+<!-- Flip pictures -->
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div id="card2">
+                      <div class="front">
+                        <img id="picture-first" src="../pictures/tjej1.png"/>
+                      </div>
+                      <div class="back">
+                        <img id="picture-first" src="../pictures/tjej2.png"/>
+                      </div>
+                    </div>
+                  </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <div id="card">
+                    <div class="front">
+                      <img id="picture-first" src="../pictures/Goran.png"/>
+                    </div>
+                    <div class="back">
+                      <img id="picture-first" src="../pictures/tjej3.png"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-
-    </div>
-    <div class="container-fluid">
+    <div class="container-fluid columns">
       <div class="row">
         <div class="col-md-4 col-sm-4 col-xs-12 text-center">
           <img id="imgcol1" src="../pictures/sax.jpg" />
-          <p>Denna sidan är awesome</p>
+          <p> Aldrig mer en dålig hårdag, vill du veta hur?</p>
+          <a href="">Läs mer..</a>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12 text-center">
           <img id="imgcol2" src="../pictures/sax.jpg" />
-          <p>Klipp dig här</p>
+          <p>Vårt koncept</p>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12 text-center">
           <img id="imgcol3" src="../pictures/sax.jpg" />
-          <p>Vart är david?</p>
+          <p>Omdömen från användare</p>
         </div>
       </div>
   </div>
 
 <!--Google map-->
-  <div id="map"></div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="map"></div>
+    </div>
+  </div>
+</div>
 
   <!--Facebook share
   <div id="fb-root"></div>
@@ -153,6 +180,7 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js">
     <script src="../bootstrap/assets/javascripts/bootstrap.js"></script>
     <script src="../javascript/javascript.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYlVGcY8AMg8SJooxNQ9ebks_4aHk3THc&callback=initMap"> </script>

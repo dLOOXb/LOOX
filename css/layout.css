@@ -5841,6 +5841,9 @@ button.close {
 #picture-first {
   width: 100%; }
 
+#picture-first:hover {
+  cursor: pointer; }
+
 #imgcol1 {
   width: 170px; }
 
@@ -5849,6 +5852,9 @@ button.close {
 
 #imgcol3 {
   width: 170px; }
+
+.columns {
+  margin: 40px 0 40px 0; }
 
 /* Sticky footer styles
 -------------------------------------------------- */
