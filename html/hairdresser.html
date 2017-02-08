@@ -22,17 +22,25 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">LOOX<span class="sr-only">(current)</span></a>
+          <a class="navbar-brand" href="index.html"><img id="logo" src="../pictures/loox.jpg"><span class="sr-only">(current)</span></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
           <ul class="nav navbar-nav navbar-left">
-            <li id="aboutUsButton"><a href="#">Om oss</a></li>
-            <li data-toggle="modal" data-target="#myModal"><a href="#">Kontakt</a></li>
-            <li><a href="#">Företag och frisörer</a></li>
-          </ul>
+           <li id="aboutUsButton"><a href="#">Om oss</a></li>
+             <li data-toggle="modal" data-target="#myModal"><a href="#">Kontakt</a></li>
+               <li class="dropdown">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                  aria-haspopup="true" aria-expanded="false">Företag och frisörer<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="saloons_hairdressers.html">Visa företag och frisörer</a></li>
+                       <li role="separator" class="divider"></li>
+                      <li><a href="registersaloon.html">Registrera företag</a></li>
+                       <li><a href="registerhairdresser.html">Registrera frisör</a></li>
+                   </ul>
+             </ul>
           <form class="navbar-form navbar-right">
             <div class="form-group">
         		<p><a href=""><strong id="myProfile"> Min Profil </strong></a></p>
@@ -51,18 +59,18 @@
 
 
 
-    <div class="container text-center">
+    <div class="container text-center main-part">
         <div class="row">
           <div class="col-md-4">
           <img class="img-responsive" id="profileImage" src="https://scontent-arn2-1.cdninstagram.com/t51.2885-19/s150x150/14449172_1794338307507474_8231970538419912704_a.jpg">
           </div>
           <div class="col-md-8">
-           <h1>Hairdresser</h1>
-           <p class="left">Förnamn</p>
-           <p class="left">Efternamn</p>
-           <p class="left">Telefonnummer</p>      
+           <h1>Hairdresser</h1> 
+           <p id="firstName" class="left">Förnamn</p>
+           <p id="lastName" class="left">Efternamn</p>
+           <p id="phoneNumber" class="left">Telefonnummer</p>      
          <line></line>
-            <p id="Salong">Salong</p>
+            <p id="salong">Salong</p>
             <p id="yrkestitel">Yrkestitel</p>
             <div class="rating col-md-12">
                 <span><input type="radio" name="rating" id="str5" value="5"><label for="str5"></label></span>
@@ -83,7 +91,7 @@
              </a>
              </div>
              </br>
-    	 	   <button class="btn btn-success" id="bookButton">Boka</button>
+             <button class="btn btn-success" id="bookButton">Boka</button>
           </div>
           </div>
         </div>
@@ -152,6 +160,8 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
     <script src="../bootstrap/assets/javascripts/bootstrap.js"></script>
     <script src="../javascript/hairdresser.js"></script>
+    <script src="../javascript/about.js"></script>
+     
   </body>
 
   </html>

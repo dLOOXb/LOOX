@@ -36,6 +36,14 @@ $navbar-default-link-hover-color: lightgrey;
   float: left;
   margin-left: 15px;
 }
+// justera storlek på loggan
+ #logo{
+    height: 50px;
+    width: 200px;
+    margin: 0px;
+    padding: 0px;
+  }
+
 
 /*Gör så att fälten för användarnamn och lösenord blir mindre*/
 /*Viewports >768px*/
