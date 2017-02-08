@@ -22,17 +22,25 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">LOOX</a>
+          <a class="navbar-brand" href="index.html">LOOX</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
           <ul class="nav navbar-nav navbar-left">
-            <li id="aboutUsButton"><a href="#">Om oss</a></li>
-            <li data-toggle="modal" data-target="#myModal"><a href="#">Kontakt</a></li>
-            <li><a href="#">Företag och frisörer</a></li>
-          </ul>
+           <li id="aboutUsButton"><a href="#">Om oss</a></li>
+             <li data-toggle="modal" data-target="#myModal"><a href="#">Kontakt</a></li>
+               <li class="dropdown">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                  aria-haspopup="true" aria-expanded="false">Företag och frisörer<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="saloons_hairdressers.html">Visa företag och frisörer</a></li>
+                       <li role="separator" class="divider"></li>
+                      <li><a href="registersaloon.html">Registrera företag</a></li>
+                       <li><a href="registerhairdresser.html">Registrera frisör</a></li>
+                   </ul>
+             </ul>
           <form class="navbar-form navbar-right">
             <div class="form-group">
         		<p><a href=""><strong id="myProfile"> Min Profil </strong><span class="sr-only">(current)</span></a></p>
@@ -54,11 +62,11 @@
     <div class="container text-center">
       <div class="container-register container margin-bottom-60">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 myProfile">
           <h1>Min profil</h1>
             <p class="left">Användarnamn</p>
             <input type="text" class="form-control space" placeholder="Användarnamn" id="username" disabled="true">
-            <p class="left">E-mail</p>
+            <p  class="left">E-mail</p>
             <input type="text" class="form-control space" placeholder="E-mail" id="email">
             <p class="left">Lösenord</p>
             <input type="text" class="form-control space" placeholder="Lösenord" id="password">
@@ -146,6 +154,7 @@
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
     <script src="../bootstrap/assets/javascripts/bootstrap.js"></script>
+     <script src="../javascript/profile.js"></script>
 
   </body>
 

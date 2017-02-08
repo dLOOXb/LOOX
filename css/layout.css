@@ -5828,7 +5828,13 @@ button.close {
   float: left;
   margin-left: 15px; }
 
-/*Gör så att fälten för användarnamn och lösenord blir mindre*/
+#logo {
+  height: 50px;
+  width: 200px;
+  margin: 0px;
+  padding: 0px; }
+
+/*G├Âr s├Ñ att f├ñlten f├Âr anv├ñndarnamn och l├Âsenord blir mindre*/
 /*Viewports >768px*/
 @media only screen and (min-width: 768px) {
   .navbar-form .form-control {
