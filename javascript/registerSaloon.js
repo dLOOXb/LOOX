@@ -29,7 +29,7 @@ $("#create").click(function(){
   if($("agree").checked){
     $.ajax({
       url: "../backend/register_salong.php?username=",
-      data: {salongname : companyName, password : password, email : email
+      data: {salongname : companyName, password : password, email : email,
       tel : phonenumber, hemsida : webbpage, facebook : facebook, twitter : twitter,
     instagram : instagram, pintrest : pinterest, info : info, gata : address, postnummer : postalcode,
   ort : postalcity},

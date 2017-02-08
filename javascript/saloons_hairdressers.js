@@ -7,21 +7,23 @@ $(document).ready(function() {
     $("#hairdressers").removeClass("active-h1");
 
     //AJAX för att läsa in lista på företag
-    $.ajax({
-      url:
-      data:
-      method: "GET",
-      dataType: "JSON",
+  /*  var url ="";
+      $.getJSON(url, function(data){
+        var htmlText;
+        for(var item in data){
 
-    )}.done(function(data){
-      console.log("success!!");
-        localStorage.setItem("companyName", data.companyName);
-        localStorage.setItem("address", data.address);
-        localStorage.setItem("info", data.info);
-        localStorage.setItem("website", data.website);
-        console.log("More success!!");
+          htmlText += "<div class='row'><div class='col-md-5 col-sm-5 col-xs-6'>"
+          + "<img class='logo' src=''../pictures/sax.jpg'/></div>"
+          + "</div><div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
+          + "<h4><a href='" + data.hemsida + "'>" + data.salongname + "</a></h4>"
+          + "<p><em>" + data.gata + ", " + data.postnummer + " " + data.ort + "</em></p>"
+          + "<p>" + data.info + "</p>"
+          + "</div><line></line></div>";
+
+        }
+        $("#listData").html(htmlText);
+      });*/
     });
-  });
 
   $("#hairdressers").click(function (){
     $("#hairdressers").addClass("active-h1");
@@ -30,20 +32,23 @@ $(document).ready(function() {
     $("#companies").removeClass("active-h1");
 
     //AJAX för att läsa in lista på frisörer
-    $.ajax({
-      url:
-      data:
-      method: "GET",
-      dataType: "JSON",
+  /*  var url ="";
+      $.getJSON(url, function(data){
+        var htmlText;
+        for(var item in data){
 
-    )}.done(function(data){
-      console.log("success!!");
-        localStorage.setItem("hairdresserName", data.hairdresserName);
-        localStorage.setItem("workTitle", data.workTitle);
-        localStorage.setItem("saloon", data.saloon);
-        console.log("More success!!");
-    });
-  });
+          htmlText += "<div class='row'><div class='col-md-5 col-sm-5 col-xs-6'>"
+          + "<img class='logo' src=''../pictures/sax.jpg'/></div>"
+          + "</div><div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
+          + "<h4><a href='" + data.hemsida + "'>" + data.salongname + "</a></h4>"
+          + "<p><em>" + data.gata + ", " + data.postnummer + " " + data.ort + "</em></p>"
+          + "<p>" + data.info + "</p>"
+          + "</div><line></line></div>";
+
+        }
+        $("#listData").html(htmlText);
+      });
+  });*/
   });
 
   $("#tagsDiv > .tag").click(function(){

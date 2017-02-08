@@ -29,7 +29,7 @@ $("#create").click(function(){
   if($("agree").checked){
     $.ajax({
       url: "../backend/register_behandlare.php?username=",
-      data: { username : username, password : password, email : email
+      data: { username : username, password : password, email : email,
       fornamn : firstname, efternamn : lastname, alias : alias, salongname : saloon,
     facebook : facebook, twitter : twitter, instagram : instagram,
   pintrest : pinterest, info : info},
