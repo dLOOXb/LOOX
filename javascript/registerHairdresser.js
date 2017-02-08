@@ -28,7 +28,7 @@ $("#create").click(function(){
 //If checkbox is checked, send data
   if($("agree").checked){
     $.ajax({
-      url: "../backend/register_v2.php?username=",
+      url: "../backend/register_behandlare.php?username=",
       data: { username : username, password : password, email : email
       fornamn : firstname, efternamn : lastname, alias : alias, salongname : saloon,
     facebook : facebook, twitter : twitter, instagram : instagram,

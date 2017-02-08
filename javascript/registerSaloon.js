@@ -28,7 +28,7 @@ $("#create").click(function(){
 //If checkbox is checked, send data
   if($("agree").checked){
     $.ajax({
-      url: "../backend/register_v2.php?username=",
+      url: "../backend/register_salong.php?username=",
       data: {salongname : companyName, password : password, email : email
       tel : phonenumber, hemsida : webbpage, facebook : facebook, twitter : twitter,
     instagram : instagram, pintrest : pinterest, info : info, gata : address, postnummer : postalcode,
