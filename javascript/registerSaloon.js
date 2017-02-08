@@ -10,15 +10,29 @@ $("#webbpolicy").click(function(){
 $("#create").click(function(){
 /*TODO .has-error*/
 
-  var username = $("#username").val();
+  var companyName = $("#companyName").val();
+  var email = $("#email").val();
+  var phonenumber = $("#phonenumber").val();
+  var password = $("#password").val();
+  var webbpage = $("#webbpage").val();
+  var facebook = $("#facebook").val();
+  var instagram = $("instagram").val();
+  var twitter = $("twitter").val();
+  var pinterest = $("pinterest").val();
+  var info = $("info").val();
+  var address = $("address").val();
+  var postalcode = $("postalcode").val();
+  var pastalcity = $("postalcity").val();
 
 
 //If checkbox is checked, send data
   if($("agree").checked){
     $.ajax({
-      url: "../backend/register_v2.php?username="+username+
-      "&password="+password+"&email="+email+"&tel="+phonenumber+
-      "&fornamn="+firstname+"&efternamn="+lastname,
+      url: "../backend/register_v2.php?username=",
+      data: {salongname : companyName, password : password, email : email
+      tel : phonenumber, hemsida : webbpage, facebook : facebook, twitter : twitter,
+    instagram : instagram, pintrest : pinterest, info : info, gata : address, postnummer : postalcode,
+  ort : postalcity},
       method: "POST",
       dataType: "JSON"
     }).done(function(data){

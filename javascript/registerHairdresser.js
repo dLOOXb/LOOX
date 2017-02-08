@@ -17,6 +17,7 @@ $("#create").click(function(){
   var phonenumber = $("#phonenumber").val();
   var firstname = $("#firstname").val();
   var lastname = $("#lastname").val();
+  var alias = $("#alias").val();
   var saloon = $("")
   var workTitle = $("").val();
   var facebook = $("facebook").val();
@@ -27,9 +28,11 @@ $("#create").click(function(){
 //If checkbox is checked, send data
   if($("agree").checked){
     $.ajax({
-      url: "../backend/register_v2.php?username="+username+
-      "&password="+password+"&email="+email+"&tel="+phonenumber+
-      "&fornamn="+firstname+"&efternamn="+lastname,
+      url: "../backend/register_v2.php?username=",
+      data: { username : username, password : password, email : email
+      fornamn : firstname, efternamn : lastname, alias : alias, salongname : saloon,
+    facebook : facebook, twitter : twitter, instagram : instagram,
+  pintrest : pinterest, info : info},
       method: "POST",
       dataType: "JSON"
     }).done(function(data){
