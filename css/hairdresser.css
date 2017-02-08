@@ -1,0 +1,61 @@
+#bookButton {
+  padding: 10px;
+  margin: 20px; }
+
+a, a:hover {
+  text-decoration: none; }
+
+h1 {
+  margin: 20px; }
+
+#profileImage {
+  margin: 20px;
+  height: 400%;
+  width: 400%; }
+
+.social {
+  margin: 10px;
+  height: 25px;
+  width: 25px;
+  padding: 0px; }
+
+line {
+  height: 5px;
+  width: auto;
+  background-color: #09A0EF;
+  display: block;
+  margin: 30px 0 30px 0; }
+
+#myProfile {
+  font-size: 16px;
+  color: #ffffff; }
+
+#myProfile:hover {
+  color: #333 !important; }
+
+.rating {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse; }
+
+.rating span input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0; }
+
+.rating span label {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: #ccc;
+  margin-right: 3px;
+  border-radius: 50%; }
+
+.rating span:hover label,
+.rating span:hover ~ span label,
+.rating span.checked label,
+.rating span.checked ~ span label {
+  background: #F90; }
+
+/*# sourceMappingURL=hairdresser.css.map */
