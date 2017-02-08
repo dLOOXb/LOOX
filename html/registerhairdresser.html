@@ -117,15 +117,16 @@
             <p class="left">Mail</p>
             <input type="text" class="form-control space" placeholder="Mail" id="email">
             <p class="left">Lösenord</p>
-            <input type="text" class="form-control space" placeholder="Lösenord" id="password">
+            <input type="password" class="form-control space" placeholder="Lösenord" id="password">
             <line></line>
             <p class="left">Förnamn</p>
             <input type="text" class="form-control space" placeholder="Förnamn" id="firstname">
             <p class="left">Efternamn</p>
             <input type="text" class="form-control space" placeholder="Efternamn" id="lastname">
             <p class="left">Salong</p>
-            <div class="btn-group">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="btn-group"  id="btndropdown">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
                 Salong <span class="caret"></span> </button>
                 <ul class="dropdown-menu">
                   <li><a href="#">Salong 1</a></li>
@@ -133,7 +134,22 @@
                   <li><a href="#">Salong 3</a></li>
                 </ul>
               </div>
-            <line></line>
+              <p class="left">Yrkestitel</p>
+              <div class="btn-group"  id="btndropdown">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                  Yrkestitel <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Frisör</a></li>
+                    <li><a href="#">Stylist</a></li>
+                    <li><a href="#">Damfrisör</a></li>
+                    <li><a href="#">Herrfrisör</a></li>
+                    <li><a href="#">Barberare</a></li>
+                    <li><a href="#">Brynformare</a></li>
+                    <li><a href="#">Lärling</a></li>
+                  </ul>
+                </div>
+            <line id="lineWithSpace"></line>
             <p class="left">Facebook</p>
             <input type="text" class="form-control space" placeholder="Länk till facebook" id="facebook">
             <p class="left">Instagram</p>
@@ -241,12 +257,20 @@
         </div>
       </div>
 
-  <footer class="footer">
-      <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
-
-      </div>
-    </footer>
+      <footer class="footer">
+          <div class="container">
+            <p class="text-muted">© Loox</p>
+          <!-- Twitter -->
+             <a class="twitter-share-button"
+               href="https://twitter.com/intent/tweet?text=Läs Mer Om Loox här: https://loox.se " >Tweet</a>
+            <a href="https://www.facebook.com/">
+            <img class="social" src="../pictures/facebook.png">
+            </a>
+            <a href="https://www.instagram.com/">
+            <img class="social" src="../pictures/instagram.png">
+            </a>
+          </div>
+        </footer>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
     <script src="../bootstrap/assets/javascripts/bootstrap.js"></script>

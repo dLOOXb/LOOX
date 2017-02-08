@@ -1,19 +1,28 @@
+@charset "UTF-8";
 .container-register {
   width: 50%; }
 
+/*Ger lite luft i texten*/
 .space {
   margin-bottom: 10px; }
 
+/*Lägg allt till vänster*/
 .left {
   text-align: left;
   margin: 0 0 2px 5px; }
 
+/*Blå linje mellan formulären*/
 line {
   height: 2px;
   width: auto;
   background-color: #09A0EF;
   display: block;
-  margin: 30px 0 30px 0; }
+  margin: 30px 0 30px 0;
+  clear: both; }
+
+/*Fullösning på linje som annars hamnar bakom drop-down menyn */
+#lineWithSpace {
+  margin-top: 65px; }
 
 .margin-bottom-60 {
   margin-bottom: 60px; }
@@ -21,6 +30,7 @@ line {
 .margin-bottom-20 {
   margin-bottom: 20px; }
 
+/*Knapp skapa konto*/
 #create {
   border: 1px solid #044B6F;
   background-color: #09A0EF;
@@ -30,5 +40,16 @@ line {
 
 #create:hover {
   background-color: #34b4f7; }
+
+/*Dropdown för salong och yrkestitel*/
+#btndropdown {
+  float: left;
+  width: 100%;
+  display: block;
+  margin-bottom: 10px; }
+  #btndropdown button {
+    width: 100%; }
+  #btndropdown ul {
+    width: 100%; }
 
 /*# sourceMappingURL=register.css.map */

@@ -12,6 +12,10 @@ h2 {
   padding-bottom: 3px;
   padding-top: 3px;
 }
+h2:hover {
+  cursor: pointer;
+}
+/*Om man valt att visa företag eller frisörer*/
 .active-h1 {
   box-shadow: 0 3px 0 $default-color;
 }
@@ -20,17 +24,13 @@ h2 {
   color: grey;
 }
 
-.middle-box {
-width: 50px;
-}
-
 .container-header {
   margin: 0 20% 0 20%;
   display: flex;
   justify-content: space-between;
   padding-bottom: 40px;
 }
-
+/*Sökruta/filtrering*/
 .searchbox {
   border: 1px solid $default-color;
   margin-top: 20px;
@@ -55,12 +55,12 @@ width: 50px;
 
   }
 }
-
+/*Frisörernas loggor*/
 .logo {
   width: 170px;
   margin-right: 30px;
 }
-
+/*Grå linje*/
 line {
   height: 1px;
   background-color: lightgrey;
@@ -70,9 +70,6 @@ line {
 
 .margin-bottom-60 {
   margin-bottom: 60px;
-}
-h2:hover {
-  cursor: pointer;
 }
 
 .form-control {
@@ -86,4 +83,11 @@ h2:hover {
 
 .margin-10px {
   margin: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
 }

@@ -5828,7 +5828,7 @@ button.close {
   float: left;
   margin-left: 15px; }
 
-/*G├Âr s├Ñ att f├ñlten f├Âr anv├ñndarnamn och l├Âsenord blir mindre*/
+/*Gör så att fälten för användarnamn och lösenord blir mindre*/
 /*Viewports >768px*/
 @media only screen and (min-width: 768px) {
   .navbar-form .form-control {
@@ -5841,7 +5841,13 @@ button.close {
 #picture-first {
   width: 100%; }
 
-#sax {
+#imgcol1 {
+  width: 170px; }
+
+#imgcol2 {
+  width: 170px; }
+
+#imgcol3 {
   width: 170px; }
 
 /* Sticky footer styles
@@ -5859,7 +5865,7 @@ body {
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 60px;
+  height: auto;
   background-color: #f5f5f5; }
 
 /* Custom page CSS
