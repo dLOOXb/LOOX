@@ -19,9 +19,9 @@ $("#create").click(function(){
 
 //If checkbox is checked, send data
   if(document.getElementById("agree").checked){
-  
+
     $.ajax({
-      url: "../backend/register_v2.php?username="+username+
+      url: "../backend/register_v2.php?submitReg=1&username="+username+
       "&password="+password+"&email="+email+"&tel="+phonenumber+
       "&fornamn="+firstname+"&efternamn="+lastname,
       method: "POST",
@@ -39,5 +39,25 @@ $("#create").click(function(){
     else {
       alert("Du måste godkänna användarvillkoren!");
     }
-  });
+  }); //Close click
+
+  /*Twitter*/
+          window.twttr = (function(d, s, id) {
+           var js, fjs = d.getElementsByTagName(s)[0],
+             t = window.twttr || {};
+           if (d.getElementById(id)) return t;
+           js = d.createElement(s);
+           js.id = id;
+           js.src = "https://platform.twitter.com/widgets.js";
+           fjs.parentNode.insertBefore(js, fjs);
+
+           t._e = [];
+           t.ready = function(f) {
+             t._e.push(f);
+           };
+
+           return t;
+          }
+          (document, "script", "twitter-wjs"));
+
 });

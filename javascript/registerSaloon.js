@@ -29,7 +29,7 @@ $("#create").click(function(){
   if($("agree").checked){
     $.ajax({
       url: "../backend/register_salong.php?username=",
-      data: {salongname : companyName, password : password, email : email,
+      data: {submitReg : 1, salongname : companyName, password : password, email : email,
       tel : phonenumber, hemsida : webbpage, facebook : facebook, twitter : twitter,
     instagram : instagram, pintrest : pinterest, info : info, gata : address, postnummer : postalcode,
   ort : postalcity},
@@ -45,5 +45,27 @@ $("#create").click(function(){
     else {
       alert("Du måste godkänna användarvillkoren!");
     }
-  });
+  }); //Close click
+
+  /*Twitter*/
+          window.twttr = (function(d, s, id) {
+           var js, fjs = d.getElementsByTagName(s)[0],
+             t = window.twttr || {};
+           if (d.getElementById(id)) return t;
+           js = d.createElement(s);
+           js.id = id;
+           js.src = "https://platform.twitter.com/widgets.js";
+           fjs.parentNode.insertBefore(js, fjs);
+
+           t._e = [];
+           t.ready = function(f) {
+             t._e.push(f);
+           };
+
+           return t;
+          }
+          (document, "script", "twitter-wjs"));
+
+
+
 });
