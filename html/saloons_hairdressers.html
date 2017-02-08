@@ -113,23 +113,25 @@
       <input type="text" class="form-control" placeholder="Sök på valfritt ord"><button class="btn btn-default" id="searchbtn">
         <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
         <line></line>
-        <span class="label tag margin-10px active-tag">Budget</span>
-        <span class="label tag margin-10px">Affro</span>
-        <span class="label tag margin-10px active-tag">Classy</span>
-        <span class="label tag margin-10px">Färgrikt</span>
-        <span class="label tag margin-10px">Snabbt-som-attan</span>
+        <div id="tagsDiv">
+          <span class="label tag margin-10px">Budget</span>
+          <span class="label tag margin-10px">Affro</span>
+          <span class="label tag margin-10px">Classy</span>
+          <span class="label tag margin-10px">Färgrikt</span>
+          <span class="label tag margin-10px">Snabbt-som-attan</span>
+      </div>
     </div>
   </div>
 
   <div class="col-md-6 col-sm-9 col-xs-12">
   <div class="container-header">
-      <h2 class="active-h1">Företag</h2>
-      <h2 class="not-active">Frisörer</h2>
+      <h2 class="active-h1" id="companies">Företag</h2>
+      <h2 class="not-active" id="hairdressers">Frisörer</h2>
   </div>
 
 
-      <div class="container-fluid margin-bottom-60">
-        <div class="row">
+      <div class="container-fluid margin-bottom-60 id="listData"">
+        <div class="row" >
             <div class="col-md-5 col-sm-5 col-xs-6">
               <img class="logo" src="../pictures/sax.jpg"/>
             </div>
@@ -232,7 +234,7 @@
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
     <script src="../bootstrap/assets/javascripts/bootstrap.js"></script>
-
+    <script src="../javascript/saloons_hairdressers.js"></script>
 
   </body>
 

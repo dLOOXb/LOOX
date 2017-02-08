@@ -1,11 +1,12 @@
 $icon-font-path: '../bootstrap/assets/fonts/bootstrap/';
-$navbar-default-bg: #09A0EF;
+$navbar-default-bg: black;
 $navbar-default-brand-color: white;
 $navbar-default-link-color: white;
 $navbar-margin-bottom: 0px;
 $navbar-default-toggle-icon-bar-bg: white;
 //$navbar-default-link-active-bg: #09A0EF;
-$navbar-default-link-active-color: #333;
+$navbar-default-link-active-color: lightgrey;
+$navbar-default-link-hover-color: lightgrey;
 
 @import "../bootstrap/assets/stylesheets/bootstrap.scss";
 .nav-row-below {
@@ -28,19 +29,21 @@ $navbar-default-link-active-color: #333;
       font-size: 12px;
     }
     a:hover {
-      color: #333 !important;
+      color: lightgrey !important;
     }
 }
 .navbar-toggle {
   float: left;
   margin-left: 15px;
 }
+// justera storlek på loggan
  #logo{
     height: 50px;
     width: 200px;
     margin: 0px;
     padding: 0px;
   }
+
 
 /*Gör så att fälten för användarnamn och lösenord blir mindre*/
 /*Viewports >768px*/
