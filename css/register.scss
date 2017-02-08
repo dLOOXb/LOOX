@@ -4,6 +4,12 @@ $default-color: #09A0EF;
 .container-register {
   width: 50%;
 }
+
+@media only screen and (max-width: 767px){
+  .container-register{
+    width: 80%;
+  }
+}
 /*Ger lite luft i texten*/
 .space {
   margin-bottom: 10px;
@@ -33,8 +39,7 @@ line {
 
 /*Knapp skapa konto*/
 #create {
-  border: 1px solid #044B6F;
-  background-color: #09A0EF;
+  background-color: $default-color;
   font-size: 17px;
   color: white;
   border-radius: 30px;

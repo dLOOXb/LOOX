@@ -7,6 +7,7 @@ $navbar-default-toggle-icon-bar-bg: white;
 //$navbar-default-link-active-bg: #09A0EF;
 $navbar-default-link-active-color: lightgrey;
 $navbar-default-link-hover-color: lightgrey;
+$default-color: #09A0EF;
 
 @import "../bootstrap/assets/stylesheets/bootstrap.scss";
 .nav-row-below {
@@ -54,8 +55,8 @@ $navbar-default-link-hover-color: lightgrey;
 }
 /*<768px (mobil)*/
 @media only screen and (max-width: 767px){
-  .form-control {
-    width: 200px;
+.navbar-form .form-control {
+    width: 60%;
     margin-bottom: 5px;
   }
 }
@@ -110,7 +111,7 @@ body {
 
 .container .text-muted {
   margin: 20px 0;
-  color: green;
+  color: $default-color;
 }
 /*Google map*/
 #map {
