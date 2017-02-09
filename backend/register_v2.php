@@ -13,6 +13,7 @@
 		$tel = $_POST['tel'];
 		$fornamn = $_POST['fornamn'];
 		$efternamn = $_POST['efternamn'];
+		$poop = "kund";
 		
 		
 		//Kolla efter tomma fält. Om tomma: stopa koden.
@@ -50,10 +51,10 @@
 		$hashpass = password_hash($pass, PASSWORD_DEFAULT);
 		
 		//släng in inlogginfo i db
-		$sql3 = "INSERT INTO inlogg (anvandarnamn, fornamn, efternamn, email, lossenord, tel)
-            VALUES(:useruo, :foruo, :efteruo, :mailuo, :lossuo, :teluo)";
+		$sql3 = "INSERT INTO inlogg (anvandarnamn, fornamn, efternamn, email, lossenord, tel, klass)
+            VALUES(:useruo, :foruo, :efteruo, :mailuo, :lossuo, :teluo, :poopuo)";
 		$inlogg_intoDb = $pdo->prepare($sql3);
-		$inlogg_intoDb->execute (array(':useruo' => $user, ':foruo' => $fornamn, ':efteruo' => $efternamn, ':mailuo' => $epost, ':lossuo' => $hashpass, ':teluo' => $tel)); 
+		$inlogg_intoDb->execute (array(':useruo' => $user, ':foruo' => $fornamn, ':efteruo' => $efternamn, ':mailuo' => $epost, ':lossuo' => $hashpass, ':teluo' => $tel, ':poopuo' => $poop)); 
 		
 		//Släng in annan info i db.
 		
