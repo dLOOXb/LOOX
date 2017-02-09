@@ -1,18 +1,23 @@
 <?php session_start(); ?>
 
 <!--
-Need to have: -register a user booking into database -send booking confirmation email to user email -replace connection method to a PDO
-
-Nice to have: -month in Swedish -ability to book a time with several haidressers -ability to unbook time -send confirmation email to hairdresser and/or salon owner
 
 
-date format is : day-month-year (e.g. 04-02-2017)
+date format is : day-month-year (e.g. 04-02-2017 HH:MM:SS)
+
+
+Future features to develop: 
+-month name in swedish 
+-ability to book a time with several haidressers 
+-time unbooking 
+-booking confirmation email to hairdresser, salong owner and user
+
 
 -->
 
 <?php 
 //import config file for db linkage
-require ("config.php");
+require "config.php";
 
 ?>
 
@@ -75,6 +80,17 @@ require ("config.php");
         .event {
             background-color: paleturquoise;
         }
+        
+        
+        .unavailSlot {
+            font-style:italic;
+            color: gainsboro;
+        }
+        
+        li {
+            list-style-type: none;
+        }
+        
     </style>
 
 </head>
@@ -141,14 +157,11 @@ require ("config.php");
         
     if (isset($_GET['add'])){
         
-        $namn = "DummyName";
+        $namn = "DummyName"; //****** take anvandarnam från user session here ******
         $detaljer = $_POST['txtdetail'];
-        $tid = "DummyTid";
-        $behandlareID = 0;
+        $tid = $year."-".$month."-".$day."availSlot";
+        $behandlareID = 0; //**** take behandlareID från navigation path page ****
        
-        
-        //****** Figure out how to grab the usernam from session ****
-        // **** First check that user is logged in?? ***
         
          $STH = $pdo->prepare("INSERT INTO bokadeTider (namn, detaljer, tid, behandlareID)
           VALUES('$namn', '$detaljer', '$tid', '$behandlareID')");
@@ -169,7 +182,7 @@ require ("config.php");
         $_SESSION['sess_user'] = $_POST['user'];
         $_SESSION['userid'] = $pdo->lastInsertId();
         
-        
+    
         
         ///// ***** add a loop here that only leads to this page if booking successfully recorded into db ****
 
@@ -250,15 +263,14 @@ require ("config.php");
                 //adds zero in front of day digit if only one digit
                 if($daylength <= 1){
                     $daystring = "0".$daystring;
-                    
                 }
                 
                 $todaysDate = date("d-m-Y");
                 $dateToCompare = $daystring.'-'.$monthstring.'-'.$year;
+                $dateToCompareSQL = $daystring.':'.$monthstring.':'.$year;
                 
                 //creates cell, prints date inside it
                  echo "<td align='center'";
-                
                 
                 
                 if ($todaysDate == $dateToCompare) {
@@ -266,39 +278,23 @@ require ("config.php");
                 } 
                 
                 /*
-                else {
+                else if ($noOfevent >= 1 ){
                     
+                      //later establish $b as a variable tied to user session and behandlareID
+                    $b=0;
                     
+                    $eventCheckSTMT = $pdo->prepare("SELECT behandlingTid FROM `bokadeTider` WHERE `behandlingTid` LIKE '%$year-$monthstring-$daystring%' AND behandlareID=$b");
                     
-                    ////******* update the below for PDO ***********
+                    try { $eventCheckSTMT->execute();}
+                    catch(PDOException $e){echo $e->getMessage();}
                     
+                    $noOfevent = $eventCheckSTMT->rowCount();
                     
-                    $statement = $pdo->prepare("SELECT * from bokadeTider WHERE tid='".$dateToCompare."'");
-                    
-                    
-`maker`, `pc`.`model`, `speed`, `ram`, `hd`, `price` 
-FROM `pc`
-INNER JOIN `product`
-ON `pc`.`model` = `product`.`model`
-');
-                    
-                    
-                    $sqlCount="select * from bokadeTider where tid='".$dateToCompare."'";
-                    $noOfEvent = mysql_num_rows(mysql_query($sqlCount));
-                    
-                    
-                    
-                    if($noOfevent >= 1 ){
-                        echo "class='event'";
-                        
-                    }
-                    
-                    
-                    
+                        echo "class='event'";  
                     
                 }
                 
-                */
+            */
                 
                 
                 
@@ -320,6 +316,11 @@ ON `pc`.`model` = `product`.`model`
     if(isset($_GET['v'])){
         
         echo "<td align='center'></td>Lediga tider med Bobby den <span style='background: turquoise;'>".$day."-".$month."-".$year."</span>:";
+        
+        /*
+        echo $noOfevent;
+        return $noOfevent;
+        */
         
         include("eventform.php");
         
