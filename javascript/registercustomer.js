@@ -7,7 +7,8 @@ $(document).ready(function(){
     });
   });
 
-$("#create").click(function(){
+$("#create").click(function(event){
+  event.preventDefault();
 /*TODO .has-error*/
 
   var username = $("#username").val();
@@ -17,27 +18,36 @@ $("#create").click(function(){
   var firstname = $("#firstname").val();
   var lastname = $("#lastname").val();
 
+  console.log(username);
+  console.log(password);
+  console.log(email);
+  console.log(phonenumber);
+  console.log(firstname);
+  console.log(lastname);
+
 //If checkbox is checked, send data
   if(document.getElementById("agree").checked){
 
     $.ajax({
-      url: "../backend/register_v2.php?username=",
-      data: { username : username, password : password, email : email,
-      tel : phonenumber, fornamn : firstname, efternamn : lastname },
-      method: "POST",
-      dataType: "JSON"
-    }).done(function(data){
-      console.log("success!!");
-        localStorage.setItem("username", data.username);
-        localStorage.setItem("email", data.email);
-        localStorage.setItem("phonenumber", data.tel);
-        localStorage.setItem("firstname", data.fornamn);
-        localStorage.setItem("lastname", data.efternamn);
-        console.log("More success!!");
-      }).fail(function(){
-      console.log("Failed");
-    });
-    
+        url: "../backend/register_v2.php?username=",
+        data: { username : username, password : password, email : email,
+        tel : phonenumber, fornamn : firstname, efternamn : lastname },
+        method: "POST",
+        dataType: "JSON"
+      }).done(function(data){
+        console.log("success!!");
+          localStorage.setItem("username", data.username);
+          localStorage.setItem("email", data.email);
+          localStorage.setItem("phonenumber", data.tel);
+          localStorage.setItem("firstname", data.fornamn);
+          localStorage.setItem("lastname", data.efternamn);
+          console.log("More success!!");
+        }).fail(function(error, tstatus, actualerror){
+
+        console.log(tstatus);
+        console.log(actualerror);
+      });
+    }
     else {
       alert("Du måste godkänna användarvillkoren!");
     }

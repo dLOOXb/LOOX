@@ -7,8 +7,8 @@ $(document).ready(function(){
     });
   });
 
-$("#create").click(function(){
-
+$("#create").click(function(event){
+event.preventDefault();
   /*TODO .has-error*/
 
     var username = $("#username").val();

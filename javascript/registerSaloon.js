@@ -7,7 +7,8 @@ $("#webbpolicy").click(function(){
   });
 });
 
-$("#create").click(function(){
+$("#create").click(function(event){
+  event.preventDefault();
 /*TODO .has-error*/
 
   var companyName = $("#companyName").val();
@@ -27,7 +28,7 @@ $("#create").click(function(){
 
 //If checkbox is checked, send data
   if(document.getElementById("agree").checked){
-    
+
     $.ajax({
       url: "../backend/register_salong.php?username=",
       data: {salongname : companyName, password : password, email : email,
