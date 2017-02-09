@@ -5851,13 +5851,13 @@ button.close {
   cursor: pointer; }
 
 #imgcol1 {
-  width: 170px; }
+  width: 100%; }
 
 #imgcol2 {
-  width: 170px; }
+  width: 100%; }
 
 #imgcol3 {
-  width: 170px; }
+  width: 100%; }
 
 .columns {
   margin: 40px 0 40px 0; }
@@ -5883,8 +5883,8 @@ body {
     padding-top: 20px; }
   .footer .flex {
     display: flex;
-    justify-content: space-between;
-    align-items: center; }
+    align-items: center;
+    justify-content: flex-end; }
 
 .container .text-muted {
   margin: 20px 0;
@@ -5902,5 +5902,8 @@ body {
 
 .sendButton {
   margin-top: 15px; }
+
+.margin-left-10px {
+  margin-left: 10px; }
 
 /*# sourceMappingURL=layout.css.map */

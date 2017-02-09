@@ -5,11 +5,30 @@ function initMap(){
     zoom: 14,
     center: uluru
 });
+
 var marker = new google.maps.Marker({
   position: uluru,
   map: map
 });
-}
+/* Förberedelse för att ladda in data på kartan
+var urlKarta = "";
+$.getJSON(urlKarta, function(data){
+  //Loopa igenom all data
+  $.each(data, function(key, value) {
+
+    var latLng = new google.maps.LatLng(value.lat, value.lng);
+
+    var marker = new google.maps.Marker({
+        position:   latLng,
+        map:        map,
+        title:      value.name
+        if(value.type==="Frisör"){
+        label : "F"
+      }
+    });
+*/
+});
+
 
 $(document).ready(function(){
   $('.contact').hide();
