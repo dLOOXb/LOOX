@@ -29,7 +29,7 @@ event.preventDefault();
     if(document.getElementById("agree").checked){
 
       $.ajax({
-        url: "../backend/register_behandlare.php?username=",
+        url: "http://localhost/loox/backend/register_behandlare.php", //Ändra url
         data: { username : username, password : password, email : email,
         fornamn : firstname, efternamn : lastname, alias : alias, salongname : saloon,
       facebook : facebook, twitter : twitter, instagram : instagram,
@@ -43,6 +43,13 @@ event.preventDefault();
           localStorage.setItem("phonenumber", data.tel);
           localStorage.setItem("firstname", data.fornamn);
           localStorage.setItem("lastname", data.efternamn);
+          localStorage.setItem("alias", data.alias);
+          localStorage.setItem("companyName", data.salongname);
+          localStorage.setItem("facebook", data.facebook);
+          localStorage.setItem("twitter", data.twitter);
+          localStorage.setItem("instagram", data.instagram);
+          localStorage.setItem("pinterest", data.pintrest);
+          localStorage.setItem("info", data.info);
           console.log("More success!!");
         }).fail(function(){
           console.log("Failed");

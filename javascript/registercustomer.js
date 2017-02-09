@@ -29,7 +29,7 @@ $("#create").click(function(event){
   if(document.getElementById("agree").checked){
 
     $.ajax({
-        url: "../backend/register_v2.php?username=",
+        url: "http://localhost/loox/backend/register_v2.php", //Ändra url
         data: { username : username, password : password, email : email,
         tel : phonenumber, fornamn : firstname, efternamn : lastname },
         method: "POST"

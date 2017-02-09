@@ -30,7 +30,7 @@ $("#create").click(function(event){
   if(document.getElementById("agree").checked){
 
     $.ajax({
-      url: "../backend/register_salong.php?username=",
+      url: "http://localhost/loox/backend/register_salong.php", //Ändra url
       data: {salongname : companyName, password : password, email : email,
       tel : phonenumber, hemsida : webbpage, facebook : facebook, twitter : twitter,
     instagram : instagram, pintrest : pinterest, info : info, gata : address, postnummer : postalcode,
@@ -39,7 +39,18 @@ $("#create").click(function(event){
       dataType: "JSON"
     }).done(function(data){
       console.log("success!!");
-        localStorage.setItem("username", data.username);
+      localStorage.setItem("companyName", data.salongname);
+      localStorage.setItem("email", data.email);
+      localStorage.setItem("phonenumber", data.tel);
+      localStorage.setItem("webbpage", data.hemsida);
+      localStorage.setItem("facebook", data.facebook);
+      localStorage.setItem("twitter", data.twitter);
+      localStorage.setItem("instagram", data.instagram);
+      localStorage.setItem("pinterest", data.pintrest);
+      localStorage.setItem("info", data.info);
+      localStorage.setItem("address", data.gata);
+      localStorage.setItem("postalcode", data.postnummer);
+      localStorage.setItem("postalcity", data.ort);
         console.log("More success!!");
       }).fail(function(){
         console.log("Failed");
