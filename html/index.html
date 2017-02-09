@@ -28,7 +28,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                   <ul class="nav navbar-nav navbar-left">
-                    <li id="aboutUsButton"><a href="#">Om oss</a></li>
+                    <li class="aboutUs"><a href="#">Om oss</a></li>
                     <li data-toggle="modal" data-target="#myModal"><a href="#">Kontakt</a></li>
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -136,7 +136,7 @@
         <div class="col-md-4 col-sm-4 col-xs-12 text-center">
           <img id="imgcol1" src="../pictures/sax.jpg" />
           <p> Aldrig mer en dålig hårdag, vill du veta hur?</p>
-          <a href="">Läs mer..</a>
+          <a class="aboutUs" href="">Läs mer..</a>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12 text-center">
           <img id="imgcol2" src="../pictures/sax.jpg" />
@@ -165,36 +165,38 @@
   <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Dela</a></div>
 -->
 
-
-  <footer class="footer">
-      <div class="container ">
-        <div class="row">
-          <div class="col-md-8  col-sm-8 col-xs-6">
-            <p class="text-muted">© Loox</p>
-          </div>
-          <div class="col-md-4 col-sm-4 col-xs-4 space">
-            <div class="flex">
-              <!-- Twitter -->
-               <a class="twitter-share-button"
-                 href="https://twitter.com/intent/tweet?text=Läs Mer Om Loox här: https://loox.se " >Tweet</a>
-              <a href="https://www.facebook.com/">
-              <img class="social" src="../pictures/facebook.png">
-              </a>
-              <!-- Instagram -->
-              <a href="https://www.instagram.com/">
-              <img class="social" src="../pictures/instagram.png">
-              </a>
+    <footer class="footer">
+        <div class="container ">
+          <div class="row">
+            <div class="col-md-8  col-sm-8 col-xs-6">
+              <p class="text-muted">© Loox</p>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4 space">
+              <div class="flex">
+                <!-- Twitter -->
+                 <a class="twitter-share-button"
+                   href="https://twitter.com/intent/tweet?text=Läs Mer Om Loox här: https://loox.se " >Tweet</a>
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/">
+                <img class="social"  src="../pictures/facebook.png">
+                </a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/">
+                <img class="social" id="instagramSocial" src="../pictures/instagram.png">
+                </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    </footer>
+      </footer>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
     <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
     <script src="../bootstrap/assets/javascripts/bootstrap.js"></script>
     <script src="../javascript/javascript.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYlVGcY8AMg8SJooxNQ9ebks_4aHk3THc&callback=initMap"> </script>
+        <script src="../javascript/about.js"></script>
+
 
   </body>
 

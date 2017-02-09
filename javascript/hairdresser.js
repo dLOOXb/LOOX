@@ -52,6 +52,5 @@ $(document).ready(function(){
 	    	$("#salong").html(data.animal.description);
 	   		$("#profileImage").attr("src", data.animal.img_src);
 	    });
-	// Första Läs mer på startsidan ska länka till Om Oss
 
 });
