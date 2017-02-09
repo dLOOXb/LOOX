@@ -21,9 +21,9 @@ $("#create").click(function(){
   if(document.getElementById("agree").checked){
 
     $.ajax({
-      url: "../backend/register_v2.php?submitReg=1&username="+username+
-      "&password="+password+"&email="+email+"&tel="+phonenumber+
-      "&fornamn="+firstname+"&efternamn="+lastname,
+      url: "../backend/register_v2.php?username=",
+      data: { username : username, password : password, email : email,
+      tel : phonenumber, fornamn : firstname, efternamn : lastname },
       method: "POST",
       dataType: "JSON"
     }).done(function(data){
@@ -34,8 +34,10 @@ $("#create").click(function(){
         localStorage.setItem("firstname", data.fornamn);
         localStorage.setItem("lastname", data.efternamn);
         console.log("More success!!");
-      });
-    }
+      }).fail(function(){
+      console.log("Failed");
+    });
+    
     else {
       alert("Du måste godkänna användarvillkoren!");
     }

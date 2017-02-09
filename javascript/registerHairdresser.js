@@ -26,10 +26,11 @@ $("#create").click(function(){
     var pinterest = $("pinterest").val();
 
   //If checkbox is checked, send data
-    if($("agree").checked){
+    if(document.getElementById("agree").checked){
+
       $.ajax({
         url: "../backend/register_behandlare.php?username=",
-        data: { submitReg : 1, username : username, password : password, email : email,
+        data: { username : username, password : password, email : email,
         fornamn : firstname, efternamn : lastname, alias : alias, salongname : saloon,
       facebook : facebook, twitter : twitter, instagram : instagram,
     pintrest : pinterest, info : info},
@@ -43,6 +44,8 @@ $("#create").click(function(){
           localStorage.setItem("firstname", data.fornamn);
           localStorage.setItem("lastname", data.efternamn);
           console.log("More success!!");
+        }).fail(function(){
+          console.log("Failed");
         });
     }
     else {

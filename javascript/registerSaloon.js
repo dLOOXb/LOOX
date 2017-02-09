@@ -26,10 +26,11 @@ $("#create").click(function(){
 
 
 //If checkbox is checked, send data
-  if($("agree").checked){
+  if(document.getElementById("agree").checked){
+    
     $.ajax({
       url: "../backend/register_salong.php?username=",
-      data: {submitReg : 1, salongname : companyName, password : password, email : email,
+      data: {salongname : companyName, password : password, email : email,
       tel : phonenumber, hemsida : webbpage, facebook : facebook, twitter : twitter,
     instagram : instagram, pintrest : pinterest, info : info, gata : address, postnummer : postalcode,
   ort : postalcity},
@@ -39,6 +40,8 @@ $("#create").click(function(){
       console.log("success!!");
         localStorage.setItem("username", data.username);
         console.log("More success!!");
+      }).fail(function(){
+        console.log("Failed");
       });
     }
 
