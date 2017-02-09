@@ -1,8 +1,10 @@
 <?php session_start(); ?>
 
+<!--- OBS!! TEMPORARY DUMMY FILE ONLY. 
+Athena responsible for finale file.
+-->
 
 <!DOCTYPE>
-
 
 <html>
     <head>
