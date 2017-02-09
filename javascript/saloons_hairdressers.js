@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
-  $("#companies").click(function (){
+  $("#companies").click(function (event){
+    event.preventDefault();
+    
     $("#companies").addClass("active-h1");
     $("#companies").removeClass("not-active");
     $("#hairdressers").addClass("not-active");
@@ -25,7 +27,9 @@ $(document).ready(function() {
       });*/
     });
 
-  $("#hairdressers").click(function (){
+  $("#hairdressers").click(function (event){
+    event.preventDefault();
+
     $("#hairdressers").addClass("active-h1");
     $("#hairdressers").removeClass("not-active");
     $("#companies").addClass("not-active");
