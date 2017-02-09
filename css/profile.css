@@ -30,10 +30,24 @@ a, a:hover {
 #logUt {
   font-size: 16px;
   color: #ffffff;
-  margin-left: 20px; }
+  margin-left: 15px;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 5px;
+  margin-right: 5px; }
 
 .myPLogO {
   display: flex;
   flex-direction: row; }
+
+#logUt:hover {
+  color: lightgrey;
+  border-color: lightgrey; }
+
+#myProfile:hover {
+  color: lightgrey; }
+
+#changeButton:hover {
+  background-color: #0047b3; }
 
 /*# sourceMappingURL=profile.css.map */
