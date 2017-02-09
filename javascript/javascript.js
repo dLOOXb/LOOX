@@ -28,7 +28,7 @@ $.getJSON(urlKarta, function(data){
       }
     });
 */
-});
+};
 
 
 $(document).ready(function(){

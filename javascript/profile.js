@@ -3,5 +3,6 @@ $(document).ready(function(){
 				$("#username").val(data.animal.name);
 				$("#firstname").val(data.animal.description);
 				$("#phonenumber").val(data.maxAnimalId);
+				$("#lastname").val(data.animalId);
 	});
 });
