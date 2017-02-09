@@ -10,6 +10,7 @@ var marker = new google.maps.Marker({
   position: uluru,
   map: map
 });
+
 /* Förberedelse för att ladda in data på kartan
 var urlKarta = "";
 $.getJSON(urlKarta, function(data){
