@@ -32,8 +32,7 @@ $("#create").click(function(event){
         url: "../backend/register_v2.php?username=",
         data: { username : username, password : password, email : email,
         tel : phonenumber, fornamn : firstname, efternamn : lastname },
-        method: "POST",
-        dataType: "JSON"
+        method: "POST"
       }).done(function(data){
         console.log("success!!");
           localStorage.setItem("username", data.username);

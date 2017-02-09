@@ -15,7 +15,7 @@ var marker = new google.maps.Marker({
 var urlKarta = "";
 $.getJSON(urlKarta, function(data){
   //Loopa igenom all data
-  $.each(data, function(key, value) {
+  $.each(data, function(value) {
 
     var latLng = new google.maps.LatLng(value.lat, value.lng);
 
