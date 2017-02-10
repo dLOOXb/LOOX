@@ -39,8 +39,8 @@ $(document).ready(function(){
      var login = 1;
     var usernameLog = $("#navbar-username").val();
     var passwordlog = $("#navbar-password").val();
-    console.log(username);
-    console.log(password);
+    console.log(usernameLog);
+    console.log(passwordlog);
     $.post( "login.php", { username: usernameLog, password: passwordlog, submitLogin: login } )
         .done(function( data ) {
           if(data.inloggad == 1){ 
@@ -51,8 +51,10 @@ $(document).ready(function(){
             localStorage.setItem("firstname", data.fornamn);
             localStorage.setItem("firstname", data.efternamn);
           }
-        }).fail(function(data){
+        }).fail(function(data, tsatus, fel){
             console.log(data);
+            console.log(tsatus);
+            console.log(fel);
         });
 
   });
