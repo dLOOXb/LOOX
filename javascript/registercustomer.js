@@ -25,7 +25,7 @@ $("#create").click(function(event){
         $(arr[p].id).addClass("error");
     }
   }
-  for(var i=0; arr.length; i++){
+  for(var i=0; i<arr.length; i++){
       if(arr[i].val==""){
           alert("Var god fyll i alla röda fält!");
           return;

@@ -24,7 +24,7 @@ $("#create").click(function(event){
   var address = {val:$("address").val(), id:'#address'};
   var postalcode = {val:$("postalcode").val(), id:'#postalcode'};
   var pastalcity = {val:$("postalcity").val(), id:'#postalcity'};
-  var arr = [companyName, email, password, webbpage, info, address, postalcode, postalcity];
+  var arr = [companyName, email, phonenumber, password, webbpage, info, address, postalcode, postalcity];
 
   for(var p=0; p<arr.length; p++){
     $(arr[p].id).removeClass("error");
@@ -32,7 +32,7 @@ $("#create").click(function(event){
         $(arr[p].id).addClass("error");
     }
   }
-  for(var i=0; arr.length; i++){
+  for(var i=0; i<arr.length; i++){
       if(arr[i].val==""){
           alert("Var god fyll i alla röda fält!");
           return;
