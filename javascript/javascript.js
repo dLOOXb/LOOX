@@ -45,12 +45,14 @@ $(document).ready(function(){
         .done(function( data ) {
           if(data.inloggad == 1){ 
           alert("Success");
-          localStorage.setItem("username", data.username);
-          localStorage.setItem("email", data.email);
-          localStorage.setItem("phonenumber", data.tel);
-          localStorage.setItem("firstname", data.fornamn);
-          localStorage.setItem("firstname", data.efternamn);
+            localStorage.setItem("username", data.username);
+            localStorage.setItem("email", data.email);
+            localStorage.setItem("phonenumber", data.tel);
+            localStorage.setItem("firstname", data.fornamn);
+            localStorage.setItem("firstname", data.efternamn);
           }
+        }).fail(function(data){
+            console.log(data);
         });
 
   });
