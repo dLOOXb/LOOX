@@ -45,8 +45,8 @@ $("#create").click(function(event){
 
     $.ajax({
         url: "http://localhost/loox/backend/register_v2.php", //Ändra url
-        data: { username : username, password : password, email : email,
-        tel : phonenumber, fornamn : firstname, efternamn : lastname },
+        data: { username : username.val, password : password.val, email : email.val,
+        tel : phonenumber.val, fornamn : firstname.val, efternamn : lastname.val },
         method: "POST"
       }).done(function(data){
         console.log("success!!");

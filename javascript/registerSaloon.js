@@ -17,19 +17,21 @@ $("#create").click(function(event){
   var password = {val:$("#password").val(), id:'#password'};
   var webbpage = {val:$("#webbpage").val(), id:'#webbpage'};
   var facebook = $("#facebook").val();
-  var instagram = $("instagram").val();
-  var twitter = $("twitter").val();
-  var pinterest = $("pinterest").val();
-  var info = {val:$("info").val(), id:'#info'};
-  var address = {val:$("address").val(), id:'#address'};
-  var postalcode = {val:$("postalcode").val(), id:'#postalcode'};
-  var pastalcity = {val:$("postalcity").val(), id:'#postalcity'};
+  var instagram = $("#instagram").val();
+  var twitter = $("#twitter").val();
+  var pinterest = $("#pinterest").val();
+  var info = {val:$("#info").val(), id:'#info'};
+  var address = {val:$("#address").val(), id:'#address'};
+  var postalcode = {val:$("#postalcode").val(), id:'#postalcode'};
+  var pastalcity = {val:$("#postalcity").val(), id:'#postalcity'};
   var arr = [companyName, email, phonenumber, password, webbpage, info, address, postalcode, postalcity];
+
 
   for(var p=0; p<arr.length; p++){
     $(arr[p].id).removeClass("error");
     if(arr[p].val==""){
         $(arr[p].id).addClass("error");
+        console.log(arr[p].id);
     }
   }
   for(var i=0; i<arr.length; i++){
@@ -44,10 +46,10 @@ $("#create").click(function(event){
 
     $.ajax({
       url: "http://localhost/loox/backend/register_salong.php", //Ändra url
-      data: {salongname : companyName, password : password, email : email,
-      tel : phonenumber, hemsida : webbpage, facebook : facebook, twitter : twitter,
-      instagram : instagram, pintrest : pinterest, info : info, gata : address, postnummer : postalcode,
-      ort : postalcity},
+      data: {salongname : companyName.val, password : password.val, email : email.val,
+      tel : phonenumber.val, hemsida : webbpage.val, facebook : facebook, twitter : twitter,
+      instagram : instagram, pintrest : pinterest, info : info.val, gata : address.val, postnummer : postalcode.val,
+      ort : postalcity.val},
       method: "POST",
       dataType: "JSON"
     }).done(function(data){

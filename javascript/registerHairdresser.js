@@ -17,15 +17,15 @@ event.preventDefault();
     var phonenumber = $("#phonenumber").val();
     var firstname = {val:$("#firstname").val(), id:'#firstname'};
     var lastname = {val:$("#lastname").val(), id:'#lastname'};
-    var alias = {val:$("#alias").val(), id:'#alias'};
-    var saloon = $("")
-    var workTitle = $("").val();
-    var info = {val:$("#info").val(), id:"#alias"};
-    var facebook = $("facebook").val();
-    var instagram = $("instagram").val();
-    var twitter = $("twitter").val();
-    var pinterest = $("pinterest").val();
-    var arr =[username, password, email, firstname, lastname, alias, info];
+    var alias = $("#alias").val();
+    //var saloon = $("")
+  //  var workTitle = $("").val();
+    var info = {val:$("#info").val(), id:"#info"};
+    var facebook = $("#facebook").val();
+    var instagram = $("#instagram").val();
+    var twitter = $("#twitter").val();
+    var pinterest = $("#pinterest").val();
+    var arr =[username, password, email, firstname, lastname, info];
 
     //Loopa igenom och se så att alla obligatoriska fält är ifyllda
     for(var p=0; p<arr.length; p++){
@@ -46,17 +46,16 @@ event.preventDefault();
 
       $.ajax({
         url: "http://localhost/loox/backend/register_behandlare.php", //Ändra url
-        data: { username : username, password : password, email : email,
-        fornamn : firstname, efternamn : lastname, alias : alias, salongname : saloon,
+        data: { username : username.val, password : password.val, email : email.val,
+        fornamn : firstname.val, efternamn : lastname.val, alias : alias,
         facebook : facebook, twitter : twitter, instagram : instagram,
-        pintrest : pinterest, info : info},
+        pintrest : pinterest, info : info.val},
         method: "POST",
         dataType: "JSON"
       }).done(function(data){
         console.log("success!!");
           localStorage.setItem("username", data.username);
           localStorage.setItem("email", data.email);
-          localStorage.setItem("phonenumber", data.tel);
           localStorage.setItem("firstname", data.fornamn);
           localStorage.setItem("lastname", data.efternamn);
           localStorage.setItem("alias", data.alias);
