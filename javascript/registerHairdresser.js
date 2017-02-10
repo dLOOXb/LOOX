@@ -48,8 +48,8 @@ event.preventDefault();
         url: "http://localhost/loox/backend/register_behandlare.php", //Ändra url
         data: { username : username, password : password, email : email,
         fornamn : firstname, efternamn : lastname, alias : alias, salongname : saloon,
-      facebook : facebook, twitter : twitter, instagram : instagram,
-    pintrest : pinterest, info : info},
+        facebook : facebook, twitter : twitter, instagram : instagram,
+        pintrest : pinterest, info : info},
         method: "POST",
         dataType: "JSON"
       }).done(function(data){

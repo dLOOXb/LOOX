@@ -46,8 +46,8 @@ $("#create").click(function(event){
       url: "http://localhost/loox/backend/register_salong.php", //Ändra url
       data: {salongname : companyName, password : password, email : email,
       tel : phonenumber, hemsida : webbpage, facebook : facebook, twitter : twitter,
-    instagram : instagram, pintrest : pinterest, info : info, gata : address, postnummer : postalcode,
-  ort : postalcity},
+      instagram : instagram, pintrest : pinterest, info : info, gata : address, postnummer : postalcode,
+      ort : postalcity},
       method: "POST",
       dataType: "JSON"
     }).done(function(data){
