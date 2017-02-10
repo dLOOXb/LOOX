@@ -2,6 +2,7 @@
 	session_start();
 	require "config.php";
 			
+	header('Access-Control-Allow-Origin: *');
 	
 	//Finns 
 	if (isset($_POST['username'])){
@@ -13,7 +14,7 @@
 		$tel = $_POST['tel'];
 		$fornamn = $_POST['fornamn'];
 		$efternamn = $_POST['efternamn'];
-		$poop = "kund";
+		$poop = "admin";
 		
 		
 		//Kolla efter tomma fält. Om tomma: stopa koden.
@@ -76,7 +77,7 @@
 		
 		//Skicka tillbaka JSON till front-end
 		
-		$data = ["username" => $user, "email" => $epost, "phonenumber" => $tel, "firstname" => $fornamn, "lastname" => $efternamn];
+		$data = ["username" => $user, "email" => $epost, "tel" => $tel, "fornamn" => $fornamn, "efternamn" => $efternamn];
 		
 		echo json_encode($data);
 		
