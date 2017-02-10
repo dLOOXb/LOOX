@@ -50,4 +50,8 @@ line {
   #btndropdown ul {
     width: 100%; }
 
+  .error {
+      border: 1.3px solid #D10F02;
+    }
+
 /*# sourceMappingURL=register.css.map */

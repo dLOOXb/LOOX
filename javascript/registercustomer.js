@@ -11,12 +11,27 @@ $("#create").click(function(event){
   event.preventDefault();
 /*TODO .has-error*/
 
-  var username = $("#username").val();
-  var password = $("#password").val();
-  var email = $("#email").val();
-  var phonenumber = $("#phonenumber").val();
-  var firstname = $("#firstname").val();
-  var lastname = $("#lastname").val();
+  var username = {val:$("#username").val(), id:'#username'};
+  var password = {val:$("#password").val(), id:'#password'};
+  var email = {val:$("#email").val(), id:'#email'};
+  var phonenumber = {val:$("#phonenumber").val(), id:'#phonenumber'};
+  var firstname = {val:$("#firstname").val(), id:'#firstname'};
+  var lastname = {val:$("#lastname").val(), id:'#lastname'};
+  var arr = [username, password, email, firstname, lastname];
+
+  for(var p=0; p<arr.length; p++){
+    $(arr[p].id).removeClass("error");
+    if(arr[p].val==""){
+        $(arr[p].id).addClass("error");
+    }
+  }
+  for(var i=0; arr.length; i++){
+      if(arr[i].val==""){
+          alert("Var god fyll i alla röda fält!");
+          return;
+        }
+    }
+
 
   console.log(username);
   console.log(password);

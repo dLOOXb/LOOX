@@ -11,20 +11,33 @@ $("#create").click(function(event){
   event.preventDefault();
 /*TODO .has-error*/
 
-  var companyName = $("#companyName").val();
-  var email = $("#email").val();
-  var phonenumber = $("#phonenumber").val();
-  var password = $("#password").val();
-  var webbpage = $("#webbpage").val();
+  var companyName = {val:$("#companyName").val(), id:'#companyName'};
+  var email = {val:$("#email").val(), id:'#email'};
+  var phonenumber = {val:$("#phonenumber").val(), id:'#phonenumber'};
+  var password = {val:$("#password").val(), id:'#password'};
+  var webbpage = {val:$("#webbpage").val(), id:'#webbpage'};
   var facebook = $("#facebook").val();
   var instagram = $("instagram").val();
   var twitter = $("twitter").val();
   var pinterest = $("pinterest").val();
-  var info = $("info").val();
-  var address = $("address").val();
-  var postalcode = $("postalcode").val();
-  var pastalcity = $("postalcity").val();
+  var info = {val:$("info").val(), id:'#info'};
+  var address = {val:$("address").val(), id:'#address'};
+  var postalcode = {val:$("postalcode").val(), id:'#postalcode'};
+  var pastalcity = {val:$("postalcity").val(), id:'#postalcity'};
+  var arr = [companyName, email, password, webbpage, info, address, postalcode, postalcity];
 
+  for(var p=0; p<arr.length; p++){
+    $(arr[p].id).removeClass("error");
+    if(arr[p].val==""){
+        $(arr[p].id).addClass("error");
+    }
+  }
+  for(var i=0; arr.length; i++){
+      if(arr[i].val==""){
+          alert("Var god fyll i alla röda fält!");
+          return;
+        }
+    }
 
 //If checkbox is checked, send data
   if(document.getElementById("agree").checked){

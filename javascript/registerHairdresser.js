@@ -11,19 +11,35 @@ $("#create").click(function(event){
 event.preventDefault();
   /*TODO .has-error*/
 
-    var username = $("#username").val();
-    var password = $("#password").val();
-    var email = $("#email").val();
+    var username = {val:$("#username").val(), id:'#username'};
+    var password = {val:$("#password").val(), id:'#password'};
+    var email = {val:$("#email").val(), id:'#email'};
     var phonenumber = $("#phonenumber").val();
-    var firstname = $("#firstname").val();
-    var lastname = $("#lastname").val();
-    var alias = $("#alias").val();
+    var firstname = {val:$("#firstname").val(), id:'#firstname'};
+    var lastname = {val:$("#lastname").val(), id:'#lastname'};
+    var alias = {val:$("#alias").val(), id:'#alias'};
     var saloon = $("")
     var workTitle = $("").val();
+    var info = {val:$("#info").val(), id:"#alias"};
     var facebook = $("facebook").val();
     var instagram = $("instagram").val();
     var twitter = $("twitter").val();
     var pinterest = $("pinterest").val();
+    var arr =[username, password, email, firstname, lastname, alias, info];
+
+    //Loopa igenom och se så att alla obligatoriska fält är ifyllda
+    for(var p=0; p<arr.length; p++){
+      $(arr[p].id).removeClass("error");
+      if(arr[p].val==""){
+          $(arr[p].id).addClass("error");
+      }
+    }
+    for(var i=0; arr.length; i++){
+        if(arr[i].val==""){
+            alert("Var god fyll i alla röda fält!");
+            return;
+          }
+      }
 
   //If checkbox is checked, send data
     if(document.getElementById("agree").checked){
