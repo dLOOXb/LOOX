@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-//Läs in webbpolicy.html
+//Read webbpolicy.html when it is clicked
 $("#webbpolicy").click(function(){
   $.get("./webbpolicy.html", function(data){
     $(".modal-body").html(data);
@@ -9,7 +9,6 @@ $("#webbpolicy").click(function(){
 
 $("#create").click(function(event){
   event.preventDefault();
-/*TODO .has-error*/
 
   var companyName = {val:$("#companyName").val(), id:'#companyName'};
   var email = {val:$("#email").val(), id:'#email'};
@@ -26,7 +25,7 @@ $("#create").click(function(event){
   var pastalcity = {val:$("#postalcity").val(), id:'#postalcity'};
   var arr = [companyName, email, phonenumber, password, webbpage, info, address, postalcode, postalcity];
 
-
+//Check that all required fields are filled in
   for(var p=0; p<arr.length; p++){
     $(arr[p].id).removeClass("error");
     if(arr[p].val==""){
@@ -34,6 +33,7 @@ $("#create").click(function(event){
         console.log(arr[p].id);
     }
   }
+  //Otherwise add error-class (red border)
   for(var i=0; i<arr.length; i++){
       if(arr[i].val==""){
           alert("Var god fyll i alla röda fält!");
@@ -67,8 +67,10 @@ $("#create").click(function(event){
       localStorage.setItem("postalcode", data.postnummer);
       localStorage.setItem("postalcity", data.ort);
         console.log("More success!!");
-      }).fail(function(){
-        console.log("Failed");
+      }).fail(function(error, tstatus, actualerror){
+
+      console.log(tstatus);
+      console.log(actualerror);
       });
     }
 
@@ -78,24 +80,23 @@ $("#create").click(function(event){
   }); //Close click
 
   /*Twitter*/
-          window.twttr = (function(d, s, id) {
-           var js, fjs = d.getElementsByTagName(s)[0],
-             t = window.twttr || {};
-           if (d.getElementById(id)) return t;
-           js = d.createElement(s);
-           js.id = id;
-           js.src = "https://platform.twitter.com/widgets.js";
-           fjs.parentNode.insertBefore(js, fjs);
+  window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    js.parentNode.insertBefore(js, fjs);
 
-           t._e = [];
-           t.ready = function(f) {
-             t._e.push(f);
-           };
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
 
-           return t;
-          }
-          (document, "script", "twitter-wjs"));
-
+    return t;
+  }
+  (document, "script", "twitter-wjs"));
 
 
 });

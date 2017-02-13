@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   $("#companies").click(function (event){
     event.preventDefault();
-    
+
     $("#companies").addClass("active-h1");
     $("#companies").removeClass("not-active");
     $("#hairdressers").addClass("not-active");
@@ -54,28 +54,29 @@ $(document).ready(function() {
       });
   });*/
   });
-
+//Toggle active / not active tag when clicked
   $("#tagsDiv > .tag").click(function(){
     $(this).toggleClass("active-tag");
+    //TODO get sorted data from API
   });
 
   /*Twitter*/
-          window.twttr = (function(d, s, id) {
-           var js, fjs = d.getElementsByTagName(s)[0],
-             t = window.twttr || {};
-           if (d.getElementById(id)) return t;
-           js = d.createElement(s);
-           js.id = id;
-           js.src = "https://platform.twitter.com/widgets.js";
-           fjs.parentNode.insertBefore(js, fjs);
+  window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
 
-           t._e = [];
-           t.ready = function(f) {
-             t._e.push(f);
-           };
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
 
-           return t;
-          }
-          (document, "script", "twitter-wjs"));
+    return t;
+  }
+  (document, "script", "twitter-wjs"));
 
 });
