@@ -31,7 +31,54 @@ $.getJSON(urlKarta, function(data){
 };
 
 $(document).ready(function(){
-  $('.contact').hide();
+  
+  // Förberedelse för login
+  
+  $("#loggaIn").click(function(e){
+    e.preventDefault();
+     var login = 1;
+    var usernameLog = $("#navbar-username").val();
+    var passwordlog = $("#navbar-password").val();
+    console.log(usernameLog);
+    console.log(passwordlog);
+    $.post( "login.php", { username: usernameLog, password: passwordlog, submitLogin: login } )
+        .done(function( data ) {
+          if(data.inloggad == 1){ 
+          alert("Success");
+            localStorage.setItem("username", data.username);
+            localStorage.setItem("email", data.email);
+            localStorage.setItem("phonenumber", data.tel);
+            localStorage.setItem("firstname", data.fornamn);
+            localStorage.setItem("firstname", data.efternamn);
+          }
+        }).fail(function(data, tsatus, fel){
+            console.log(data);
+            console.log(tsatus);
+            console.log(fel);
+        });
+
+  });
+
+
+// Förberedelse för logut
+$("#logUt").click(function(e){
+    e.preventDefault();
+    var logut = 1;
+    var usernameLog = $("#navbar-username").val();
+    
+    $.post( "logut.php", {anvandarnamn: usernameLog, loggut: logut} )
+        .done(function(data ) {
+          if(data.utloggad == 1){ 
+           alert("You have been logged out");
+            
+          }
+        });
+
+  });
+
+
+
+
 
   $("#card").flip();
   $("#card2").flip();
