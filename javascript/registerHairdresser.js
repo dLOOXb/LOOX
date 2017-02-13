@@ -26,17 +26,17 @@ event.preventDefault();
     var pinterest = $("#pinterest").val();
     var arr =[username, password, email, firstname, lastname, info];
 
-  //Check that all required fields are filled in
-    for(var p=0; p<arr.length; p++){
-      $(arr[p].id).removeClass("error");
-      if(arr[p].val==""){
-          $(arr[p].id).addClass("error");
-      }
-    }
     //Otherwise add error-class (red border)
     for(var i=0; i<arr.length; i++){
         if(arr[i].val==""){
             alert("Var god fyll i alla röda fält!");
+            arr.forEach(function(item){
+              if(item.val===""){ //If field is empty add error-class
+                $(item.id).addClass("error");
+              }
+              else //Else delete error-remove
+              $(item.id).removeClass("error");
+            });
             return;
           }
       }
