@@ -1,5 +1,10 @@
+.today a {
+    color: white;
+}
+
 .today {
-    background-color: #ffd8ca;
+    
+    background-color: black;
 }
 
 .event {

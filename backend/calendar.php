@@ -104,7 +104,7 @@ require "config.php";
                 
                $selectedHour = $_POST['availSlot'];
                 $tid = $year."-".$month."-".$day." ".$selectedHour;
-                $namn = "DummyName"; //****** take anvandarnam från user session here ******
+                $namn = "Dummy Name"; //****** take user name with super global variable    $_SESSION['id'];
                 $detaljer = $_POST['txtdetail'];
        
                 $behandlareID = 0; //**** take behandlareID från navigation path page ****
@@ -128,9 +128,9 @@ require "config.php";
               //////  $_SESSION['id'];
                 
         
-        $_SESSION['sess_id'] = $pdo->lastInsertId() . date("z");
-        $_SESSION['sess_user'] = $_POST['user'];
-        $_SESSION['userid'] = $pdo->lastInsertId();
+       // $_SESSION['sess_id'] = $pdo->lastInsertId() . date("z");
+       // $_SESSION['sess_user'] = $_POST['user'];
+       // $_SESSION['userid'] = $pdo->lastInsertId();
         
     
         
