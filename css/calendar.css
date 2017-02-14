@@ -1,0 +1,16 @@
+.today {
+    background-color: #ffd8ca;
+}
+
+.event {
+    background-color: paleturquoise;
+}
+
+.unavailSlot {
+    font-style: italic;
+    color: gainsboro;
+}
+
+li {
+    list-style-type: none;
+}
