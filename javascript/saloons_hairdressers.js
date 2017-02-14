@@ -8,7 +8,7 @@ $(document).ready(function() {
     $("#hairdressers").addClass("not-active");
     $("#hairdressers").removeClass("active-h1");
 
-    //AJAX för att läsa in lista på företag
+    //AJAX to read company names for the saloons
     var url ="http://localhost/loox/backend/saloger.php";
       $.getJSON(url, function(data){
         let htmlText = "";
@@ -35,16 +35,16 @@ $(document).ready(function() {
     $("#companies").addClass("not-active");
     $("#companies").removeClass("active-h1");
 
-    //AJAX för att läsa in lista på frisörer
-  /*  var url ="";
+    //AJAX to read hairdressers name
+    var url ="http://localhost/loox/backend/frisorer.php"; //Ändra url
       $.getJSON(url, function(data){
         let htmlText;
         for(let item of data){
 
           htmlText += "<div class='row'><div class='col-md-5 col-sm-5 col-xs-6'>"
-          + "<img class='logo' src=''../pictures/sax.jpg'/></div>"
+          + "<img class='logo' src=''../pictures/looxsax.jpg'/></div>"
           + "</div><div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
-          + "<h4><a href='" + item.hemsida + "'>" + item.fornamn + "</a></h4>"
+          + "<h4><a href='" + item.hemsida + "'>" + item.fornamn + " " + item.efternamn + "</a></h4>"
           + "<p><em>" + item.gata + ", " + item.postnummer + " " + item.ort + "</em></p>"
           + "<p>" + item.info + "</p>"
           + "</div><line></line></div>";
@@ -52,7 +52,7 @@ $(document).ready(function() {
         }
         $("#listData").html(htmlText);
       });
-  });*/
+  });
   });
 //Toggle active / not active tag when clicked
   $("#tagsDiv > .tag").click(function(){

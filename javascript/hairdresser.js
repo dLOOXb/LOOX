@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
- 
+
 	// Increase size if mouseover
 	$('#twitter').mouseover(function(){
 		$(this).css("height", "35px");
@@ -35,12 +35,33 @@ $(document).ready(function(){
         $(".rating span").removeClass('checked');
         $(this).parent().addClass('checked');
     });
-    
+
     // Sparar värdet som en variabel
     $('input:radio').change(function(){
         var userRating = this.value;
-    }); 
+    });
 
+
+    /*Twitter*/
+    window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }
+    (document, "script", "twitter-wjs"));
+
+/*
     // Hämtar Namn och kontakt uppgifter till frisören
     $.getJSON("http://mardby.se/AJK15G/animals_json.php?animalId=10",function(data){
     	$("#firstName").html(data.animal.name);
@@ -51,6 +72,6 @@ $(document).ready(function(){
 	    	$("#lastName").html(data.animal.name);
 	    	$("#salong").html(data.animal.description);
 	   		$("#profileImage").attr("src", data.animal.img_src);
-	    });
+	    });*/
 
 });

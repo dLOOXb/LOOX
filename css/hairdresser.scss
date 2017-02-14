@@ -5,8 +5,11 @@ $default-color: #09A0EF;
 }
 
 
-a, a:hover { 
-	text-decoration:none; 
+a, a:hover {
+	text-decoration:none;
+}
+.profile h1 {
+	display: inline;
 }
 
 h1{
