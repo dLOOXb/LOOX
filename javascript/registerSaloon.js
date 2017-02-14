@@ -25,18 +25,17 @@ $("#create").click(function(event){
   var pastalcity = {val:$("#postalcity").val(), id:'#postalcity'};
   var arr = [companyName, email, phonenumber, password, webbpage, info, address, postalcode, postalcity];
 
-//Check that all required fields are filled in
-  for(var p=0; p<arr.length; p++){
-    $(arr[p].id).removeClass("error");
-    if(arr[p].val==""){
-        $(arr[p].id).addClass("error");
-        console.log(arr[p].id);
-    }
-  }
-  //Otherwise add error-class (red border)
+  //Add error-class (red border)
   for(var i=0; i<arr.length; i++){
       if(arr[i].val==""){
           alert("Var god fyll i alla röda fält!");
+          arr.forEach(function(item){
+            if(item.val===""){ //If field is empty add error-class
+              $(item.id).addClass("error");
+            }
+            else //Else delete error-remove
+            $(item.id).removeClass("error");
+          });
           return;
         }
     }
@@ -68,12 +67,10 @@ $("#create").click(function(event){
       localStorage.setItem("postalcity", data.ort);
         console.log("More success!!");
       }).fail(function(error, tstatus, actualerror){
-
       console.log(tstatus);
       console.log(actualerror);
       });
     }
-
     else {
       alert("Du måste godkänna användarvillkoren!");
     }

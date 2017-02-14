@@ -9,13 +9,13 @@ $(document).ready(function() {
     $("#hairdressers").removeClass("active-h1");
 
     //AJAX för att läsa in lista på företag
-  /*  var url ="";
+  /*  var url ="http://localhost/loox/backend/saloger.php";
       $.getJSON(url, function(data){
         var htmlText;
-        for(var item in data){
+        for(let item in data){
 
           htmlText += "<div class='row'><div class='col-md-5 col-sm-5 col-xs-6'>"
-          + "<img class='logo' src=''../pictures/sax.jpg'/></div>"
+          + "<img class='logo' src=''../pictures/looxsax.jpg'/></div>"
           + "</div><div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
           + "<h4><a href='" + data.hemsida + "'>" + data.salongname + "</a></h4>"
           + "<p><em>" + data.gata + ", " + data.postnummer + " " + data.ort + "</em></p>"

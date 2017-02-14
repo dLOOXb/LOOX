@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  //Läs in webbpolicy.html
+//Read webbpolicy.html when it is clicked
   $("#webbpolicy").click(function(){
     $.get("./webbpolicy.html", function(data){
       $(".modal-body").html(data);
@@ -9,7 +9,6 @@ $(document).ready(function(){
 
 $("#create").click(function(event){
   event.preventDefault();
-/*TODO .has-error*/
 
   var username = {val:$("#username").val(), id:'#username'};
   var password = {val:$("#password").val(), id:'#password'};
@@ -19,28 +18,20 @@ $("#create").click(function(event){
   var lastname = {val:$("#lastname").val(), id:'#lastname'};
   var arr = [username, password, email, firstname, lastname];
 
-//Check that all required fields are filled in
-  for(var p=0; p<arr.length; p++){
-    $(arr[p].id).removeClass("error");
-    if(arr[p].val==""){
-        $(arr[p].id).addClass("error");
-    }
-  }
-  //Otherwise add error-class (red border)
+  //Add error-class (red border)
   for(var i=0; i<arr.length; i++){
       if(arr[i].val==""){
           alert("Var god fyll i alla röda fält!");
+          arr.forEach(function(item){
+            if(item.val===""){ //If field is empty add error-class
+              $(item.id).addClass("error");
+            }
+            else //Else delete error-remove
+            $(item.id).removeClass("error");
+          });
           return;
         }
     }
-
-
-  console.log(username);
-  console.log(password);
-  console.log(email);
-  console.log(phonenumber);
-  console.log(firstname);
-  console.log(lastname);
 
 //If checkbox is checked, send data
   if(document.getElementById("agree").checked){
@@ -59,7 +50,6 @@ $("#create").click(function(event){
           localStorage.setItem("lastname", data.efternamn);
           console.log("More success!!");
         }).fail(function(error, tstatus, actualerror){
-
         console.log(tstatus);
         console.log(actualerror);
       });
