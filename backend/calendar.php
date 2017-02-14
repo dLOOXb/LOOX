@@ -23,32 +23,8 @@ require "config.php";
     <meta name="viewport" content="initial-scale=1, width=device-width">
     <title>LOOX</title>
     <link type="text/css" rel="stylesheet" href="../css/layout.css" />
-    <link type="text/css" rel="stylesheet" href="../css/hairdresser.css" />
+    <link type="text/css" rel="stylesheet" href="../css/calendar.css" />
     
-
-
-    
-
-
-    <style>
-        .today {
-            background-color: #ffd8ca;
-        }
-        
-        .event {
-            background-color: paleturquoise;
-        }
-        
-        .unavailSlot {
-            font-style: italic;
-            color: gainsboro;
-        }
-        
-        li {
-            list-style-type: none;
-        }
-
-    </style>
 
 </head>
 
@@ -114,9 +90,13 @@ require "config.php";
     
     ?>
 
-        <?php
-        
-    
+       
+       
+       
+       
+       
+       
+        <?php    
         
         if (isset($_POST['btnadd'])) {
             
@@ -286,30 +266,35 @@ require "config.php";
                 //add one, so we can process the next cell position
                 $cellCounter++;
             }
-            
-            
           
             ?>
 
+           
+           
+           
+           
+           
             </table>
             <br>
 
+           
+           
+           
+           <div>
             <?php 
     
     if(isset($_GET['v'])){
         
         echo "<td align='center'></td>Lediga tider med Jenny den <span style='color: white; background: black;'>".$day."-".$month."-".$year."</span>:";
         
-        /*
-        echo $noOfevent;
-        return $noOfevent;
-        */
-        
         include("eventform.php");
         
     }
     ?>
     
+</div>
+   
+   
     
     <script>
         //navigate to previous month
