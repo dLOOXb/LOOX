@@ -1,4 +1,5 @@
 <?php 
+	session_start();
 	require "config.php";
 
 	//Loopar igenom alla salongnamn som finns i DB och skriver ut dem som json.
