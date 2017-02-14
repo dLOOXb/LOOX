@@ -9,22 +9,22 @@ $(document).ready(function() {
     $("#hairdressers").removeClass("active-h1");
 
     //AJAX för att läsa in lista på företag
-  /*  var url ="";
+    var url ="http://localhost/loox/backend/saloger.php";
       $.getJSON(url, function(data){
-        var htmlText;
-        for(var item in data){
+        let htmlText = "";
+        for(let item of data){
 
           htmlText += "<div class='row'><div class='col-md-5 col-sm-5 col-xs-6'>"
-          + "<img class='logo' src=''../pictures/sax.jpg'/></div>"
+          + "<img class='logo' src='../pictures/looxsax.jpg'></div>"
           + "</div><div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
-          + "<h4><a href='" + data.hemsida + "'>" + data.salongname + "</a></h4>"
-          + "<p><em>" + data.gata + ", " + data.postnummer + " " + data.ort + "</em></p>"
-          + "<p>" + data.info + "</p>"
+          + "<h4><a href='" + item.hemsida + "'>" + item.salong + "</a></h4>"
+          + "<p><em>" + item.gata + ", " + item.postnummer + " " + item.ort + "</em></p>"
+          + "<p>" + item.info + "</p>"
           + "</div><line></line></div>";
 
         }
         $("#listData").html(htmlText);
-      });*/
+      });
     });
 
   $("#hairdressers").click(function (event){
@@ -38,15 +38,15 @@ $(document).ready(function() {
     //AJAX för att läsa in lista på frisörer
   /*  var url ="";
       $.getJSON(url, function(data){
-        var htmlText;
-        for(var item in data){
+        let htmlText;
+        for(let item of data){
 
           htmlText += "<div class='row'><div class='col-md-5 col-sm-5 col-xs-6'>"
           + "<img class='logo' src=''../pictures/sax.jpg'/></div>"
           + "</div><div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
-          + "<h4><a href='" + data.hemsida + "'>" + data.salongname + "</a></h4>"
-          + "<p><em>" + data.gata + ", " + data.postnummer + " " + data.ort + "</em></p>"
-          + "<p>" + data.info + "</p>"
+          + "<h4><a href='" + item.hemsida + "'>" + item.fornamn + "</a></h4>"
+          + "<p><em>" + item.gata + ", " + item.postnummer + " " + item.ort + "</em></p>"
+          + "<p>" + item.info + "</p>"
           + "</div><line></line></div>";
 
         }

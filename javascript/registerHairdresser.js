@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  //Läs in webbpolicy.html
+  //Read webbpolicy.html when it is clicked
   $("#webbpolicy").click(function(){
     $.get("./webbpolicy.html", function(data){
       $(".modal-body").html(data);
@@ -26,7 +26,7 @@ event.preventDefault();
     var pinterest = $("#pinterest").val();
     var arr =[username, password, email, firstname, lastname, info];
 
-    //Otherwise add error-class (red border)
+    //Add error-class (red border)
     for(var i=0; i<arr.length; i++){
         if(arr[i].val==""){
             alert("Var god fyll i alla röda fält!");
@@ -48,7 +48,7 @@ event.preventDefault();
         url: "http://localhost/loox/backend/register_behandlare.php", //Ändra url
         data: { username : username.val, password : password.val, email : email.val,
         fornamn : firstname.val, efternamn : lastname.val, alias : alias, salongname : saloon,
-        facebook : facebook, twitter : twitter, instagram : instagram,
+        titel : workTitle, facebook : facebook, twitter : twitter, instagram : instagram,
         pintrest : pinterest, info : info.val},
         method: "POST",
         dataType: "JSON"
@@ -59,7 +59,8 @@ event.preventDefault();
           localStorage.setItem("firstname", data.fornamn);
           localStorage.setItem("lastname", data.efternamn);
           localStorage.setItem("alias", data.alias);
-          localStorage.setItem("companyName", data.salongname);
+        //localStorage.setItem("companyName", data.salongname);
+          localStorage.setItem("title", data.titel);
           localStorage.setItem("facebook", data.facebook);
           localStorage.setItem("twitter", data.twitter);
           localStorage.setItem("instagram", data.instagram);
