@@ -13,6 +13,7 @@
 		$epost = $_POST['email'];
 		$fornamn = $_POST['fornamn'];
 		$efternamn = $_POST['efternamn'];
+		$titel = $_POST['titel'];
 		$alias = $_POST['alias'];
 		$salong = $_POST['salongname'];
 		$fb = $_POST['facebook'];
@@ -64,10 +65,10 @@
 		$inlogg_intoDb->execute (array(':useruo' => $user, ':salonguo' => $salong, ':foruo' => $fornamn, ':efteruo' => $efternamn, ':mailuo' => $epost, ':lossuo' => $hashpass, ':friuo' => $poop)); 
 		
 		//Släng in salong info i db.
-		$sql4 = "INSERT INTO behandlare (fornamn, efternamn, alias, salongnamn, info, instagram, facebook, twitter, pintrest)
-            VALUES(:foruo, :efteruo, :aliuo, :salonguo, :infouo, :instauo, :fbuo, :twuo, :pinuo)";
+		$sql4 = "INSERT INTO behandlare (fornamn, efternamn, alias, titel, salongnamn, info, instagram, facebook, twitter, pintrest)
+            VALUES(:foruo, :efteruo, :aliuo, :tit, :salonguo, :infouo, :instauo, :fbuo, :twuo, :pinuo)";
 		$salong_intoDb = $pdo->prepare($sql4);
-		$salong_intoDb->execute (array(':foruo' => $fornamn, ':efteruo' => $efternamn, ':aliuo' => $alias, ':salonguo' => $salong, ':infouo' => $text, ':instauo' => $insta, ':fbuo' => $fb, ':twuo' => $tw, ':pinuo' => $pin)); 
+		$salong_intoDb->execute (array(':foruo' => $fornamn, ':efteruo' => $efternamn, ':aliuo' => $alias, ':tit' => $titel, ':salonguo' => $salong, ':infouo' => $text, ':instauo' => $insta, ':fbuo' => $fb, ':twuo' => $tw, ':pinuo' => $pin)); 
 		
 		//starta session och logga in.
 		$sql5 = "SELECT id FROM inlogg WHERE anvandarnamn = :useruo";
@@ -90,7 +91,7 @@
 		//Skicka tillbaka JSON till front-end
 		
 		$data = ["username" => $user, "email" => $epost, "fornamn" => $fornamn, "efternamn" => $efternamn, "alias" => $alias,
-		 "facebook" => $fb, "twitter" => $tw, "instagram" => $insta, "pintrest" => $pin, "info" => $text];
+		 "facebook" => $fb, "twitter" => $tw, "instagram" => $insta, "pintrest" => $pin, "info" => $text]; //"titel" => $titel,
 		
 		echo json_encode($data);
 		
