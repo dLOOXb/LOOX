@@ -1,5 +1,5 @@
 <?php 
-
+	session_start();
 	require "config.php";
 	header('Access-Control-Allow-Origin: *');
 	//Skicka ut användarinfon till profilen. Kräver att användaren är inloggad!
