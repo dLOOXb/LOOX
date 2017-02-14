@@ -18,47 +18,16 @@ require "config.php";
 
 <head>
 
-    <script>
-        //navigate to previous month
-        function goLastMonth(month, year) {
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>LOOX</title>
+    <link type="text/css" rel="stylesheet" href="../css/layout.css" />
+    <link type="text/css" rel="stylesheet" href="../css/hairdresser.css" />
+    
 
-            if (month == 1) {
-                --year;
-                month = 13;
-            }
 
-            //adds zero in front of one-digit long month number
-            --month
-            var monthstring = "" + month + "";
-            var monthlength = monthstring.length;
-            if (monthlength <= 1) {
-                monthstring = "0" + monthstring;
-            }
-
-            //stores the new month in the URL, to be processed by $_GET later in document
-            document.location.href = "<?php $_SERVER['PHP_SELF'];?>?month=" + monthstring + "&year=" + year;
-        }
-
-        //navigate to following month
-        function goNextMonth(month, year) {
-            if (month == 12) {
-                ++year;
-                month = 0;
-            }
-
-            //adds a zero in front of month number, if only one-digit long
-            ++month
-            var monthstring = "" + month + "";
-            var monthlength = monthstring.length;
-            if (monthlength <= 1) {
-                monthstring = "0" + monthstring;
-            }
-
-            //stores the new month in the URL, to be processed by $_GET later in document
-            document.location.href = "<?php $_SERVER['PHP_SELF'];?>?month=" + monthstring + "&year=" + year;
-        }
-
-    </script>
+    
 
 
     <style>
@@ -85,6 +54,10 @@ require "config.php";
 
 <body>
 
+   
+   
+   
+   
     <?php
     
     //If day not pre-determined by user, sets day to today
@@ -133,7 +106,7 @@ require "config.php";
     
     
     //Frisör namn -- hämta från databasen!!
-    echo "<h1>Bobby</h1>";
+    echo "<h1>Jenny</h1>";
         
     //Salong namn -- hämta från databasen!!
     echo "<text>PostNord Salong // Kruthusgatan 411 04 Göteborg</text><br><br>";
@@ -286,7 +259,8 @@ require "config.php";
                     echo"class='today'";
                 } 
                 
-                /*
+                /*** add here function to make booked day colored ****
+                
                 else if ($noOfevent >= 1 ){
                     
                       //later establish $b as a variable tied to user session and behandlareID
@@ -324,7 +298,7 @@ require "config.php";
     
     if(isset($_GET['v'])){
         
-        echo "<td align='center'></td>Lediga tider med Bobby den <span style='background: turquoise;'>".$day."-".$month."-".$year."</span>:";
+        echo "<td align='center'></td>Lediga tider med Jenny den <span style='color: white; background: black;'>".$day."-".$month."-".$year."</span>:";
         
         /*
         echo $noOfevent;
@@ -335,6 +309,55 @@ require "config.php";
         
     }
     ?>
+    
+    
+    <script>
+        //navigate to previous month
+        function goLastMonth(month, year) {
+
+            if (month == 1) {
+                --year;
+                month = 13;
+            }
+
+            //adds zero in front of one-digit long month number
+            --month
+            var monthstring = "" + month + "";
+            var monthlength = monthstring.length;
+            if (monthlength <= 1) {
+                monthstring = "0" + monthstring;
+            }
+
+            //stores the new month in the URL, to be processed by $_GET later in document
+            document.location.href = "<?php $_SERVER['PHP_SELF'];?>?month=" + monthstring + "&year=" + year;
+        }
+
+        //navigate to following month
+        function goNextMonth(month, year) {
+            if (month == 12) {
+                ++year;
+                month = 0;
+            }
+
+            //adds a zero in front of month number, if only one-digit long
+            ++month
+            var monthstring = "" + month + "";
+            var monthlength = monthstring.length;
+            if (monthlength <= 1) {
+                monthstring = "0" + monthstring;
+            }
+
+            //stores the new month in the URL, to be processed by $_GET later in document
+            document.location.href = "<?php $_SERVER['PHP_SELF'];?>?month=" + monthstring + "&year=" + year;
+        }
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    <script src="../bootstrap/assets/javascripts/bootstrap.js"></script>
+    <script src="../javascript/javascript.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYlVGcY8AMg8SJooxNQ9ebks_4aHk3THc&callback=initMap"> </script>
+        <script src="../javascript/about.js"></script>
 
 </body>
 
