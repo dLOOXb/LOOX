@@ -5,6 +5,8 @@
 	session_start(); //Session så att inloggnigen sparas mellan de olika sidorna
 	require "config.php";
 	
+	header('Access-Control-Allow-Origin: *');
+	
 	//Om någon trycker på knappen
 	if (isset($_POST['submitLogin'])) {
 		
@@ -18,7 +20,6 @@
 			die("<p>Vänligen fyll i fälten</p>");	
 			
 		} 
-		
 			
 			//Stämmer användarnamnet överens med db
 			$sql = "SELECT id, lossenord, count(anvandarnamn) AS antalrader FROM inlogg WHERE anvandarnamn = :useruo"; // AND lossenord = :seruo
@@ -36,9 +37,24 @@
 			
 				echo "<p>Du är inloggad!</p>";
 				
+				//Hämta info om användare till front-end
+				$sql2 = "SELECT anvandarnamn, email, tel, fornamn, efternamn FROM inlogg WHERE anvandarnamn = :useruo"; // AND lossenord = :seruo
+				$statement2 = $pdo->prepare($sql2);
+				$statement2->execute (array(':useruo' => $user)); //, ':seruo' => $pass
+				$result2 = $statement->fetch(PDO::FETCH_ASSOC);
+			
+				//Skicka klartecken till front-end
+				$epost = $result2['eamil'];
+				$tel = $result2['tel'];
+				$fornamn = $result2['fornamn'];
+				$efternamn = $result2['efternamn'];
+				
+				$data = ["username" => $user, "email" => $epost, "tel" => $tel, "fornamn" => $fornamn, "efternamn" => $efternamn];
+				echo json_encode($data);
+				
 			} else {
 				//Om värdet från databasen inte stämmer med värdet från input
-				die("Anvädarnamnet eller lösenordet stämmer inte överäns.");
+				echo("Anvädarnamnet eller lösenordet stämmer inte överäns.");
 			}
 			
 		

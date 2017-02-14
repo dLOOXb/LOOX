@@ -5,14 +5,80 @@ function initMap(){
     zoom: 14,
     center: uluru
 });
+
 var marker = new google.maps.Marker({
   position: uluru,
   map: map
 });
-}
+
+/* Förberedelse för att ladda in data på kartan
+var urlKarta = "";
+$.getJSON(urlKarta, function(data){
+  //Loopa igenom all data
+  $.each(data, function(value) {
+
+    var latLng = new google.maps.LatLng(value.lat, value.lng);
+
+    var marker = new google.maps.Marker({
+        position:   latLng,
+        map:        map,
+        title:      value.name
+        if(value.type==="Frisör"){
+        label : "F"
+      }
+    });
+*/
+};
 
 $(document).ready(function(){
-  $('.contact').hide();
+  
+  // Förberedelse för login
+  
+  $("#loggaIn").click(function(e){
+    e.preventDefault();
+     var login = 1;
+    var usernameLog = $("#navbar-username").val();
+    var passwordlog = $("#navbar-password").val();
+    console.log(usernameLog);
+    console.log(passwordlog);
+    $.post( "login.php", { username: usernameLog, password: passwordlog, submitLogin: login } )
+        .done(function( data ) {
+          if(data.inloggad == 1){ 
+          alert("Success");
+            localStorage.setItem("username", data.username);
+            localStorage.setItem("email", data.email);
+            localStorage.setItem("phonenumber", data.tel);
+            localStorage.setItem("firstname", data.fornamn);
+            localStorage.setItem("firstname", data.efternamn);
+          }
+        }).fail(function(data, tsatus, fel){
+            console.log(data);
+            console.log(tsatus);
+            console.log(fel);
+        });
+
+  });
+
+
+// Förberedelse för logut
+$("#logUt").click(function(e){
+    e.preventDefault();
+    var logut = 1;
+    var usernameLog = $("#navbar-username").val();
+    
+    $.post( "logut.php", {anvandarnamn: usernameLog, loggut: logut} )
+        .done(function(data ) {
+          if(data.utloggad == 1){ 
+           alert("You have been logged out");
+            
+          }
+        });
+
+  });
+
+
+
+
 
   $("#card").flip();
   $("#card2").flip();
@@ -36,22 +102,21 @@ $(document).ready(function(){
         */
 
 /*Twitter*/
-        window.twttr = (function(d, s, id) {
-         var js, fjs = d.getElementsByTagName(s)[0],
-           t = window.twttr || {};
-         if (d.getElementById(id)) return t;
-         js = d.createElement(s);
-         js.id = id;
-         js.src = "https://platform.twitter.com/widgets.js";
-         fjs.parentNode.insertBefore(js, fjs);
+window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+  t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
 
-         t._e = [];
-         t.ready = function(f) {
-           t._e.push(f);
-         };
-
-         return t;
-        }
-        (document, "script", "twitter-wjs"));
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+  return t;
+}
+(document, "script", "twitter-wjs"));
 
 });

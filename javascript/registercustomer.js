@@ -7,33 +7,61 @@ $(document).ready(function(){
     });
   });
 
-$("#create").click(function(){
+$("#create").click(function(event){
+  event.preventDefault();
 /*TODO .has-error*/
 
-  var username = $("#username").val();
-  var password = $("#password").val();
-  var email = $("#email").val();
-  var phonenumber = $("#phonenumber").val();
-  var firstname = $("#firstname").val();
-  var lastname = $("#lastname").val();
+  var username = {val:$("#username").val(), id:'#username'};
+  var password = {val:$("#password").val(), id:'#password'};
+  var email = {val:$("#email").val(), id:'#email'};
+  var phonenumber = {val:$("#phonenumber").val(), id:'#phonenumber'};
+  var firstname = {val:$("#firstname").val(), id:'#firstname'};
+  var lastname = {val:$("#lastname").val(), id:'#lastname'};
+  var arr = [username, password, email, firstname, lastname];
+
+//Check that all required fields are filled in
+  for(var p=0; p<arr.length; p++){
+    $(arr[p].id).removeClass("error");
+    if(arr[p].val==""){
+        $(arr[p].id).addClass("error");
+    }
+  }
+  //Otherwise add error-class (red border)
+  for(var i=0; i<arr.length; i++){
+      if(arr[i].val==""){
+          alert("Var god fyll i alla röda fält!");
+          return;
+        }
+    }
+
+
+  console.log(username);
+  console.log(password);
+  console.log(email);
+  console.log(phonenumber);
+  console.log(firstname);
+  console.log(lastname);
 
 //If checkbox is checked, send data
   if(document.getElementById("agree").checked){
 
     $.ajax({
-      url: "../backend/register_v2.php?submitReg=1&username="+username+
-      "&password="+password+"&email="+email+"&tel="+phonenumber+
-      "&fornamn="+firstname+"&efternamn="+lastname,
-      method: "POST",
-      dataType: "JSON"
-    }).done(function(data){
-      console.log("success!!");
-        localStorage.setItem("username", data.username);
-        localStorage.setItem("email", data.email);
-        localStorage.setItem("phonenumber", data.tel);
-        localStorage.setItem("firstname", data.fornamn);
-        localStorage.setItem("lastname", data.efternamn);
-        console.log("More success!!");
+        url: "http://localhost/loox/backend/register_v2.php", //Ändra url
+        data: { username : username.val, password : password.val, email : email.val,
+        tel : phonenumber.val, fornamn : firstname.val, efternamn : lastname.val },
+        method: "POST"
+      }).done(function(data){
+        console.log("success!!");
+          localStorage.setItem("username", data.username);
+          localStorage.setItem("email", data.email);
+          localStorage.setItem("phonenumber", data.tel);
+          localStorage.setItem("firstname", data.fornamn);
+          localStorage.setItem("lastname", data.efternamn);
+          console.log("More success!!");
+        }).fail(function(error, tstatus, actualerror){
+
+        console.log(tstatus);
+        console.log(actualerror);
       });
     }
     else {

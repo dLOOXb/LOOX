@@ -1,9 +1,11 @@
 <?php
 	session_start();
 	require "config.php";
+			
+	header('Access-Control-Allow-Origin: *');
 	
-	//Har någon tryckt på kanppen
-	if (isset($_POST['submitReg'])){
+	//Finns 
+	if (isset($_POST['username'])){
 		
 		//Sätter variabler för datan från registeringen.
 		$user = $_POST['username'];
@@ -12,11 +14,8 @@
 		$tel = $_POST['tel'];
 		$fornamn = $_POST['fornamn'];
 		$efternamn = $_POST['efternamn'];
+		$poop = "admin";
 		
-		//Tar bort blackspace
-		foreach($_POST as $key => $val){
-			$_POST[$key] = trim($val);
-		}
 		
 		//Kolla efter tomma fält. Om tomma: stopa koden.
 		if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['fornamn']) || empty($_POST['efternamn'])) {
@@ -28,14 +27,14 @@
 		$kollaUser = $pdo->prepare($sql);
 		$kollaUser->execute (array(':useruo' => $user)); 
 		$CheckTwoUser = $kollaUser->fetch(PDO::FETCH_ASSOC);
-		echo $CheckTwoUser;
+		
 		
 		// Kolla om mejlen är upptagen
 		$sql2 = "SELECT email FROM inlogg WHERE email = :mailuo";
 		$kollaMail = $pdo->prepare($sql2);
 		$kollaMail->execute (array(':mailuo' => $epost)); 
-		$CheckTwoMail = $kollaMail->fetch(PDO::FETCH_ASSOC);
-		echo $CheckTwoMail;
+		$CheckTwoMail = $kollaMail->fetch(PDO::FETCH_ASSOC); 
+		
 		
 		//Om användarnamnet är upptaget: stopa koden.
 		if ($CheckTwoUser != NULL) {
@@ -54,9 +53,9 @@
 		
 		//släng in inlogginfo i db
 		$sql3 = "INSERT INTO inlogg (anvandarnamn, fornamn, efternamn, email, lossenord, tel, klass)
-            VALUES(:useruo, :foruo, :efteruo, :mailuo, :lossuo, :teluo, kund)";
+            VALUES(:useruo, :foruo, :efteruo, :mailuo, :lossuo, :teluo, :poopuo)";
 		$inlogg_intoDb = $pdo->prepare($sql3);
-		$inlogg_intoDb->execute (array(':useruo' => $user, ':foruo' => $fornamn, ':efteruo' => $efternamn, ':mailuo' => $epost, ':lossuo' => $hashpass, ':teluo' => $tel)); 
+		$inlogg_intoDb->execute (array(':useruo' => $user, ':foruo' => $fornamn, ':efteruo' => $efternamn, ':mailuo' => $epost, ':lossuo' => $hashpass, ':teluo' => $tel, ':poopuo' => $poop)); 
 		
 		//Släng in annan info i db.
 		
@@ -76,5 +75,11 @@
 		$_SESSION['id'] = $id['id'];
 		$_SESSION['anvandarnamn'] = $user;
 		
-	}
+		//Skicka tillbaka JSON till front-end
+		
+		$data = ["username" => $user, "email" => $epost, "tel" => $tel, "fornamn" => $fornamn, "efternamn" => $efternamn];
+		
+		echo json_encode($data);
+		
+	} 
 ?>

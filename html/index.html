@@ -21,7 +21,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">LOOX<span class="sr-only">(current)</span></a>
+          <a class="navbar-brand" href="index.html"><img id="logo" src="../pictures/loox.jpg"><span class="sr-only">(current)</span></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -43,9 +43,9 @@
                   <form class="navbar-form navbar-right">
                     <div class="form-group">
                       <input type="text" class="form-control" placeholder="Användarnamn" id="navbar-username">
-                      <input type="text" class="form-control" placeholder="Lösenord" id="navbar-password">
+                      <input type="Password" class="form-control" placeholder="Lösenord" id="navbar-password">
                     </div>
-                    <button type="submit" class="btn btn-default">Logga in</button>
+                    <button type="submit" id="loggaIn" class="btn btn-default">Logga in</button>
                   </form>
 
                 <div class="nav-row-below">
@@ -105,7 +105,7 @@
                 </div>
               </div>
 
-<!-- Flip pictures -->
+    <!-- Flip pictures -->
               <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -134,62 +134,62 @@
     <div class="container-fluid columns">
       <div class="row">
         <div class="col-md-4 col-sm-4 col-xs-12 text-center">
-          <img id="imgcol1" src="../pictures/sax.jpg" />
+          <img id="imgcol1" src="../pictures/looxsax.jpg" />
           <p> Aldrig mer en dålig hårdag, vill du veta hur?</p>
           <a class="aboutUs" href="">Läs mer..</a>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12 text-center">
-          <img id="imgcol2" src="../pictures/sax.jpg" />
+          <img id="imgcol2" src="../pictures/looxsax.jpg" />
           <p>Jag vill klippa mig, ta mig till <a href="saloons_hairdressers.html">
             bokningen.</a></p>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12 text-center">
-          <img id="imgcol3" src="../pictures/sax.jpg" />
+          <img id="imgcol3" src="../pictures/looxsax.jpg" />
           <p>Omdömen från användare</p>
         </div>
       </div>
-  </div>
-
-<!--Google map-->
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-      <div id="map"></div>
     </div>
-  </div>
-</div>
+
+    <!--Google map-->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
 
   <!--Facebook share
   <div id="fb-root"></div>
   <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" data-mobile-iframe="true">
   <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Dela</a></div>
 -->
+</div> 
 
-    <footer class="footer">
-        <div class="container ">
-          <div class="row">
-            <div class="col-md-8  col-sm-8 col-xs-6">
-              <p class="text-muted">© Loox</p>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-4 space">
-              <div class="flex">
-                <!-- Twitter -->
-                 <a class="twitter-share-button"
-                   href="https://twitter.com/intent/tweet?text=Läs Mer Om Loox här: https://loox.se " >Tweet</a>
+  <footer class="footer">
+      <div class="container ">
+        <div class="row">
+          <div class="col-md-8 col-sm-8 col-xs-6">
+            <p class="text-muted">© Loox</p>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-6 space">
+            <div class="flex">
+              <!-- Twitter -->
+               <a class="twitter-share-button"
+                 href="https://twitter.com/intent/tweet?text=Läs Mer Om Loox här: https://loox.se " >Tweet</a>
                 <!-- Facebook -->
-                <a href="https://www.facebook.com/">
-                <img class="social"  src="../pictures/facebook.png">
-                </a>
-                <!-- Instagram -->
-                <a href="https://www.instagram.com/">
-                <img class="social" id="instagramSocial" src="../pictures/instagram.png">
-                </a>
-            </div>
+              <a href="https://www.facebook.com/">
+                  <img class="social margin-left-10px" src="../pictures/facebookBlack.png">
+              </a>
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/">
+              <img class="social margin-left-10px" id="instagramSocial" src="../pictures/instagram.png">
+              </a>
           </div>
         </div>
       </div>
-      </footer>
-
+    </div>
+  </footer>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
     <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
     <script src="../bootstrap/assets/javascripts/bootstrap.js"></script>

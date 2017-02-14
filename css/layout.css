@@ -5834,7 +5834,7 @@ button.close {
   margin: 0px;
   padding: 0px; }
 
-/*Gör så att fälten för användarnamn och lösenord blir mindre*/
+/*G├Âr s├Ñ att f├ñlten f├Âr anv├ñndarnamn och l├Âsenord blir mindre*/
 /*Viewports >768px*/
 @media only screen and (min-width: 768px) {
   .navbar-form .form-control {
@@ -5851,13 +5851,13 @@ button.close {
   cursor: pointer; }
 
 #imgcol1 {
-  width: 170px; }
+  width: 100%; }
 
 #imgcol2 {
-  width: 170px; }
+  width: 100%; }
 
 #imgcol3 {
-  width: 170px; }
+  width: 100%; }
 
 .columns {
   margin: 40px 0 40px 0; }
@@ -5878,13 +5878,13 @@ body {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: auto;
-  border-top: 1px solid black; }
+  background-color: black; }
   .footer .space {
     padding-top: 20px; }
   .footer .flex {
     display: flex;
-    justify-content: space-between;
-    align-items: center; }
+    align-items: center;
+    justify-content: flex-end; }
 
 .container .text-muted {
   margin: 20px 0;
@@ -5900,7 +5900,13 @@ body {
   width: 25px;
   height: 25px; }
 
+#instagramSocial {
+  filter: invert(100%); }
+
 .sendButton {
   margin-top: 15px; }
+
+.margin-left-10px {
+  margin-left: 10px; }
 
 /*# sourceMappingURL=layout.css.map */

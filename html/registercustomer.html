@@ -22,7 +22,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">LOOX</a>
+          <a class="navbar-brand" href="index.html"><img id="logo" src="../pictures/loox.jpg"><span class="sr-only">(current)</span></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -106,20 +106,21 @@
     </div>
   </div>
 
-    <div class="container text-center">
+    <div class="container text-center main-part">
       <div class="container-register container margin-bottom-60">
         <div class="row">
           <div class="col-md-12">
+            <form>
             <h2 class="margin-bottom-20">Skapa konto</h2>
             <p class="left">Användarnamn</p>
-            <input type="text" class="form-control space" placeholder="Användarnamn" id="username">
+            <input type="text" class="form-control has-feedback space" placeholder="Användarnamn" id="username">
             <p class="left">Mail</p>
             <input type="email" class="form-control space" placeholder="Mail" id="email">
             <p class="left">Lösenord</p>
             <input type="password" class="form-control space" placeholder="Lösenord" id="password">
             <line></line>
             <p class="left">Förnamn</p>
-            <input type="text" class="form-control space" placeholder="Förnamn" id="firstname">
+            <input type="text" class="form-control space" placeholder="Förnamn" id="firstname" >
             <p class="left">Efternamn</p>
             <input type="text" class="form-control space" placeholder="Efternamn" id="lastname">
             <p class="left">Telefonnummer</p>
@@ -129,6 +130,7 @@
                 data-target="#userpolicyModal" id="webbpolicy">användarvilkoren.</a></label>
             </div>
             <button id="create" class="btn left" value="Skicka">Skapa konto</button>
+            </form>
           </div>
         </div>
       </div>
@@ -154,25 +156,26 @@
         </div>
       </div>
 
-    <footer class="footer">
-        <div class="container ">
-          <div class="row">
-            <div class="col-md-8  col-sm-8 col-xs-6">
-              <p class="text-muted">© Loox</p>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-4 space">
-              <div class="flex">
-                <!-- Twitter -->
-                 <a class="twitter-share-button"
-                   href="https://twitter.com/intent/tweet?text=Läs Mer Om Loox här: https://loox.se " >Tweet</a>
-                <!-- Facebook -->
-                <a href="https://www.facebook.com/">
-                <img class="social"  src="../pictures/facebook.png">
-                </a>
-                <!-- Instagram -->
-                <a href="https://www.instagram.com/">
-                <img class="social" id="instagramSocial" src="../pictures/instagram.png">
-                </a>
+      <footer class="footer">
+          <div class="container ">
+            <div class="row">
+              <div class="col-md-8 col-sm-8 col-xs-6">
+                <p class="text-muted">© Loox</p>
+              </div>
+              <div class="col-md-4 col-sm-4 col-xs-6 space">
+                <div class="flex">
+                  <!-- Twitter -->
+                   <a class="twitter-share-button"
+                     href="https://twitter.com/intent/tweet?text=Läs Mer Om Loox här: https://loox.se " >Tweet</a>
+                    <!-- Facebook -->
+                  <a href="https://www.facebook.com/">
+                  <img class="social margin-left-10px" src="../pictures/facebookBlack.png">
+                  </a>
+                  <!-- Instagram -->
+                  <a href="https://www.instagram.com/">
+                  <img class="social margin-left-10px"id="instagramSocial" src="../pictures/instagram.png">
+                  </a>
+              </div>
             </div>
           </div>
         </div>
@@ -182,7 +185,7 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
     <script src="../bootstrap/assets/javascripts/bootstrap.js"></script>
     <script src="../javascript/registercustomer.js"></script>
-        <script src="../javascript/about.js"></script>
+    <script src="../javascript/about.js"></script>
 
 
 

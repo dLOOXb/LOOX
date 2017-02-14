@@ -39,15 +39,8 @@ line {
 #create:hover {
   background-color: #34b4f7; }
 
-/*Dropdown för salong och yrkestitel*/
-#btndropdown {
-  float: left;
-  width: 100%;
-  display: block;
-  margin-bottom: 10px; }
-  #btndropdown button {
-    width: 100%; }
-  #btndropdown ul {
-    width: 100%; }
+  .error {
+      border: 1.3px solid #D10F02;
+    }
 
 /*# sourceMappingURL=register.css.map */
