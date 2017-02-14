@@ -10,7 +10,7 @@
 	//Om något skrivs i fältet
 	if (isset($_POST['submitDel'])) {
 	//Användarnamn och lösenord
-	$user = $_POST['username'];
+	$user = $_SESSION['anvandarnamn'];
 	$pass = $_POST['password'];
 	
 	//Hämta hash:at lösenord
