@@ -9,7 +9,7 @@
 	//Om något skrivs i fältet
 	if (isset($_POST['submitNew'])) {
 		//Det gammla lösenordet
-		$user = $_POST['username'];
+		$user = $_SESSION['anvandarnamn'];
 		$pass = $_POST['password'];
 		$newpass = $_POST['newpass'];
 		
