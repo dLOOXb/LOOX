@@ -2,16 +2,7 @@
 
 <!--
 
-
 date format is : day-month-year (e.g. 04-02-2017 HH:MM:SS)
-
-
-Future features: 
-- month name in swedish 
-- ability to book a time with several haidressers
-- ability to unbook time
-- booking confirmation email to hairdresser, salong owner and user
-
 
 -->
 
