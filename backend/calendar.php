@@ -6,11 +6,11 @@
 date format is : day-month-year (e.g. 04-02-2017 HH:MM:SS)
 
 
-Future features to develop: 
--month name in swedish 
--ability to book a time with several haidressers 
--time unbooking 
--booking confirmation email to hairdresser, salong owner and user
+Future features: 
+- month name in swedish 
+- ability to book a time with several haidressers
+- ability to unbook time
+- booking confirmation email to hairdresser, salong owner and user
 
 
 -->
@@ -28,10 +28,9 @@ require "config.php";
 <head>
 
     <script>
-        //a bit of JavaScript needed here to build Backend -- FrontEnd team welcome to change //Adrienne
-
         //navigate to previous month
         function goLastMonth(month, year) {
+
             if (month == 1) {
                 --year;
                 month = 13;
@@ -69,28 +68,26 @@ require "config.php";
         }
 
     </script>
-    
-    
+
+
     <style>
         .today {
             background-color: #ffd8ca;
-            
         }
         
         .event {
             background-color: paleturquoise;
         }
         
-        
         .unavailSlot {
-            font-style:italic;
+            font-style: italic;
             color: gainsboro;
         }
         
         li {
             list-style-type: none;
         }
-        
+
     </style>
 
 </head>
@@ -144,10 +141,10 @@ require "config.php";
     $cellCounter = 0;
     
     
-    //Frisör namn -- hämta från databasen sedan!!
+    //Frisör namn -- hämta från databasen!!
     echo "<h1>Bobby</h1>";
         
-    //Salong namn -- hämta från databasen sedan!!
+    //Salong namn -- hämta från databasen!!
     echo "<text>PostNord Salong // Kruthusgatan 411 04 Göteborg</text><br><br>";
     
     
@@ -155,20 +152,26 @@ require "config.php";
 
         <?php
         
-    if (isset($_GET['add'])){
+    
         
-        $namn = "DummyName"; //****** take anvandarnam från user session here ******
-        $detaljer = $_POST['txtdetail'];
-        $tid = $year."-".$month."-".$day."availSlot";
-        $behandlareID = 0; //**** take behandlareID från navigation path page ****
+        if (isset($_POST['btnadd'])) {
+            
+            if (isset($_POST['availSlot'])) {
+                
+               $selectedHour = $_POST['availSlot'];
+                $tid = $year."-".$month."-".$day." ".$selectedHour;
+                $namn = "DummyName"; //****** take anvandarnam från user session here ******
+                $detaljer = $_POST['txtdetail'];
        
-        
-         $STH = $pdo->prepare("INSERT INTO bokadeTider (namn, detaljer, tid, behandlareID)
-          VALUES('$namn', '$detaljer', '$tid', '$behandlareID')");
- 
-	try {
-		$STH->execute();
-	}
+                $behandlareID = 0; //**** take behandlareID från navigation path page ****
+       
+                
+                $STH = $pdo->prepare("INSERT INTO bokadeTider (namn, detaljer, tid, behandlareID, skapadeDen)
+          VALUES('$namn', '$detaljer', '$tid', '$behandlareID', NOW())");
+                
+                try {
+		              $STH->execute();
+	               }
         
         /// ***** how does the below work? Do I need anything else?? ***** 
         /// *** will this actually catch any potential errors????? *******
@@ -177,6 +180,9 @@ require "config.php";
 		echo "Error: " . $e->getMessage();
 	}
         
+                
+              //////  $_SESSION['id'];
+                
         
         $_SESSION['sess_id'] = $pdo->lastInsertId() . date("z");
         $_SESSION['sess_user'] = $_POST['user'];
@@ -186,10 +192,19 @@ require "config.php";
         
         ///// ***** add a loop here that only leads to this page if booking successfully recorded into db ****
 
-        echo "<script type='text/javascript'>document.location.href = 'bekraftelse.php';</script>";
-	    exit;        
+      //  echo "<script type='text/javascript'>document.location.href = 'bekraftelse.php';</script>";
+            //exit;        
         
     }
+            }
+            
+            
+        
+         else {
+             
+         }
+ 
+	
         
     ?>
 
@@ -226,6 +241,9 @@ require "config.php";
                 
                 // make timestamp for each day in the loop
                 $timeStamp = strtotime("$year-$month-$i");
+                
+              // ******* compare to today's date and remove link if passed ******
+                // ********* if($timeStamp  $todaysDate) *********
                 
                 // check if first day of the month
                 if($i == 1) {

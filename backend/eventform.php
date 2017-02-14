@@ -1,51 +1,65 @@
 <form name="eventform" method="POST" action="<?php $_SERVER['PHP_SELF']; ?>?month=<?php echo $month;?>&day=<?php echo $day;?>&year=<?php echo $year;?>&v=true&add=true">
 
-
     <ul>
         <?php 
         
         //eventually establish $b as a variable tied to user session and behandlareID
-        $b = 0;
+        $b=0;
         
         //stores schedule for clicked date into object
         $behandlareSTM = 
-            $pdo->query("SELECT tid FROM `bokadeTider` WHERE `tid` LIKE '%$year-$month-$day%' AND behandlareID=$b");
+            $pdo->prepare("SELECT `tid` FROM `bokadeTider` WHERE `tid` LIKE '%$year-$month-$day%' AND behandlareID=$b");
         
-        //Next week: keep pursying the below leads for solution:
+        try {
+		              $behandlareSTM->execute();
+	               }
         
-        //$result = print_r($behandlareSTM);
         
-        //echo "<div style='display:none;'>".$result = print_r($behandlareSTM)."</div>";
+ 	catch (PDOException $e) {
+		echo "Error: " . $e->getMessage();
+	}
+    
         
-        //function that searches for a parcel of string into a PDO statement
+if($behandlareSTM->rowCount() != 0){
+    
+    foreach ($behandlareSTM as $row) {
         
-        $result ="";
-        
+            $taken[] = substr($row['tid'], 11);   //remove 8 or 10 characters to only keep time interval
+            
+        }     
         
             for ($i=9; $i<=18; $i++) {
-        
-                $timeSlot = $i.":00";
-       
-              
-                if (strpos($result, $timeSlot) == false)    {
-            
-                    echo "<li><input type='radio' name='availSlot' value='".$i.".00-".($i+1).".00'>kl. ".$i.".00-".($i+1).".00</li>";
-            }
+             
+                $timeSlot = $i.".00-".($i+1).".00";
+                  
+                if (in_array($timeSlot, $taken))    {
+                      
+                    echo "<li class='unavailSlot'>kl. ".$i.".00-".($i+1).".00 är inte tillgänglig</li>";
+                }
         
                 else    {
             
-                    echo "<li class='unavailSlot'>kl. ".$i.".00-".($i+1).".00 is unavailable</li>";
+                    echo "<li><input type='radio' name='availSlot' value='".$i.".00-".($i+1).".00'>kl. ".$i.".00-".($i+1).".00</li>";
                 }
             }
-        
-        
+}
+         
+ else {
+     
+     for ($i=9; $i<=18; $i++) {
+         echo "<li><input type='radio' name='availSlot' value='".$i.".00-".($i+1).".00'>kl. ".$i.".00-".($i+1).".00</li>";
+     }
+ }       
+     
         
     ?>
 
     </ul>
-    
+
     <p>Eventuella kommentarer:</p>
      <td width="250px"><textarea name="txtdetail"></textarea></td>
+     
+     
 <br>
    <br>
     <input type="button" name="btnback" value="Tillbacka"> &nbsp; &nbsp;
