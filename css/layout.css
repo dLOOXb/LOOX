@@ -5834,7 +5834,7 @@ button.close {
   margin: 0px;
   padding: 0px; }
 
-/*G├Âr s├Ñ att f├ñlten f├Âr anv├ñndarnamn och l├Âsenord blir mindre*/
+/*Gör så att fälten för användarnamn och lösenord blir mindre*/
 /*Viewports >768px*/
 @media only screen and (min-width: 768px) {
   .navbar-form .form-control {
@@ -5908,5 +5908,32 @@ body {
 
 .margin-left-10px {
   margin-left: 10px; }
+
+#myProfile {
+  font-size: 16px;
+  color: #ffffff; }
+
+a, a:hover {
+  text-decoration: none; }
+
+#logUt {
+  font-size: 16px;
+  color: #ffffff;
+  margin-left: 15px;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 5px;
+  margin-right: 5px; }
+
+.myPLogO {
+  display: flex;
+  flex-direction: row; }
+
+#logUt:hover {
+  color: lightgrey;
+  border-color: lightgrey; }
+
+#myProfile:hover {
+  color: lightgrey; }
 
 /*# sourceMappingURL=layout.css.map */
