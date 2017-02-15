@@ -102,14 +102,20 @@ require "temp_config.php";
             <div class="container-header text-center profile">
                 <div class="col-md-6 col-sm-6 col-xs-12">
 
-                    
+
                     <br>
                     <h1>Jenny</h1>
                     <br>
+                    <span class="rating">
+                      <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                     <br>
-                    
+                    <br>
+                    </span>
+                    <br>
+
+
                     <img class="img-responsive" src="../pictures/Jenny.jpg">
-                    
+
                     <a href="https://www.facebook.com/">
                         <img class="social" id="facebook" src="../pictures/facebook.png">
                     </a>
@@ -119,34 +125,33 @@ require "temp_config.php";
                     <a href="https://www.twitter.com/">
                         <img id="twitter" class="social" src="../pictures/twitter.png">
                     </a>
-                    
+
                 </div>
 
 
 
                 <div class="col-md-6 col-sm-6 col-xs-12">
+                   <br>
+                  <h1>Boka en tid</h1>
                     <br>
                     <br>
-                    
+                    <br>
+                   
 
-                    
 
-                    <span class="rating">
-                      Redan kund? <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                      <br>
-                      <br>
-                      
-                    </span>
+
+
+
                     <!-- <a class="btn btn-success" id="bookButton" href="../backend/calendar.php">BOKA EN TID</a> -->
                 </div>
 
             </div>
 
 
-<div>
+            <div>
 
 
-            <?php
+                <?php
     
     //If day not pre-determined by user, sets day to today
     if (isset($_GET['day'])) {
@@ -244,25 +249,25 @@ require "temp_config.php";
          }
     
     ?>
-                <table border='1' align='center' style='font-size:18px;'>
-                    <tr>
-                        <td align='center'> <input style='width:50px' type='button' value='<' class='btn btn-black' name='previousbutton' onclick="goLastMonth(<?php echo $month." , ".$year?>)" /> </td>
-                        <td colspan='5' align='center'>
-                            <?php echo $monthName.", ".$year;
+                    <table border='1' align='center' style='font-size:18px;'>
+                        <tr>
+                            <td align='center'> <input style='width:50px' type='button' value='<' class='btn btn-black' name='previousbutton' onclick="goLastMonth(<?php echo $month." , ".$year?>)" /> </td>
+                            <td colspan='5' align='center'>
+                                <?php echo $monthName.", ".$year;
                     ?> </td>
-                        <td align='center'><input style='width:50px' type='button' value='>' class='btn btn-black' name='nextbutton' onclick="goNextMonth(<?php echo $month." , ".$year?>)" /></td>
-                    </tr>
-                    <tr style='height:40px;'>
-                        <td width='50px' align='center'>Sön</td>
-                        <td width='50px' align='center'>Mån</td>
-                        <td width='50px' align='center'>Tis</td>
-                        <td width='50px' align='center'>Ons</td>
-                        <td width='50px' align='center'>Tor</td>
-                        <td width='50px' align='center'>Fre</td>
-                        <td width='50px' align='center'>Lör</td>
-                    </tr>
+                            <td align='center'><input style='width:50px' type='button' value='>' class='btn btn-black' name='nextbutton' onclick="goNextMonth(<?php echo $month." , ".$year?>)" /></td>
+                        </tr>
+                        <tr style='height:40px;'>
+                            <td width='50px' align='center'>Sön</td>
+                            <td width='50px' align='center'>Mån</td>
+                            <td width='50px' align='center'>Tis</td>
+                            <td width='50px' align='center'>Ons</td>
+                            <td width='50px' align='center'>Tor</td>
+                            <td width='50px' align='center'>Fre</td>
+                            <td width='50px' align='center'>Lör</td>
+                        </tr>
 
-                    <?php
+                        <?php
             
         
         //create a new row for calendar    
@@ -360,14 +365,14 @@ require "temp_config.php";
 
 
 
-                </table>
-                <br>
+                    </table>
+                    <br>
 
 
-</div>
+            </div>
 
-                <div class="text-center">
-                    <?php 
+            <div class="text-center">
+                <?php 
     
     if(isset($_GET['v'])){
         
@@ -378,15 +383,15 @@ require "temp_config.php";
     }
     ?>
 
-                </div>
-                <br>
-                <br>
+            </div>
+            <br>
+            <br>
 
 
 
         </div>
     </div>
-    
+
 
     <!-- Contact Modal -->
     <div class="modal fade" id="myModal" role="dialog">

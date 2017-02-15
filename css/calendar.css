@@ -28,7 +28,7 @@ li {
 .rating {
     display: inline-block;
     unicode-bidi: bidi-override;
-    direction: ltr;
+    direction: rtl;
     
 }
 
