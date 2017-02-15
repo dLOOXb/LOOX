@@ -1,3 +1,5 @@
+<br>
+<br>
 <form name="eventform" method="POST" action="<?php $_SERVER['PHP_SELF']; ?>?month=<?php echo $month;?>&day=<?php echo $day;?>&year=<?php echo $year;?>&v=true&add=true">
 
     <ul>
@@ -57,15 +59,15 @@ if($behandlareSTM->rowCount() != 0){
     </ul>
 
     <p>Eventuella kommentarer:</p>
-     <td width="250px"><textarea name="txtdetail"></textarea></td>
-     
-     
-<br>
-   <br>
-    <input type="button" name="btnback" value="Tillbacka"> &nbsp; &nbsp;
-    <input type="submit" name="btnadd" value="Boka">
+    <td width="250px"><textarea name="txtdetail"></textarea></td>
 
-<br>
+
+    <br>
+    <br>
     
+    <input type="submit" name="btnadd" value="Boka" class="btn btn-success">
+
+    <br>
+
 
 </form>

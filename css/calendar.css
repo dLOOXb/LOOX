@@ -3,7 +3,6 @@
 }
 
 .today {
-    
     background-color: black;
 }
 
@@ -18,4 +17,31 @@
 
 li {
     list-style-type: none;
+}
+
+.btn-black {
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+}
+
+.rating {
+    display: inline-block;
+    unicode-bidi: bidi-override;
+    direction: ltr;
+    
+}
+
+.rating>span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+    color: #ffb400;
+}
+
+.rating>span:hover:before,
+.rating>span:hover~span:before {
+    content: "\2605";
+    position: absolute;
+    color: #ffb400;
 }
