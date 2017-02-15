@@ -1,5 +1,14 @@
 $(document).ready(function(){
 
+  var url ="http://localhost:8888/loox/backend/saloger.php";
+    $.getJSON(url, function(data){
+      let htmlText = "";
+      for(let item of data){
+        htmlText += "<option>" + item.salong + "</option>";
+      }
+      $("#selSaloon").html(htmlText);
+    });
+
   //Read webbpolicy.html when it is clicked
   $("#webbpolicy").click(function(){
     $.get("./webbpolicy.html", function(data){
