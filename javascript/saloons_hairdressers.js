@@ -1,18 +1,18 @@
 $(document).ready(function() {
 
   //AJAX to read company names for the saloons
-  var url ="http://localhost/loox/backend/saloger.php";
+  var url ="http://localhost:8888/loox/backend/saloger.php";
     $.getJSON(url, function(data){
       let htmlText = "";
       for(let item of data){
 
         htmlText += "<div class='row'><div class='col-md-5 col-sm-5 col-xs-6'>"
         + "<img class='logo' src='../pictures/looxsax.jpg'></div>"
-        + "</div><div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
+        + "<div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
         + "<h4><a href='" + item.hemsida + "'>" + item.salong + "</a></h4>"
         + "<p><em>" + item.gata + ", " + item.postnummer + " " + item.ort + "</em></p>"
         + "<p>" + item.info + "</p>"
-        + "</div><line></line></div>";
+        + "</div></div><line></line></div>";
 
       }
       $("#listData").html(htmlText);
@@ -34,11 +34,11 @@ $(document).ready(function() {
 
           htmlText += "<div class='row'><div class='col-md-5 col-sm-5 col-xs-6'>"
           + "<img class='logo' src='../pictures/looxsax.jpg'></div>"
-          + "</div><div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
+          + "<div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
           + "<h4><a href='" + item.hemsida + "'>" + item.salong + "</a></h4>"
           + "<p><em>" + item.gata + ", " + item.postnummer + " " + item.ort + "</em></p>"
           + "<p>" + item.info + "</p>"
-          + "</div><line></line></div>";
+          + "</div></div><line></line></div>";
 
         }
         $("#listData").html(htmlText);
@@ -60,12 +60,12 @@ $(document).ready(function() {
         for(let item of data){
 
           htmlText += "<div class='row'><div class='col-md-5 col-sm-5 col-xs-6'>"
-          + "<img class='logo' src=''../pictures/looxsax.jpg'/></div>"
-          + "</div><div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
-          + "<h4><a href='" + item.facebook + "'" + item.forn + " " + item.eftern + ", " + item.alias + "</h4>"
-          + "<p>" + item.tit + ", " + item.salong + "</p>"
+          + "<img class='logo' src='../pictures/looxsax.jpg'/></div>"
+          + "<div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
+          + "<h4><a href='" + item.facebook + "'>" + item.fornamn + " " + item.efternamn + ", " + item.alias + "</a></h4>"
+          + "<p>" + item.titel + ", " + item.salong + "</p>"
           + "<p>" + item.info + "</p>"
-          + "</div><line></line></div>";
+          + "</div></div><line></line></div>";
 
         }
         $("#listData").html(htmlText);
