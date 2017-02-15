@@ -31,9 +31,9 @@ $.getJSON(urlKarta, function(data){
 };
 
 $(document).ready(function(){
-  
+
   // Förberedelse för login
-  
+
   $("#loggaIn").click(function(e){
     e.preventDefault();
      var login = 1;
@@ -41,16 +41,15 @@ $(document).ready(function(){
     var passwordlog = $("#navbar-password").val();
     console.log(usernameLog);
     console.log(passwordlog);
-    $.post( "login.php", { username: usernameLog, password: passwordlog, submitLogin: login } )
+    $.post( "http://localhost:8888/loox/backend/login.php", { username: usernameLog, password: passwordlog, submitLogin: login } )
         .done(function( data ) {
-          if(data.inloggad == 1){ 
           alert("Success");
             localStorage.setItem("username", data.username);
             localStorage.setItem("email", data.email);
             localStorage.setItem("phonenumber", data.tel);
             localStorage.setItem("firstname", data.fornamn);
-            localStorage.setItem("firstname", data.efternamn);
-          }
+            localStorage.setItem("lastname", data.efternamn);
+
         }).fail(function(data, tsatus, fel){
             console.log(data);
             console.log(tsatus);
@@ -65,19 +64,18 @@ $("#logUt").click(function(e){
     e.preventDefault();
     var logut = 1;
     var usernameLog = $("#navbar-username").val();
-    
-    $.post( "logut.php", {anvandarnamn: usernameLog, loggut: logut} )
+
+    $.post( "http://localhost:8888/loox/backend/logut.php", {anvandarnamn: usernameLog, loggut: logut} )
         .done(function(data ) {
-          if(data.utloggad == 1){ 
            alert("You have been logged out");
-            
-          }
+           storage.removeItem(username);
+           storage.removeItem(email);
+           storage.removeItem(phonenumber);
+           storage.removeItem(firstname);
+           storage.removeItem(lastname);
         });
 
   });
-
-
-
 
 
   $("#card").flip();

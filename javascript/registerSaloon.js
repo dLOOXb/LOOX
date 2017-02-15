@@ -44,7 +44,7 @@ $("#create").click(function(event){
   if(document.getElementById("agree").checked){
 
     $.ajax({
-      url: "http://localhost/loox/backend/register_salong.php", //Ändra url
+      url: "http://localhost:8888/loox/backend/register_salong.php", //Ändra url
       data: {salongname : companyName.val, password : password.val, email : email.val,
       tel : phonenumber.val, hemsida : webbpage.val, facebook : facebook, twitter : twitter,
       instagram : instagram, pintrest : pinterest, info : info.val, gata : address.val, postnummer : postalcode.val,

@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+//AJAX to populate list of saloons to choose from
   var url ="http://localhost:8888/loox/backend/saloger.php";
     $.getJSON(url, function(data){
       let htmlText = "";
@@ -54,7 +55,7 @@ event.preventDefault();
     if(document.getElementById("agree").checked){
 
       $.ajax({
-        url: "http://localhost/loox/backend/register_behandlare.php", //Ändra url
+        url: "http://localhost:8888/loox/backend/register_behandlare.php", //Ändra url
         data: { username : username.val, password : password.val, email : email.val,
         fornamn : firstname.val, efternamn : lastname.val, alias : alias, salongname : saloon,
         titel : workTitle, facebook : facebook, twitter : twitter, instagram : instagram,
