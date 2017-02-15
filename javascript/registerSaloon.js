@@ -84,7 +84,7 @@ $("#create").click(function(event){
     js = d.createElement(s);
     js.id = id;
     js.src = "https://platform.twitter.com/widgets.js";
-    js.parentNode.insertBefore(js, fjs);
+    fjs.parentNode.insertBefore(js, fjs);
 
     t._e = [];
     t.ready = function(f) {
