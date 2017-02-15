@@ -1,5 +1,23 @@
 $(document).ready(function() {
 
+  //AJAX to read company names for the saloons
+  var url ="http://localhost:8888/loox/backend/saloger.php";
+    $.getJSON(url, function(data){
+      let htmlText = "";
+      for(let item of data){
+
+        htmlText += "<div class='row'><div class='col-md-5 col-sm-5 col-xs-6'>"
+        + "<img class='logo' src='../pictures/looxsax.jpg'></div>"
+        + "<div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
+        + "<h4><a href='" + item.hemsida + "'>" + item.salong + "</a></h4>"
+        + "<p><em>" + item.gata + ", " + item.postnummer + " " + item.ort + "</em></p>"
+        + "<p>" + item.info + "</p>"
+        + "</div></div><line></line></div>";
+
+      }
+      $("#listData").html(htmlText);
+    });
+
   $("#companies").click(function (event){
     event.preventDefault();
 
@@ -9,23 +27,23 @@ $(document).ready(function() {
     $("#hairdressers").removeClass("active-h1");
 
     //AJAX to read company names for the saloons
-    var url ="http://localhost/loox/backend/saloger.php";
+    var url ="http://localhost:8888/loox/backend/saloger.php";
       $.getJSON(url, function(data){
         let htmlText = "";
         for(let item of data){
 
           htmlText += "<div class='row'><div class='col-md-5 col-sm-5 col-xs-6'>"
           + "<img class='logo' src='../pictures/looxsax.jpg'></div>"
-          + "</div><div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
+          + "<div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
           + "<h4><a href='" + item.hemsida + "'>" + item.salong + "</a></h4>"
           + "<p><em>" + item.gata + ", " + item.postnummer + " " + item.ort + "</em></p>"
           + "<p>" + item.info + "</p>"
-          + "</div><line></line></div>";
+          + "</div></div><line></line></div>";
 
         }
         $("#listData").html(htmlText);
       });
-    });
+    }); //Close click
 
   $("#hairdressers").click(function (event){
     event.preventDefault();
@@ -35,48 +53,48 @@ $(document).ready(function() {
     $("#companies").addClass("not-active");
     $("#companies").removeClass("active-h1");
 
-    //AJAX to read hairdressers name
-    var url ="http://localhost/loox/backend/frisorer.php"; //Ändra url
+  //AJAX to read hairdressers name
+    var url ="http://localhost:8888/loox/backend/behandlare.php"; //Ändra url
       $.getJSON(url, function(data){
-        let htmlText;
+        let htmlText="";
         for(let item of data){
 
           htmlText += "<div class='row'><div class='col-md-5 col-sm-5 col-xs-6'>"
-          + "<img class='logo' src=''../pictures/looxsax.jpg'/></div>"
-          + "</div><div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
-          + "<h4><a href='" + item.hemsida + "'>" + item.fornamn + " " + item.efternamn + "</a></h4>"
-          + "<p><em>" + item.gata + ", " + item.postnummer + " " + item.ort + "</em></p>"
+          + "<img class='logo' src='../pictures/looxsax.jpg'/></div>"
+          + "<div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
+          + "<h4><a href='" + item.facebook + "'>" + item.fornamn + " " + item.efternamn + ", " + item.alias + "</a></h4>"
+          + "<p>" + item.titel + ", " + item.salong + "</p>"
           + "<p>" + item.info + "</p>"
-          + "</div><line></line></div>";
+          + "</div></div><line></line></div>";
 
         }
         $("#listData").html(htmlText);
       });
-  });
-  });
-//Toggle active / not active tag when clicked
-  $("#tagsDiv > .tag").click(function(){
-    $(this).toggleClass("active-tag");
-    //TODO get sorted data from API
-  });
+  }); //Close click
 
-  /*Twitter*/
-  window.twttr = (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-    if (d.getElementById(id)) return t;
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "https://platform.twitter.com/widgets.js";
-    fjs.parentNode.insertBefore(js, fjs);
+  //Toggle active / not active tag when clicked
+    $("#tagsDiv > .tag").click(function(){
+      $(this).toggleClass("active-tag");
+      //TODO get sorted data from API
+    });
 
-    t._e = [];
-    t.ready = function(f) {
-      t._e.push(f);
-    };
+    /*Twitter*/
+    window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
 
-    return t;
-  }
-  (document, "script", "twitter-wjs"));
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
 
-});
+      return t;
+    }
+    (document, "script", "twitter-wjs"));
+
+  }); //Close document ready

@@ -37,7 +37,7 @@ $("#create").click(function(event){
   if(document.getElementById("agree").checked){
 
     $.ajax({
-        url: "http://localhost/loox/backend/register_v2.php", //Ändra url
+        url: "http://localhost:8888/loox/backend/register_v2.php", //Ändra url
         data: { username : username.val, password : password.val, email : email.val,
         tel : phonenumber.val, fornamn : firstname.val, efternamn : lastname.val },
         method: "POST"
@@ -48,7 +48,7 @@ $("#create").click(function(event){
           localStorage.setItem("phonenumber", data.tel);
           localStorage.setItem("firstname", data.fornamn);
           localStorage.setItem("lastname", data.efternamn);
-          console.log("More success!!");
+          alert("Konto skapat!");
         }).fail(function(error, tstatus, actualerror){
         console.log(tstatus);
         console.log(actualerror);
