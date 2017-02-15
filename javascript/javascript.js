@@ -73,7 +73,7 @@ $("#logUt").click(function(e){
     var logut = 1;
     var usernameLog = $("#navbar-username").val();
 
-    $.post( "http://localhost:8888/loox/backend/logut.php", {anvandarnamn: usernameLog, loggut: logut} )
+    $.post( "http://localhost:8888/loox/backend/logut.php", {anvandarnamn: usernameLog, loggout: logut} )
         .done(function(data ) {
            localStorage.removeItem("username");
            localStorage.removeItem("email");
