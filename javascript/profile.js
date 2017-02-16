@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 	$.getJSON("http://localhost:8888/loox/backend/profil.php", function(data){
 				$("#username").val(data.anvandarnamn);
 				$("#firstname").val(data.fornamn);
@@ -7,6 +8,25 @@ $(document).ready(function(){
 				$("#email").val(data.email);
 
 	});
+
+	// Förberedelse för logut
+	$("#logUt").click(function(e){
+	    e.preventDefault();
+	    var logut = 1;
+	    var usernameLog = $("#navbar-username").val();
+
+	    $.post( "http://localhost:8888/loox/backend/logut.php", {anvandarnamn: usernameLog, loggout: logut} )
+	        .done(function(data ) {
+	           localStorage.removeItem("username");
+	           localStorage.removeItem("email");
+	           localStorage.removeItem("phonenumber");
+	           localStorage.removeItem("firstname");
+	           localStorage.removeItem("lastname");
+	           localStorage.setItem("loggedIn", false);
+	           window.location = "index.html" //Reload page when logged out
+	        });
+
+	  });
 
 		// Förberedelse för delete
 		$("#deleteButton").click(function(e){
