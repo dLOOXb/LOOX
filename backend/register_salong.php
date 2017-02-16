@@ -20,6 +20,7 @@
 		$gata = $_POST['gata'];
 		$postnummer = $_POST['postnummer'];
 		$ort = $_POST['ort'];
+		$poop = "agare";
 		
 		
 		//Tar bort blackspace
@@ -62,9 +63,9 @@
 		
 		//släng in inlogginfo i db
 		$sql3 = "INSERT INTO inlogg (anvandarnamn, salongnamn, email, lossenord, tel, klass)
-            VALUES(:useruo, :salonguo, :mailuo, :lossuo, :teluo, agare)";
+            VALUES(:useruo, :salonguo, :mailuo, :lossuo, :teluo, :aguo)";
 		$inlogg_intoDb = $pdo->prepare($sql3);
-		$inlogg_intoDb->execute (array(':useruo' => $user, ':salonguo' => $salong, ':mailuo' => $epost), ':lossuo' => $hashpass, ':teluo' => $tel)); 
+		$inlogg_intoDb->execute (array(':useruo' => $user, ':salonguo' => $salong, ':mailuo' => $epost, ':lossuo' => $hashpass, ':teluo' => $tel, ':aguo' => $poop)); 
 		
 		//Släng in salong info i db.
 		$sql4 = "INSERT INTO salong (salongnamn, info, url, email, tel, gata, postnummer, ort, instagram, facebook, twitter, pintrest)
