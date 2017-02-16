@@ -21,13 +21,13 @@
 		$insta = $_POST['instagram'];
 		$pin = $_POST['pintrest'];
 		$text = $_POST['info'];
-		$poop = "frisor";
+		$poop = "frisor"; 
 		
 		
 		//Kolla efter tomma fält(endast hos obligatoriska). Om tomma: stopa koden.
-		/*if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['fornamn']) || empty($_POST['efternamn']) || empty($_POST['salongname'])) {
+		if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['fornamn']) || empty($_POST['efternamn']) || empty($_POST['salongname'])) {
 			die("Vänligen fyll i alla de obligatoriska fälten");
-		} */
+		} 
 		
 		// Kolla om användarnamnet är upptaget
 		$sql = "SELECT anvandarnamn FROM inlogg WHERE anvandarnamn = :useruo";
@@ -64,7 +64,7 @@
 		$inlogg_intoDb = $pdo->prepare($sql3);
 		$inlogg_intoDb->execute (array(':useruo' => $user, ':salonguo' => $salong, ':foruo' => $fornamn, ':efteruo' => $efternamn, ':mailuo' => $epost, ':lossuo' => $hashpass, ':friuo' => $poop)); 
 		
-		//Släng in salong info i db.
+		//Släng in behandlarinfo i db.
 		$sql4 = "INSERT INTO behandlare (fornamn, efternamn, alias, titel, salongnamn, info, instagram, facebook, twitter, pintrest)
             VALUES(:foruo, :efteruo, :aliuo, :tit, :salonguo, :infouo, :instauo, :fbuo, :twuo, :pinuo)";
 		$salong_intoDb = $pdo->prepare($sql4);
@@ -90,9 +90,10 @@
 		
 		//Skicka tillbaka JSON till front-end
 		
-		$data = ["username" => $user, "email" => $epost, "fornamn" => $fornamn, "efternamn" => $efternamn, "alias" => $alias,
-		 "facebook" => $fb, "twitter" => $tw, "instagram" => $insta, "pintrest" => $pin, "info" => $text]; //"titel" => $titel,
+		//$data = ["username" => $user, "email" => $epost, "fornamn" => $fornamn, "efternamn" => $efternamn, "alias" => $alias, "titel" => $titel,
+		 //"salongname" => $salong, "facebook" => $fb, "twitter" => $tw, "instagram" => $insta, "pintrest" => $pin, "info" => $text]; //"titel" => $titel,
 		
+		$data = ["username" => $user, "email" => $epost, "fornamn" => $fornamn, "efternamn" => $efternamn, "alias" => $alias, "salongname" => $salong, "titel" => $titel, "facebook" => $fb, "twitter" => $tw, "instagram" => $insta, "pintrest" => $pin, "info" => $text];
 		echo json_encode($data);
 		
 	}
