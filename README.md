@@ -14,10 +14,9 @@
 <p>Amelie Hellners</p>
 <p>Athena Azarbahram</p>
 
-länk till projektet live
-<a href="http://loox.zocomutbildning.se/">Loox.zocomutbildning.se</a>
+<h4>Länk till projektet live</h4>
+<p><a href="http://loox.zocomutbildning.se/">Loox.zocomutbildning.se</a></p>
 
-länk till din LinkedIn-profil
 <h4>Linked in</h4>
 
 <p><a href="https://se.linkedin.com/in/anna-elola">Anna</a></p>
