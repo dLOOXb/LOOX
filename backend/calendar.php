@@ -8,7 +8,7 @@ date format is : day-month-year (e.g. 04-02-2017 HH:MM:SS)
 
 <?php 
 //import config file for db linkage
-require "temp_config.php";
+require "config.php";
 ?>
 
 <!DOCTYPE html>
