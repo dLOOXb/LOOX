@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   //AJAX to read company names for the saloons
-  var url ="http://localhost:8888/loox/backend/saloger.php";
+  var url ="../backend/saloger.php";
     $.getJSON(url, function(data){
       let htmlText = "";
       for(let item of data){
@@ -9,7 +9,7 @@ $(document).ready(function() {
         htmlText += "<div class='row'><div class='col-md-5 col-sm-5 col-xs-6'>"
         + "<img class='logo' src='../pictures/looxsax.jpg'></div>"
         + "<div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
-        + "<h4><a href='" + item.hemsida + "'>" + item.salong + "</a></h4>"
+        + "<h4><a href='" + item.url + "'>" + item.salong + "</a></h4>"
         + "<p><em>" + item.gata + ", " + item.postnummer + " " + item.ort + "</em></p>"
         + "<p>" + item.info + "</p>"
         + "</div></div><line></line></div>";
@@ -27,7 +27,7 @@ $(document).ready(function() {
     $("#hairdressers").removeClass("active-h1");
 
     //AJAX to read company names for the saloons
-    var url ="http://localhost:8888/loox/backend/saloger.php";
+    var url ="../backend/saloger.php";
       $.getJSON(url, function(data){
         let htmlText = "";
         for(let item of data){
@@ -35,7 +35,7 @@ $(document).ready(function() {
           htmlText += "<div class='row'><div class='col-md-5 col-sm-5 col-xs-6'>"
           + "<img class='logo' src='../pictures/looxsax.jpg'></div>"
           + "<div class='col-md-offset-5 col-sm-offset-5 col-xs-offset-6'>"
-          + "<h4><a href='" + item.hemsida + "'>" + item.salong + "</a></h4>"
+          + "<h4><a href='" + item.url + "'>" + item.salong + "</a></h4>"
           + "<p><em>" + item.gata + ", " + item.postnummer + " " + item.ort + "</em></p>"
           + "<p>" + item.info + "</p>"
           + "</div></div><line></line></div>";
@@ -54,7 +54,7 @@ $(document).ready(function() {
     $("#companies").removeClass("active-h1");
 
   //AJAX to read hairdressers name
-    var url ="http://localhost:8888/loox/backend/behandlare.php"; //Ändra url
+    var url ="../backend/behandlare.php"; //Ändra url
       $.getJSON(url, function(data){
         let htmlText="";
         for(let item of data){

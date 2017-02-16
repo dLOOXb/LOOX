@@ -5,10 +5,11 @@
 	//Loopar igenom alla salongnamn som finns i DB och skriver ut dem som json.
 	header('Access-Control-Allow-Origin: *');
 
-    $sql = "SELECT salongnamn, info, tel, gata, postnummer, ort FROM salong"; 
+    $sql = "SELECT salongnamn, url, info, tel, gata, postnummer, ort FROM salong"; 
     $statement = $pdo->query($sql);
     foreach( $statement as $row ) {
 		$salong = $row['salongnamn']; 
+        $url = $row['url']; 
 		$info = $row['info'];
 		$tel = $row['tel'];
 		$gata = $row['gata'];
@@ -18,6 +19,7 @@
 	
 		$data[] = array(
 			'salong' => $salong,
+            'url' => $url,
 			'info' => $info,
 			'tel' => $tel,
 			'gata' => $gata,
