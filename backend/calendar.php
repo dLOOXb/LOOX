@@ -36,7 +36,7 @@ require "temp_config.php";
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-                <a class="navbar-brand" href="index.html"><img id="logo" src="../pictures/loox.jpg"><span class="sr-only">(current)</span></a>
+                <a class="navbar-brand" href="../html/index.html"><img id="logo" src="../pictures/loox.jpg"><span class="sr-only">(current)</span></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
