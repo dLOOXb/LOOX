@@ -5,6 +5,8 @@
 	session_start();
 	require "config.php";
 	
+	header('Access-Control-Allow-Origin: *');
+
 	//Om knapptryck...
 	if (isset($_POST['loggout'])) {
 		echo "Du är utloggad";

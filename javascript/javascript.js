@@ -32,23 +32,31 @@ $.getJSON(urlKarta, function(data){
 
 $(document).ready(function(){
 
-  // Förberedelse för login
+  //Menu if logged in
+  let htmlText="<div class='myPLogO'>"
+    + "<p><a href='profile.html'><strong id='myProfile'> Min Profil </strong>"
+    + "<span class='sr-only'>(current)</span></a></p>"
+    + "<p><a href='index.html'><strong id='logUt'>Logga Ut</strong></a></p></div>"
+
+  if(localStorage.getItem("loggedIn")==="true"){
+    $(".inlogg").html(htmlText);
+  }
 
   $("#loggaIn").click(function(e){
     e.preventDefault();
-     var login = 1;
+    var login = 1;
     var usernameLog = $("#navbar-username").val();
     var passwordlog = $("#navbar-password").val();
-    console.log(usernameLog);
-    console.log(passwordlog);
+
     $.post( "http://localhost:8888/loox/backend/login.php", { username: usernameLog, password: passwordlog, submitLogin: login } )
         .done(function( data ) {
-          alert("Success");
             localStorage.setItem("username", data.username);
             localStorage.setItem("email", data.email);
             localStorage.setItem("phonenumber", data.tel);
             localStorage.setItem("firstname", data.fornamn);
             localStorage.setItem("lastname", data.efternamn);
+            localStorage.setItem("loggedIn", true);
+            $(".inlogg").html(htmlText);
 
         }).fail(function(data, tsatus, fel){
             console.log(data);
@@ -65,14 +73,15 @@ $("#logUt").click(function(e){
     var logut = 1;
     var usernameLog = $("#navbar-username").val();
 
-    $.post( "http://localhost:8888/loox/backend/logut.php", {anvandarnamn: usernameLog, loggut: logut} )
+    $.post( "http://localhost:8888/loox/backend/logut.php", {anvandarnamn: usernameLog, loggout: logut} )
         .done(function(data ) {
-           alert("You have been logged out");
-           storage.removeItem(username);
-           storage.removeItem(email);
-           storage.removeItem(phonenumber);
-           storage.removeItem(firstname);
-           storage.removeItem(lastname);
+           localStorage.removeItem("username");
+           localStorage.removeItem("email");
+           localStorage.removeItem("phonenumber");
+           localStorage.removeItem("firstname");
+           localStorage.removeItem("lastname");
+           localStorage.setItem("loggedIn", false);
+           location.reload(); //Reload page when logged out
         });
 
   });

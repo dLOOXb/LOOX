@@ -14,7 +14,7 @@
 		$tel = $_POST['tel'];
 		$fornamn = $_POST['fornamn'];
 		$efternamn = $_POST['efternamn'];
-		$poop = "admin";
+		$poop = "kund";
 		
 		
 		//Kolla efter tomma fält. Om tomma: stopa koden.
