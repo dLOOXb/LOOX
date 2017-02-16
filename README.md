@@ -15,6 +15,8 @@
 <p>Athena Azarbahram</p>
 
 länk till projektet live
+<a href="http://loox.zocomutbildning.se/">Loox.zocomutbildning.se</a>
+
 länk till din LinkedIn-profil
 <h4>Linked in</h4>
 
