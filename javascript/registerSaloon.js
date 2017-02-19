@@ -22,7 +22,7 @@ $("#create").click(function(event){
   var info = {val:$("#info").val(), id:'#info'};
   var address = {val:$("#address").val(), id:'#address'};
   var postalcode = {val:$("#postalcode").val(), id:'#postalcode'};
-  var pastalcity = {val:$("#postalcity").val(), id:'#postalcity'};
+  var postalcity = {val:$("#postalcity").val(), id:'#postalcity'};
   var arr = [companyName, email, phonenumber, password, webbpage, info, address, postalcode, postalcity];
 
   //Add error-class (red border)
@@ -44,7 +44,7 @@ $("#create").click(function(event){
   if(document.getElementById("agree").checked){
 
     $.ajax({
-      url: "http://localhost:8888/loox/backend/register_salong.php", //Ändra url
+      url: "../backend/register_salong.php", //Ändra url
       data: {salongname : companyName.val, password : password.val, email : email.val,
       tel : phonenumber.val, hemsida : webbpage.val, facebook : facebook, twitter : twitter,
       instagram : instagram, pintrest : pinterest, info : info.val, gata : address.val, postnummer : postalcode.val,
