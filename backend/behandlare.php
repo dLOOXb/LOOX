@@ -1,34 +1,21 @@
 <?php 
-	session_start();
 	require "config.php";
 
 	//Loopar igenom alla behandlare som finns i DB och skriver ut dem som json.
-	header('Access-Control-Allow-Origin: *');
 
     $sql = "SELECT fornamn, efternamn, salongnamn, alias, titel, info, facebook FROM behandlare"; 
     $statement = $pdo->query($sql);
-    foreach( $statement as $row ) {
-		$salong = $row['salongnamn']; 
-		$info = $row['info'];
-		$forn = $row['fornamn'];
-		$eftern = $row['efternamn'];
-		$alias = $row['alias'];
-		$tit = $row['titel'];
-		$fb = $row['facebook'];
-	
-	
+    foreach( $statement as $row ) {	
 		$data[] = array(
-			'salong' => $salong,
-			'info' => $info,
-			'fornamn' => $forn,
-			'efternamn' => $eftern,
-			'alias' => $alias,
-			'titel' => $tit,
-			'facebook' => $fb,
+			'salong' => $row['salongnamn'],
+			'info' => $row['info'],
+			'fornamn' => $row['fornamn'],
+			'efternamn' => $row['efternamn'],
+			'alias' => $row['alias'],
+			'titel' => $row['titel'],
+			'facebook' => $row['facebook'],
 		);
 		
     } 
 	
 	echo json_encode($data);
-
-?>
