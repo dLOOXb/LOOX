@@ -2,8 +2,6 @@
 	session_start();
 	require "config.php";
 	
-	header('Access-Control-Allow-Origin: *');
-	
 	//Har någon tryckt på kanppen
 	if (isset($_POST['username'])){
 		
@@ -87,48 +85,12 @@
 		$_SESSION['anvandarnamn'] = $user;
 		$_SESSION['salong'] = $salong;
 		
+		//Session:en för dokumentet är stängd. Fix för JSON.
+			session_write_close();
+			header("Content-Type:application/json:charset=utf-8");
 		
 		//Skicka tillbaka JSON till front-end
-		
-		//$data = ["username" => $user, "email" => $epost, "fornamn" => $fornamn, "efternamn" => $efternamn, "alias" => $alias, "titel" => $titel,
-		 //"salongname" => $salong, "facebook" => $fb, "twitter" => $tw, "instagram" => $insta, "pintrest" => $pin, "info" => $text]; //"titel" => $titel,
-		
 		$data = ["username" => $user, "email" => $epost, "fornamn" => $fornamn, "efternamn" => $efternamn, "alias" => $alias, "salongname" => $salong, "titel" => $titel, "facebook" => $fb, "twitter" => $tw, "instagram" => $insta, "pintrest" => $pin, "info" => $text];
 		echo json_encode($data);
 		
 	}
-?>
-
-<!--<html>
-<head></head>
-<body>
-	<form action="register_behandlare.php" method="post">
-	<label>Namn</label>
-	<input type="text" name="username">
-	<label>Lössenord</label>
-	<input type="password" name="password">
-	<label>E-mail</label>
-	<input type="text" name="email">
-	<label>Förnamn</label>
-	<input type="text" name="fornamn">
-	<label>efternamn</label>
-	<input type="text" name="efternamn">
-	<label>alias</label>
-	<input type="text" name="alias">
-	<label>salong</label>
-	<input type="text" name="salongname">
-	<label>facebook</label>
-	<input type="text" name="facebook">
-	<label>twitter</label>
-	<input type="text" name="twitter">
-	<label>instagram</label>
-	<input type="text" name="instagram">
-	<label>pintrest</label>
-	<input type="text" name="pintrest">
-	<label>info</label>
-	<input type="text" name="info">
-	<input type="submit" name="submitLogin" value="Registera">
-</body>
-</html> -->
-
-		
