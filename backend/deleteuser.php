@@ -5,8 +5,6 @@
 	
 	//Tar bort ett användarkonto
 	
-	header('Access-Control-Allow-Origin: *');
-	
 	//Om något skrivs i fältet
 	if (isset($_POST['submitDel'])) {
 		//Användarnamn och lösenord
@@ -29,6 +27,10 @@
 			$bort->execute (array(':passuo' => $hashpass, ':useruo' => $user)); 
 			echo "Kontot är borttaget!";
 
+			//Session:en för dokumentet är stängd. Fix för JSON.
+			session_write_close();
+			header("Content-Type:application/json:charset=utf-8");
+			
 			//Skicka klartecken till front-end
 			$data = ["borttagen" => 1];
 			echo json_encode($data);
