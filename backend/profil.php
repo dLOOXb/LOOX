@@ -1,7 +1,7 @@
 <?php 
 	session_start();
 	require "config.php";
-	header('Access-Control-Allow-Origin: *');
+
 	//Skicka ut användarinfon till profilen. Kräver att användaren är inloggad!
 	
 	$id = $_SESSION['id'];
@@ -11,6 +11,10 @@
 	$stm = $pdo->prepare($sql);
 	$stm->execute (array(':useruo' => $user)); 
 	$result = $stm->fetch(PDO::FETCH_ASSOC);
+	
+	//Session:en för dokumentet är stängd. Fix för JSON.
+	session_write_close();
+	header("Content-Type:application/json:charset=utf-8");
 	
 	$data = $result;
 	echo json_encode($data);
