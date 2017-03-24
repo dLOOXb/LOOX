@@ -30,6 +30,9 @@
 			$uppdate = $pdo->prepare($sql2);
 			$uppdate->execute (array(':passuo' => $newhash, ':useruo' => $user)); 
 			
+			//Session:en för dokumentet är stängd. Fix för JSON.
+			session_write_close();
+			header("Content-Type:application/json:charset=utf-8");
 			
 			//Skicka klartecken till front-end
 			$data = ["changedpass" => 1];
