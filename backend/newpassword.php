@@ -4,8 +4,6 @@
 	
 	//Fil för att kunna uppdatera sitt lösenord.
 	
-	header('Access-Control-Allow-Origin: *');
-	
 	//Om något skrivs i fältet
 	if (isset($_POST['submitNew'])) {
 		//Det gammla lösenordet
@@ -14,13 +12,12 @@
 		$newpass = $_POST['newpass'];
 		
 		//Stämmer användarnamnet överens med db
-			$sql = "SELECT lossenord, count(anvandarnamn) AS antalrader FROM inlogg WHERE anvandarnamn = :useruo"; 
-			$statement = $pdo->prepare($sql);
-			$statement->execute (array(':useruo' => $user)); 
-			$result = $statement->fetch(PDO::FETCH_ASSOC);
-			$hass = $result['lossenord'];
-			
-			
+		$sql = "SELECT lossenord, count(anvandarnamn) AS antalrader FROM inlogg WHERE anvandarnamn = :useruo"; 
+		$statement = $pdo->prepare($sql);
+		$statement->execute (array(':useruo' => $user)); 
+		$result = $statement->fetch(PDO::FETCH_ASSOC);
+		$hass = $result['lossenord'];
+		
 		
 		//Om anvndarnamnet och det gammla lösenordet stämmer med db
 		if (($result['antalrader'] == 1) && (password_verify($pass, $hass) == true)) {
@@ -43,5 +40,3 @@
 		}
 	
 	}
-	
-?>
