@@ -18,5 +18,3 @@
 	
 	$data = $result;
 	echo json_encode($data);
-
-?>
