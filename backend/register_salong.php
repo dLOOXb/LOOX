@@ -1,15 +1,18 @@
 <?php
+
+	/* Lösning på "die" är för tillfället att skapa en variabel "$formIsOk = true" som under dokumentets gång ändras till "$formIsOk = false"
+	om något inte stämmer. "$formIsOk = false" skrivs in där "die()" nu står. Värdet på variablen skickas sedan till front-end. Dock har front-end
+	ingen som helst suport för detta, så jag kommer inte implementera det tillsvidare. */
+
 	session_start();
 	require "config.php";
-	
-	header('Access-Control-Allow-Origin: *');
 	
 	//Har någon tryckt på kanppen
 	if (isset($_POST['salongname'])){
 		
 		//Sätter variabler för datan från registeringen.
-		$salong = $_POST['salongname'];
-		$user = $salong;
+		$saloon = $_POST['salongname'];
+		$user = $saloon;
 		$pass = $_POST['password'];
 		$epost = $_POST['email'];
 		$tel = $_POST['tel'];
@@ -19,39 +22,39 @@
 		$insta = $_POST['instagram'];
 		$pin = $_POST['pintrest'];
 		$text = $_POST['info'];
-		$gata = $_POST['gata'];
-		$postnummer = $_POST['postnummer'];
-		$ort = $_POST['ort'];
+		$street = $_POST['gata'];
+		$postCode = $_POST['postnummer'];
+		$city = $_POST['ort'];
 		$poop = "agare";
 		
-		/*var_dump($_POST);
-		exit(); */
+		//$formIsOk = true;
+		
 		//Kolla efter tomma fält(endast hos obligatoriska). Om tomma: stopa koden.
 		if (empty($_POST['salongname']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['tel']) || empty($_POST['gata']) || empty($_POST['postnummer']) || empty($_POST['ort'])) {
-			die("Vänligen fyll i alla de obligatoriska fälten");
+			die("Vänligen fyll i alla de obligatoriska fälten"); //$formIsOk = false;
 		} 
 		
 		// Kolla om salongen redan är registerad
 		$sql = "SELECT salongnamn FROM salong WHERE salongnamn = :salonguo";
-		$kollaSalong = $pdo->prepare($sql);
-		$kollaSalong->execute (array(':salonguo' => $salong)); 
-		$CheckTwoSalong = $kollaSalong->fetch(PDO::FETCH_ASSOC);
+		$checkSaloon = $pdo->prepare($sql);
+		$checkSaloon->execute (array(':salonguo' => $saloon)); 
+		$CheckTwoSalong = $checkSaloon->fetch(PDO::FETCH_ASSOC);
 		
 		// Kolla om mejlen är upptagen
 		$sql2 = "SELECT email FROM salong WHERE email = :mailuo";
-		$kollaMail = $pdo->prepare($sql2);
-		$kollaMail->execute (array(':mailuo' => $epost)); 
-		$CheckTwoMail = $kollaMail->fetch(PDO::FETCH_ASSOC);
+		$checkMail = $pdo->prepare($sql2);
+		$checkMail->execute (array(':mailuo' => $epost)); 
+		$CheckTwoMail = $checkMail->fetch(PDO::FETCH_ASSOC);
 		
 		
 		//Om användarnamnet är upptaget: stopa koden.
 		if ($CheckTwoSalong != NULL) {
-			die("Den här salongen finns redan registerad.");
+			die("Den här salongen finns redan registerad."); //$formIsOk = false;
 		}
 		
 		//Om mejlen är upptagen: stopa koden.
 		if ($CheckTwoMail != NULL) {
-			die("E-posten är redan upptagen.");
+			die("E-posten är redan upptagen."); //$formIsOk = false;
 		} 
 		
 		//Inga fel?!? Let's goooooooooooo!!!!!!
@@ -63,13 +66,13 @@
 		$sql3 = "INSERT INTO inlogg (anvandarnamn, salongnamn, email, lossenord, tel, klass)
             VALUES(:useruo, :salonguo, :mailuo, :lossuo, :teluo, :aguo)";
 		$inlogg_intoDb = $pdo->prepare($sql3);
-		$inlogg_intoDb->execute (array(':useruo' => $user, ':salonguo' => $salong, ':mailuo' => $epost, ':lossuo' => $hashpass, ':teluo' => $tel, ':aguo' => $poop)); 
+		$inlogg_intoDb->execute (array(':useruo' => $user, ':salonguo' => $saloon, ':mailuo' => $epost, ':lossuo' => $hashpass, ':teluo' => $tel, ':aguo' => $poop)); 
 		
 		//Släng in salong info i db.
 		$sql4 = "INSERT INTO salong (salongnamn, info, url, email, tel, gata, postnummer, ort, instagram, facebook, twitter, pintrest)
             VALUES(:salonguo, :infouo, :urluo, :mailuo, :teluo, :gatauo, :postuo, :ortuo, :instauo, :fbuo, :twuo, :pinuo)";
-		$salong_intoDb = $pdo->prepare($sql4);
-		$salong_intoDb->execute (array(':salonguo' => $salong, ':infouo' => $text, ':urluo' => $url, ':mailuo' => $epost, ':teluo' => $tel, ':gatauo' => $gata, ':postuo' => $postnummer, ':ortuo' => $ort, ':instauo' => $insta, ':fbuo' => $fb, ':twuo' => $tw, ':pinuo' => $pin)); 
+		$saloon_intoDb = $pdo->prepare($sql4);
+		$saloon_intoDb->execute (array(':salonguo' => $saloon, ':infouo' => $text, ':urluo' => $url, ':mailuo' => $epost, ':teluo' => $tel, ':gatauo' => $street, ':postuo' => $postCode, ':ortuo' => $city, ':instauo' => $insta, ':fbuo' => $fb, ':twuo' => $tw, ':pinuo' => $pin)); 
 		
 		//starta session och logga in.
 		$sql5 = "SELECT id FROM inlogg WHERE anvandarnamn = :useruo";
@@ -79,52 +82,25 @@
 		
 		//Om inloggnig misslyckas
 		if ($loggin == NULL) {
-			die("Oops, något gick fel! Vänligen kontakta suport.");
+			die("Oops, något gick fel! Vänligen kontakta suport."); //$formIsOk = false;
 		}
 		
 		//Startar session koplat till användarnas id och anvndarnamn från DB!
 		
 		$_SESSION['id'] = $id['id'];
 		$_SESSION['anvandarnamn'] = $user;
-		$_SESSION['salong'] = $salong;
+		$_SESSION['salong'] = $saloon;
 		
-		$data = ["salongname" => $salong, "email" => $epost, "tel" => $tel, "hemsida" => $url, "facebook" => $fb, "twitter" => $tw, "instagram" => $insta, "pintrest" => $pin, "info" => $text, "gata" => $gata, "postnummer" => $postnummer, "ort" => $ort];
+		//Session:en för dokumentet är stängd. Fix för JSON.
+		session_write_close();
+		header("Content-Type:application/json:charset=utf-8");
+		
+		/* if($formIsOk === true) { */
+		$data = ["salongname" => $saloon, "email" => $epost, "tel" => $tel, "hemsida" => $url, "facebook" => $fb, "twitter" => $tw, "instagram" => $insta, "pintrest" => $pin, "info" => $text, "gata" => $street, "postnummer" => $postCode, "ort" => $city];
 		
 		echo json_encode($data);
+		/*} else {
+			// $data = ["problem" => $formIsOk];
+		}*/
 		
 	}
-?>
-
-<!--<html>
-<head></head>
-<body>
-	<form action="register_salong.php" method="post">
-	<label>Namn</label>
-	<input type="text" name="salongname">
-	<label>Lössenord</label>
-	<input type="password" name="password">
-	<label>E-mail</label>
-	<input type="text" name="email">
-	<label>Tel</label>
-	<input type="text" name="tel">
-	<label>Hemsida</label>
-	<input type="text" name="hemsida">
-	<label>Gata</label>
-	<input type="text" name="gata">
-	<label>Postnummer</label>
-	<input type="text" name="postnummer">
-	<label>Ort</label>
-	<input type="text" name="ort">
-	<label>facebook</label>
-	<input type="text" name="facebook">
-	<label>twitter</label>
-	<input type="text" name="twitter">
-	<label>instagram</label>
-	<input type="text" name="instagram">
-	<label>pintrest</label>
-	<input type="text" name="pintrest">
-	<label>info</label>
-	<input type="text" name="info">
-	<input type="submit" name="submitLogin" value="Registera">
-</body>
-</html> --> 
