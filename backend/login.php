@@ -20,7 +20,7 @@
 		}
 
 		//Stämmer användarnamnet överens med db
-		$sql = "SELECT id, lossenord, count(anvandarnamn) AS antalrader FROM inlogg WHERE anvandarnamn = :useruo"; // AND lossenord = :seruo
+		$sql = "SELECT id, lossenord, anvandarnamn FROM inlogg WHERE anvandarnamn = :useruo"; // AND lossenord = :seruo
 		$statement = $pdo->prepare($sql);
 		$statement->execute (array(':useruo' => $user)); //, ':seruo' => $pass
 
@@ -29,7 +29,7 @@
 
 
 		//Om värdet från databasen stämmer överäns med värdet från input
-		if (($result['antalrader'] == 1) && (password_verify($pass, $hass) == true)) {
+		if (($result['anvandarnamn'] != false) && (password_verify($pass, $hass) == true)) {
 			$_SESSION['id'] = $result['id'];
 			$_SESSION['anvandarnamn'] = $user;
 
@@ -46,12 +46,12 @@
 			header("Content-Type:application/json:charset=utf-8");
 
 			//Skicka klartecken till front-end
-			$epost = $result2['email'];
+			$email = $result2['email'];
 			$tel = $result2['tel'];
-			$fornamn = $result2['fornamn'];
-			$efternamn = $result2['efternamn'];
+			$firstname = $result2['fornamn'];
+			$lastname = $result2['efternamn'];
 
-			$data = ["username" => $user, "email" => $epost, "tel" => $tel, "fornamn" => $fornamn, "efternamn" => $efternamn];
+			$data = ["username" => $user, "email" => $email, "tel" => $tel, "fornamn" => $firstname, "efternamn" => $lastname];
 			echo json_encode($data);
 
 		} else {
