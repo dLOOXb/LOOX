@@ -1,10 +1,3 @@
-<?php session_start(); ?>
-
-<?php
-//import config file for db linkage
-require "config.php";
-?>
-
 <!DOCTYPE html>
 <html>
 

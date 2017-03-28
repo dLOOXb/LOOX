@@ -1,5 +1,3 @@
-<?php session_start(); ?>
-
 <!--
 date format is : day-month-year (e.g. 04-02-2017 HH:MM:SS)
 -->
@@ -135,31 +133,26 @@ require "config.php";
         <div>
 
             <?php
-            //If day not pre-determined by user, sets day to today
+
+            $day = date("d");
+            $month = date("n");
+            $year = date("Y");
+
             if (isset($_GET['day'])) {
                 //if user has determined day, fetches data
                 $day = $_GET['day'];
-            } else {
-                //sets date to today
-                $day = date("d");
             }
 
-            //If month not pre-determined by the user, sets month to now
             if (isset($_GET['month'])) {
                 //fetches month data
                 $month = $_GET['month'];
-            } else {
-                //sets month to now
-                $month = date("n");
             }
 
-            //If year not pre-determined by user through $_GET, sets year to now
+            //Fetches year if predetermined by user
             if (isset($_GET['year'])) {
                 $year = $_GET['year'];
-            } else {
-                //sets year to now
-                $year = date("Y");
             }
+
             //set up calendar variables
 
             //Create a variable for current date in time stamp
@@ -183,7 +176,8 @@ require "config.php";
                     $namn = "Dummy Name"; //****** take user name with super global variable    $_SESSION['id'];
                     $detaljer = $_POST['txtdetail'];
                     $behandlareID = 0; //**** take behandlareID från navigation path page ****
-                    $STH = $pdo->prepare("INSERT INTO bokadetider (namn, detaljer, tid, behandlareID, skapadeDen) VALUES('$namn', '$detaljer', '$tid', '$behandlareID', NOW())");
+                    $sql = "INSERT INTO bokadetider (namn, detaljer, tid, behandlareID, skapadeDen) VALUES('$namn', '$detaljer', '$tid', '$behandlareID', NOW())";
+                    $STH = $pdo->prepare($sql);
                     try {
                         $STH->execute();
                     } catch (PDOException $e) {
@@ -192,9 +186,14 @@ require "config.php";
                     //confirmation page
                     echo "<script type='text/javascript'> document.location.href = '../bekraftelse.html'; </script>";
                 }
-            } else {
-
             }
+
+
+            $sql = "SELECT anvandarnamn, fornamn, efternamn, email, tel, klass FROM inlogg WHERE anvandarnamn = :useruo";
+            $stm = $pdo->prepare($sql);
+            $stm->execute (array(':useruo' => $user));
+            $result = $stm->fetch(PDO::FETCH_ASSOC);
+
 
             ?>
             <table border='1' align='center' style='font-size:18px;'>
