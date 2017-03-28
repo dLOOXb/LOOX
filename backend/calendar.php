@@ -172,27 +172,22 @@ require "config.php";
                 if (isset($_POST['availSlot'])) {
 
                     $selectedHour = $_POST['availSlot'];
-                    $tid = $year . "-" . $month . "-" . $day . " " . $selectedHour;
-                    $namn = "Dummy Name"; //****** take user name with super global variable    $_SESSION['id'];
-                    $detaljer = $_POST['txtdetail'];
-                    $behandlareID = 0; //**** take behandlareID från navigation path page ****
-                    $sql = "INSERT INTO bokadetider (namn, detaljer, tid, behandlareID, skapadeDen) VALUES('$namn', '$detaljer', '$tid', '$behandlareID', NOW())";
+                    $time = $year . "-" . $month . "-" . $day . " " . $selectedHour;
+                    $name = "Dummy Name"; //****** take user name with super global variable    $_SESSION['id'];
+                    $details = $_POST['txtdetail'];
+                    $stylistID = 0; //**** take behandlareID från navigation path page ****
+                    $sql = "INSERT INTO bokadetider (namn, detaljer, tid, behandlareID, skapadeDen) VALUES('$name', '$details', '$time', '$stylistID', NOW())";
                     $STH = $pdo->prepare($sql);
                     try {
                         $STH->execute();
                     } catch (PDOException $e) {
                         echo "Error: " . $e->getMessage();
                     }
+                    $result = $STH->fetch(PDO::FETCH_ASSOC);
                     //confirmation page
                     echo "<script type='text/javascript'> document.location.href = '../bekraftelse.html'; </script>";
                 }
             }
-
-
-            $sql = "SELECT anvandarnamn, fornamn, efternamn, email, tel, klass FROM inlogg WHERE anvandarnamn = :useruo";
-            $stm = $pdo->prepare($sql);
-            $stm->execute (array(':useruo' => $user));
-            $result = $stm->fetch(PDO::FETCH_ASSOC);
 
 
             ?>
