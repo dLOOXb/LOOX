@@ -58,6 +58,7 @@
 			die("E-posten är redan upptagen."); //$formIsOk = false;
 		}
 		
+		/* if($formIsOk === true) { */
 		//Inga fel?!? Let's goooooooooooo!!!!!!
 		
 		//Skapar hashed lössenord med default inställnigar.
@@ -81,6 +82,7 @@
 		$loggin->execute (array(':useruo' => $user)); 
 		$id = $loggin->fetch(PDO::FETCH_ASSOC);
 		
+		//}
 		//Om inloggnig misslyckas
 		if ($loggin == NULL) {
 			die("Oops, något gick fel! Vänligen kontakta suport."); //$formIsOk = false;
