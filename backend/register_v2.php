@@ -52,6 +52,8 @@
 		
 		//Inga fel?!? Let's goooooooooooo!!!!!!
 		
+		/* if($formIsOk === true) { */
+		
 		//Skapar hashed lössenord med default inställnigar.
 		$hashpass = password_hash($pass, PASSWORD_DEFAULT);
 		
@@ -68,6 +70,8 @@
 		$loggin = $pdo->prepare($sql4);
 		$loggin->execute (array(':useruo' => $user)); 
 		$id = $loggin->fetch(PDO::FETCH_ASSOC);
+		
+		//}
 		
 		//Om inloggnig misslyckas
 		if ($loggin == NULL) {
